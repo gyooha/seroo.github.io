@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to Jekyll!
 
 # Website settings
@@ -68,3 +69,8 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+=======
+theme: jekyll-theme-slate
+title: Welcome to the homepage
+description: developer blog
+>>>>>>> 7d27adbc49e10ab463b0ce721e29275f517c5ac2
