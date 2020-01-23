@@ -9,11 +9,11 @@
 - name: Kotlin
   href: /kotlin/
 
-- name: Flutter
-  href: /flutter/
+- name: Datastructure
+  href: /datastructure/
 
-- name: Dart
-  href: /dart/
+- name: Algorithm
+  href: /algorithm/
 
 - name: FP
   href: /functional_programming/
