@@ -102,7 +102,7 @@
 
     init : function() {
       this.setStyles();
-      this.setNav();
+      // this.setNav();
       this.paginate(this._currentPageNum);
       this.setMinHeight();
     },
