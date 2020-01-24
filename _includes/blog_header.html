@@ -14,7 +14,7 @@
 </div>
 
 <div class="navbar-wrapper">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top hide" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -31,10 +31,7 @@
                     <li><a class="page-scroll" href="{{ "blog/" | prepend: site.baseurl }}">{{ site.index.home }}</a>
                     </li>
                     {% for tag in site.data.blog %}
-                    {% if tag.name != 'Donate' or site.donation %}
-                    <li>
-                        <a class="page-scroll" href="{{ tag.href | prepend: site.baseurl }}">{{ tag.name }}</a></li>
-                    {% endif %}
+                    <li> <a class="page-scroll" href="{{ tag.href | prepend: site.baseurl }}">{{ tag.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
