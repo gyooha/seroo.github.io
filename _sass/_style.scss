@@ -1373,7 +1373,6 @@ code {
   padding: 0;
   &.collapsed .ibox-content {
     display: none;
-    overflow: scroll;
   }
   &:after, &:before {
     display: table;
@@ -1397,6 +1396,7 @@ code {
   padding: 15px 20px 20px;
   border-width: 1px 0;
   clear: both;
+  overflow-y: scroll;
 }
 
 .star-mail {
