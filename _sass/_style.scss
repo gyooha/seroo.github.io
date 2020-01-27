@@ -1373,6 +1373,7 @@ code {
   padding: 0;
   &.collapsed .ibox-content {
     display: none;
+    overflow: scroll;
   }
   &:after, &:before {
     display: table;
