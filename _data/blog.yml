@@ -6,14 +6,17 @@
 - name: Android
   href: /android/
 
-- name: Kotlin
-  href: /kotlin/
-
-- name: Datastructure
-  href: /datastructure/
-
 - name: Algorithm
   href: /algorithm/
 
+- name: DataStructure
+  href: /datastructure/
+
+- name: Kotlin
+  href: /kotlin/
+
 - name: FP
-  href: /functional_programming/
+  href: /fp/
+
+- name: Other
+  href: /other/
