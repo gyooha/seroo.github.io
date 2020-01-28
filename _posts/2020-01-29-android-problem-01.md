@@ -9,7 +9,8 @@ tags: [Android,안드로이드,Android Activity,액티비티,백스택,BackStack
 icon: icon-html
 ---
 # 나를 햇갈리게 하는 안드로이드 문제들 - 1
-
+<br/>
+<br/>
 ## 백스택
 
 안드로이드에는 여러가지 launchMode가 존재한다. 이 launchMode에 따라서 안드로이드의 Activity의 백스택이 쌓이는 방식이 다르다.
@@ -26,6 +27,6 @@ launchMode를 singleTop으로 설정할 경우 standard와 약간 다르다. 일
 
 여기서 부터 위의 방식들과 약간 다르다. singleTask로 설정된 Activity를 Intent 등으로 호출할 경우 존재하는 태스크가 없는 경우에는 새로운 태스크를 생성해 호출된 Activity를 태스크의 루트 Activity로 지정한다. 만약 분리된 태스크가 존재 하는 경우 분리된 이미 존재하는 태스크를 불러오고 onNewIntent 콜백이 불리게 된다.
 
-## singleInstance
+### singleInstance
 
 singleInstance로 지정된 Activity를 Intent로 호출하는 경우 singleTask와 기본적인 동작 방식은 유사하다. 하지만 같은 태스크에 Activity의 스택을 쌓는것이 아니라 다른 Activity를 Intent로 호출할 경우 새로운 태스크에 유일한 Activity로 지정한다. (즉 태스크당 Activity 1개)
