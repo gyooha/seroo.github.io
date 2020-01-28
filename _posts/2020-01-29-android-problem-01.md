@@ -8,9 +8,7 @@ categories: [Android]
 tags: [Android,안드로이드,Android Activity,액티비티,백스택,BackStack]
 icon: icon-html
 ---
-# 나를 햇갈리게 하는 안드로이드 문제들 - 1
-<br/>
-<br/>
+
 ## 백스택
 
 안드로이드에는 여러가지 launchMode가 존재한다. 이 launchMode에 따라서 안드로이드의 Activity의 백스택이 쌓이는 방식이 다르다.
