@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "나를 햇갈리게 하는 안드로이드 문제들 - 1"
+title: "나를 헷갈리게 하는 안드로이드 문제들 - 1"
 date: 2020-01-29
-desc: "햇갈리는 문제들을 하나씩 정리"
+desc: "헷갈리는 문제들을 하나씩 정리"
 keywords: "Android,Activity,BackStack"
 categories: [Android]
 tags: [Android,Activity,BackStack]
