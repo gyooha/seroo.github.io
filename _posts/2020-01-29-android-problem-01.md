@@ -120,7 +120,7 @@ Hist #0: ActivityRecord{99d26ac u0 io.seroo.androidproblem/.MainActivity t33}
 </application>
 ```
 
-singleTask도 기본적으로 같은 Task에서 백스택이 쌓이게 된다.(필자는 다른 백스택에 쌓이는 줄 알았는데 덤프 떠보니 같은 백스택에 쌓인다..) 테스트를 위해 AndroidProblem2를 만들어 AndroidProblem2의 MainActivity에서 AndroidProblem의 C_Activity를 호출하면 AndroidProblem2의 MainActivity 위에 AndroidProblem의 C_Activity가 호출되지만 둘은 서로 다른 Task에 존재하게 된다. 아래와 같이 말이다.
+singleTask도 기본적으로 같은 어플리케이션에서는 같은 Task에 백스택이 쌓이게 된다.(필자는 다른 백스택에 쌓이는 줄 알았는데 덤프 떠보니 같은 백스택에 쌓인다..) 테스트를 위해 AndroidProblem2를 만들어 AndroidProblem2의 MainActivity에서 AndroidProblem의 C_Activity를 호출하면 AndroidProblem2의 MainActivity 위에 AndroidProblem의 C_Activity가 호출되지만 둘은 서로 다른 Task에 존재하게 된다. 아래와 같이 말이다.
 
 이미 C_Activity가 백그라운드에서 살아 있는 경우 호출될 때 onNewIntent가 불리게 된다. 백그라운드에도 존재하지 않는 경우 새로운 C_Activity 인스턴스를 생성한다.
 
