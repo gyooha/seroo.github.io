@@ -12,7 +12,7 @@ icon: icon-html
 # BackStack
 안드로이드에는 여러가지 launchMode가 존재한다. 이 launchMode에 따라서 안드로이드의 Activity의 백스택이 쌓이는 방식이 다르다.
 
-## standard
+## Standard
 
 ```xml
 <application>
@@ -46,7 +46,7 @@ Hist #0: ActivityRecord{99d26ac u0 io.seroo.androidproblem/.MainActivity t33}
 
 위의 결과와 같이 standard의 경우 위로 계속 쌓이기만 한다.
 
-## singleTop
+## SingleTop
 
 ```xml
 <application>
@@ -90,7 +90,7 @@ Hist #1: ActivityRecord{f0fb4b6 u0 io.seroo.androidproblem/.B_Activity t33}
 Hist #0: ActivityRecord{99d26ac u0 io.seroo.androidproblem/.MainActivity t33}
 ```
 
-## singleTask
+## SingleTask
 
 ```xml
 <application>
@@ -135,7 +135,7 @@ TaskRecord{852807e #51 A=io.seroo.androidproblem2 U=0 StackId=45 sz=1}
         Run #0: ActivityRecord{15b3370 u0 io.seroo.androidproblem2/.MainActivity t51}
 ```
 
-## singleInstance
+## SingleInstance
 
 ```xml
   <activity android:name=".MainActivity" android:lanchMode="singleInstance">
@@ -151,7 +151,9 @@ TaskRecord{852807e #51 A=io.seroo.androidproblem2 U=0 StackId=45 sz=1}
         <activity android:name=".D_Activity"/>
 ```
 
-singleInstance는 기본적으로 하나의 Task에 하나의 인스턴스를 갖는것을 의미한다. 위와 같이 MainActivity를 singleInstance로 지정하게 되면 MainActivity는 Task의 유일한 인스턴스가 되고 아래와 같이 B Activity 부터 백스택이 쌓이기 시작한다.
+singleInstance는 기본적으로 하나의 Task에 하나의 인스턴스를 갖는것을 의미한다. SingleTask와 유사하게 백그라운드에 singleInstance로 선언된 인스턴스가 살아있는 경우 불리면 onNewIntent 콜백이 호출된다. 
+
+위와 같이 MainActivity를 singleInstance로 지정하게 되면 MainActivity는 Task의 유일한 인스턴스가 되고 아래와 같이 B Activity 부터 백스택이 쌓이기 시작한다.
 
 ```
 TaskRecord{9cd37ae #66 A=io.seroo.androidproblem U=0 StackId=60 sz=3}
