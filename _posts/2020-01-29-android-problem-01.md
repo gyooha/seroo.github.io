@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "나를 헷갈리게 하는 안드로이드 문제들 - 1(Activity Backstack)"
+title: "나를 헷갈리게 하는 안드로이드 문제들 - 1(백스택)"
 date: 2020-01-29
 desc: "헷갈리는 문제들을 하나씩 정리"
 keywords: "Android,Activity,BackStack"
@@ -9,8 +9,8 @@ tags: [Android,Activity,BackStack]
 icon: icon-html
 ---
 
-# Android Backstack
-안드로이드에는 여러가지 launchMode가 존재한다. 이 launchMode에 따라서 안드로이드의 Activity의 backstack의 쌓이는 방식이 다르다.
+# Android 백스택
+안드로이드에는 여러가지 launchMode가 존재한다. 이 launchMode에 따라서 안드로이드의 Activity의 백스택의 쌓이는 방식이 다르다.
 
 ## Standard
 
