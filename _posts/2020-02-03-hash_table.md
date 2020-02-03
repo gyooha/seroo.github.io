@@ -32,7 +32,7 @@ icon: icon-html
 ```
 충돌이 자주 발생한다면, 최악의 경우 O(N)이 된다. 하지만 일반적으로 해쉬에 대해 이야기할 때는 충돌을 최소화하도록 잘 구현된 경우를 가정하는데 이 경우에 탐색 시간은 O(1)이다.
 ```
-![hashtable](https://github.com/gyooha/seroo/blob/master/static/assets/img/post/2020-02-04-hash_table.png)
+<img src="{{ "/static/assets/img/search/post/2020-02-04-hash_table.png" | prepend: site.baseurl }}"/>
 
 ```
 또 다른 구현법으로는 균형 이진 탐색 트리를 사용하는 방법이 있다. 이 경우에 탐색 시간은 O(log N)이 된다. 이 방법은 크기가 큰 배열을 미리 할당해 놓지 않아도 되기 때문에 작은 공간을 사용한다는 장점이 있다. 또한 키의 집합을 특정 순서로 차례대로 접근할 수 있는데, 어떤 경우에는 이런 기능이 유용하기도 한다.
