@@ -1,4 +1,4 @@
-I"N
+I"�
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
@@ -6,10 +6,12 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          
+          Seroo's Blog
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/" >Category</a>
+            </li><li class="masthead__menu-item">
               <a href="/android/" >Android</a>
             </li><li class="masthead__menu-item">
               <a href="/datastructure/" >Datastructure</a>
@@ -18,7 +20,7 @@
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">Toggle menu</span>
+          <span class="visually-hidden">토글 메뉴</span>
           <div class="navicon"></div>
         </button>
         <ul class="hidden-links hidden"></ul>

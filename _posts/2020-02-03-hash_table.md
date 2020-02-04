@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "자료구조 - 해쉬테이블"
 permalink: "/datastructure/hash_table"
 date: 2020-02-03

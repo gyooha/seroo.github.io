@@ -1,10 +1,10 @@
 ---
-layout: post
 title: "나를 헷갈리게 하는 안드로이드 문제들 - 1(백스택)"
 date: 2020-01-29
 desc: "헷갈리는 문제들을 하나씩 정리"
 keywords: "Android,Activity,BackStack"
-permalink: "/android/problem01"
+permalink: "/categories/android/problem01"
+layout: category
 categories: 
     - Android
 tags: 
