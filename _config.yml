@@ -1,60 +1,67 @@
-# Welcome to Jekyll!
+# Site settings
+title: Seroo's blog
+author: Seroo
+email: wtower123@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
 
-# Website settings
-title: Blog
-description: Seroo blog
-keywords: Seroo,FP,Kotlin,Android,Algorithm,Datastructure
-baseurl:  /seroo # if you have suburl as homepage like '/homepage', please change it to '/homepage' and your repo's name should be 'homepage'
-url: https://github.com/gyooha  # url should be 'http://<github_username>.github.io/homepage' as before
-# url: http://127.0.0.1:4000
-img_path: /Jalpc/static/assets/img/blog  # url should be '/homepage/static/assets/img/blog' as before
+# Site URL NOTE: if your site is base on subdir /blog you should change base to "/blog"
+domain: "http://gyooha.github.io" # the domain URL for your site
+base: ""  # the relative path that different with domain so you can test locally
 
-# author -- index page "about me" section
-author:  # change following line to your infomation.
-  name: GitHub  # Be used at blog posts' author.
-  first_name: Kim  # Be used at index page about me section.
-  last_name: Gyooha  # Be used at index page about me section.
-  avatar: /static/assets/img/landing/avatar.jpg  # upload your avatar at directory and edit it.
-  github_username: wtower123  # Leave blank if you don't have now
-  linkedin_id: wtower123 # Leave blank if you don't have now
-  email: wtower123@gmail.com  # Leave blank if you don't have now
-  desc: Introduce myself will be here.  # Describe yourself.
+# Source URL NOTE: end with / cause it's [URL + FILE]
+w3c_url: "/w3c/"  # the base url of css js and images
+images_url: "/w3c/images/" # the base url of post images
+postfile: "/db/Postfile" # the Database
+sitefile: "/db/Sitefile" # the Database
 
-# comment
-disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.
-  name: jalpc
+# pagination
+page_size: 3
 
-# analytics
-## google analytics
-ga:  # if you wanna this feature, go to https://www.google.com/analytics/ to get your configuration; if not, comment following line.
-  id: UA-93473370-3
+# comment settings
+duoshuo_short_name: "sbys" # the user of user.domain.com
+duoshuo_user_uid: "6324572809590735618" # the admin user uid
+duoshuo_user_name: "xk" # the admin user name
+duoshuo_max_depth: "2"  # the max_depth setting in duoshuo comments
 
-## google optimize
-go:
-  # id:
+# 3rd URL
+duoshuo_url: "/w3c/duoshuo/embed.min.js" # the local duoshuo comment plugin, you can change it to remote "http://static.duoshuo.com/"
+jquery_url: "http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js" # use cdn
+baiduTemplate_url: "/w3c/js/baiduTemplate.js" #use local
+google_analytics_id: ""
+baidu_tongji_id: ""
 
-## growingIO
-gio:  # if you wanna this feature, go to https://www.growingio.com/ to get your configuration; if not, comment following line.
-  # id:
-
-## donation
-donation: on  # type 'on'/'off' to choice display donation button at post page or not
-
-## carousels
-index_carousel: on  # index page carousel switch
-blog_carousel: on  # blog page carousel switch
-
-# scss
-sass:
-  style: compressed
-
-# Build settings
-encoding: utf-8
-
-# other settings
+# Build Settings
+excerpt_separator: "\n\n" # you can specify your own separator here, default is "\n\n" String
+permalink: /:year/:month/:day/:title.html
 highlighter: rouge
 markdown: kramdown
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
+  hard_wrap: true # a newline in markdown text would be changed to <br>
+gems:
+  - jemoji    # enable the github emoji
+version: 1.1.0
 
+# Following is got in Github Help With Configuring Jekyll
+
+# Github Page Default Settings which you can override:
+# kramdown:
+#   input: GFM
+#   hard_wrap: false
+# gems:
+#   - jekyll-coffeescript
+#   - jekyll-paginate
+
+# Github Page override the following settings which you cannot change:
+# lsi: false
+# safe: true
+# source: [your repo's top level directory]
+# incremental: false
+# highlighter: rouge
+# gist:
+#  noscript: false
+# kramdown:
+#  math_engine: mathjax
