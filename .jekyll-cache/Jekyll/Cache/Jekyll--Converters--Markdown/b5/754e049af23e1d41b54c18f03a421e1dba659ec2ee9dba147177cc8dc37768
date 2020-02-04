@@ -1,0 +1,66 @@
+I"i<h1 id="스택stack">스택(Stack)</h1>
+
+<!-- TODO 그림 추가 -->
+
+<p>가장 기초적인 자료구조 스택에 대해 알아보자.</p>
+
+<p>스택은 기본적 Last In First Out(LIFO) 구조이다. LIFO 라는 단어에서 알 수 있듯이, 처음 들어온 스택 프레임이 아래부터 쌓이고 꺼내서 사용하고 싶은 경우에는 맨 위의 스택 프레임 부터 순차적으로 꺼내 사용할 수 있다.</p>
+
+<!-- TODO 사용처 추가 -->
+
+<h2 id="사용-함수">사용 함수</h2>
+
+<p>스택에서 사용하는 함수는 대표적으로 2개가 있다.</p>
+
+<ul>
+  <li>push - 스택에 프레임을 추가하는 함수</li>
+  <li>pop - 스택의 최상단 프레임을 가져오는 함수</li>
+</ul>
+
+<p>대표적인 2개 외에도 peek 이라는 함수가 있다.</p>
+
+<ul>
+  <li>peek - 스택의 최상단 프레임의 값을 가져오는 함수</li>
+</ul>
+
+<h2 id="구현">구현</h2>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">StackFrame</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;(</span>
+    <span class="kd">val</span> <span class="py">currentData</span><span class="p">:</span> <span class="nc">T</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">nextFrame</span><span class="p">:</span> <span class="nc">StackFrame</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?</span> <span class="p">=</span> <span class="k">null</span>
+    <span class="k">private</span> <span class="k">set</span>
+
+    <span class="k">fun</span> <span class="nf">linkNode</span><span class="p">(</span><span class="n">frame</span><span class="p">:</span> <span class="nc">StackFrame</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?)</span> <span class="p">{</span>
+        <span class="n">nextFrame</span> <span class="p">=</span> <span class="n">frame</span>
+    <span class="p">}</span>
+
+    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+        <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">of</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="nc">T</span><span class="p">):</span> <span class="nc">StackFrame</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nc">StackFrame</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Stack</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="kd">var</span> <span class="py">top</span><span class="p">:</span> <span class="nc">StackFrame</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?</span> <span class="p">=</span> <span class="k">null</span>
+
+    <span class="k">fun</span> <span class="nf">isEmpty</span><span class="p">()</span> <span class="p">=</span> <span class="n">top</span> <span class="p">==</span> <span class="k">null</span>
+
+    <span class="k">fun</span> <span class="nf">push</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">newNode</span> <span class="p">=</span> <span class="nc">StackFrame</span><span class="p">.</span><span class="nf">of</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">newNode</span><span class="p">.</span><span class="nf">linkNode</span><span class="p">(</span><span class="n">top</span><span class="p">)</span>
+        <span class="n">top</span> <span class="p">=</span> <span class="n">newNode</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">peek</span><span class="p">():</span> <span class="nc">T</span> <span class="p">=</span> <span class="n">top</span><span class="o">?.</span><span class="n">currentData</span> <span class="o">?:</span> <span class="k">throw</span> <span class="nc">ArrayIndexOutOfBoundsException</span><span class="p">()</span>
+
+    <span class="k">fun</span> <span class="nf">pop</span><span class="p">():</span> <span class="nc">T</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="n">top</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">null</span> <span class="p">-&gt;</span> <span class="k">throw</span> <span class="nc">ArrayIndexOutOfBoundsException</span><span class="p">()</span>
+        <span class="k">else</span> <span class="p">-&gt;</span> <span class="p">{</span>
+            <span class="kd">val</span> <span class="py">item</span> <span class="p">=</span> <span class="nf">peek</span><span class="p">()</span>
+            <span class="n">top</span> <span class="p">=</span> <span class="n">top</span><span class="o">!!</span><span class="p">.</span><span class="n">nextFrame</span>
+            <span class="n">item</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

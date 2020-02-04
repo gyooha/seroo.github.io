@@ -1,0 +1,44 @@
+<p>두 마리의 캥거루가 있다. 두 마리의 캥거루는 각각 다른 라인(x1, x2)에서 시작하고 점프 거리(v1, v2)도 다르다. 두 마리의 캥거루가 만약 어느 지점에서 만날 수 있다면 “YES” 아니라면 “NO”를 출력하는 로직을 작성하라</p>
+
+<h2 id="sampleinput">SampleInput</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 3 4 2
+</code></pre></div></div>
+
+<h2 id="sampleoutput">SampleOutput</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Yes
+</code></pre></div></div>
+
+<h2 id="sampleinput-1">SampleInput</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 2 5 3
+</code></pre></div></div>
+
+<h2 id="sampleoutput-1">SampleOutput</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NO
+</code></pre></div></div>
+
+<h2 id="문제-풀이">문제 풀이</h2>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">kangaroo</span><span class="p">(</span><span class="n">x1</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">v1</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">v2</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">String</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x1</span> <span class="p">&lt;=</span> <span class="n">x2</span> <span class="p">&amp;&amp;</span> <span class="n">v1</span> <span class="p">&lt;</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="s">"NO"</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="py">v1Range</span> <span class="p">=</span> <span class="n">x1</span>
+        <span class="kd">var</span> <span class="py">v2Range</span> <span class="p">=</span> <span class="n">x2</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="n">v1Range</span> <span class="p">&lt;=</span> <span class="n">v2Range</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">v1Range</span> <span class="p">==</span> <span class="n">v2Range</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s">"YES"</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">v1Range</span> <span class="p">+=</span> <span class="n">v1</span>
+                <span class="n">v2Range</span> <span class="p">+=</span> <span class="n">v2</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="s">"NO"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="참조">참조</h2>
+<ul>
+  <li>https://www.hackerrank.com/challenges/kangaroo/problem</li>
+</ul>
