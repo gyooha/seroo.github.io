@@ -4,7 +4,6 @@ date: 2020-01-29
 desc: "헷갈리는 문제들을 하나씩 정리"
 keywords: "Android,Activity,BackStack"
 permalink: "/categories/android/problem01"
-layout: category
 categories: 
     - Android
 tags: 

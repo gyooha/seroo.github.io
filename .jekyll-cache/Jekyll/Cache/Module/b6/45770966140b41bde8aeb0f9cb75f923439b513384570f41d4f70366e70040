@@ -1,4 +1,4 @@
-I"Á
+I"Ì
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
@@ -12,7 +12,7 @@
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/categories/" >Category</a>
             </li><li class="masthead__menu-item">
-              <a href="/android/" >Android</a>
+              <a href="/categories/android/" >Android</a>
             </li><li class="masthead__menu-item">
               <a href="/datastructure/" >Datastructure</a>
             </li><li class="masthead__menu-item">

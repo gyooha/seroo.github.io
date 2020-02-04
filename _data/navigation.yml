@@ -7,7 +7,7 @@ main:
   - title: "Category"
     url: /categories/
   - title: "Android"
-    url: /android/
+    url: /categories/android/
   - title: "Datastructure"
     url: /datastructure/
   - title: "Algorithm"
