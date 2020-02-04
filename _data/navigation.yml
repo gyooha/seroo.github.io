@@ -6,12 +6,12 @@ main:
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   - title: "Category"
     url: /categories/
-  - title: "Android"
-    url: /categories/android/
-  - title: "Datastructure"
-    url: /datastructure/
-  - title: "Algorithm"
-    url: /algorithm/
+#  - title: "Android"
+#    url: /categories/android/
+#  - title: "Datastructure"
+#    url: /datastructure/
+#  - title: "Algorithm"
+#    url: /algorithm/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
