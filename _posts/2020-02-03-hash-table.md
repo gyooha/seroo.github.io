@@ -3,13 +3,12 @@ title: "자료구조 - 해쉬테이블"
 permalink: "/datastructure/hash_table"
 date: 2020-02-03
 desc: "자료구조 정리"
-keywords: "Datastructure,Stack"
+keywords: "Datastructure,HashTable"
 categories: 
     - Datastructure
 tags: 
     - Datastructure 
     - HashTable
-icon: icon-html
 ---
 
 # 해쉬테이블(HashTable)
@@ -35,6 +34,8 @@ icon: icon-html
 ```
 충돌이 자주 발생한다면, 최악의 경우 O(N)이 된다. 하지만 일반적으로 해쉬에 대해 이야기할 때는 충돌을 최소화하도록 잘 구현된 경우를 가정하는데 이 경우에 탐색 시간은 O(1)이다.
 ```
+
+![imageHashTable]({{ site.url }}{{ site.baseurl }}/assets/images/posts/image_hash_table.png)
 
 ## 다른방법?
 

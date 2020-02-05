@@ -1,0 +1,117 @@
+I"�-<h1 id="연결리스트linkedlist">연결리스트(LinkedList)</h1>
+
+<p>연결리스트는 차례로 연결된 노드를 표현해주는 자료구조이다. 연결리스트는 두 종류가 있다.</p>
+
+<ul>
+  <li>단방향 연결리스트</li>
+  <li>양방향 연결 리스트</li>
+</ul>
+
+<p>배열과 달리 연결리스트에서는 특정 인덱스를 O(1) 시간안에 접근할 수 없고, 루프를 돌아서 특정 인덱스의 노드에 접근해야 한다.</p>
+
+<p>연결리스트의 장점은 O(1) 시간안에 노드를 <b>추가</b>하거나 <b>삭제</b>할 수 있다는 점이다.</p>
+
+<p>단방향 연결리스트</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">LinkedListNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;(</span><span class="kd">val</span> <span class="py">data</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">next</span><span class="p">:</span> <span class="nc">LinkedListNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?</span> <span class="p">=</span> <span class="k">null</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">LinkedList</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">head</span><span class="p">:</span> <span class="nc">LinkedListNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?</span> <span class="p">=</span> <span class="k">null</span>
+
+    <span class="k">fun</span> <span class="nf">append</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="py">n</span> <span class="p">=</span> <span class="n">head</span>
+        <span class="kd">val</span> <span class="py">newNode</span> <span class="p">=</span> <span class="nc">LinkedListNode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">head</span> <span class="p">=</span> <span class="n">newNode</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">n</span><span class="o">?.</span><span class="n">next</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">n</span> <span class="p">=</span> <span class="n">n</span><span class="p">.</span><span class="n">next</span>
+            <span class="p">}</span>
+
+            <span class="n">n</span><span class="o">?.</span><span class="n">next</span> <span class="p">=</span> <span class="n">newNode</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">toString</span><span class="p">():</span> <span class="nc">String</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="py">s</span> <span class="p">=</span> <span class="s">"["</span>
+        <span class="kd">var</span> <span class="py">node</span> <span class="p">=</span> <span class="n">head</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">node</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">s</span> <span class="p">+=</span> <span class="s">"${node.data}"</span>
+            <span class="n">node</span> <span class="p">=</span> <span class="n">node</span><span class="p">.</span><span class="n">next</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="n">s</span><span class="p">+=</span> <span class="s">", "</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="s">"$s]"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>양방향 연결 리스트</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">LinkedList</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">head</span><span class="p">:</span> <span class="nc">LinkedListNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?</span> <span class="p">=</span> <span class="k">null</span>
+    <span class="kd">val</span> <span class="py">isEmpty</span> <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="n">head</span> <span class="p">==</span> <span class="k">null</span>
+    <span class="k">fun</span> <span class="nf">first</span><span class="p">()</span> <span class="p">=</span> <span class="n">head</span>
+    <span class="k">fun</span> <span class="nf">last</span><span class="p">():</span> <span class="nc">LinkedListNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="py">node</span> <span class="p">=</span> <span class="n">head</span>
+
+        <span class="k">return</span> <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">node</span><span class="o">?.</span><span class="n">next</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">node</span> <span class="p">=</span> <span class="n">node</span><span class="p">.</span><span class="n">next</span>
+            <span class="p">}</span>
+
+            <span class="n">node</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">null</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">append</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">newNode</span> <span class="p">=</span> <span class="nc">LinkedListNode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">lastNode</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="nf">last</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">lastNode</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">newNode</span><span class="p">.</span><span class="n">prev</span> <span class="p">=</span> <span class="n">lastNode</span>
+            <span class="n">lastNode</span><span class="p">.</span><span class="n">next</span> <span class="p">=</span> <span class="n">newNode</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">head</span> <span class="p">=</span> <span class="n">newNode</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">removeByValue</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="py">n</span> <span class="p">=</span> <span class="n">head</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">?.</span><span class="n">data</span> <span class="p">==</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">head</span> <span class="p">=</span> <span class="n">head</span><span class="o">?.</span><span class="n">next</span>
+        <span class="p">}</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="n">n</span><span class="o">?.</span><span class="n">next</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">next</span><span class="o">?.</span><span class="n">data</span> <span class="p">==</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">n</span><span class="p">.</span><span class="n">prev</span> <span class="p">=</span> <span class="n">n</span><span class="p">.</span><span class="n">next</span>
+                <span class="n">n</span><span class="p">.</span><span class="n">next</span> <span class="p">=</span> <span class="n">n</span><span class="p">.</span><span class="n">next</span><span class="o">?.</span><span class="n">next</span>
+            <span class="p">}</span>
+
+            <span class="n">n</span> <span class="p">=</span> <span class="n">n</span><span class="p">.</span><span class="n">next</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">toString</span><span class="p">():</span> <span class="nc">String</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="py">s</span> <span class="p">=</span> <span class="s">"["</span>
+        <span class="kd">var</span> <span class="py">node</span> <span class="p">=</span> <span class="n">head</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">node</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">s</span> <span class="p">+=</span> <span class="s">"${node.data}"</span>
+            <span class="n">node</span> <span class="p">=</span> <span class="n">node</span><span class="p">.</span><span class="n">next</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="n">s</span><span class="p">+=</span> <span class="s">", "</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="s">"$s]"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="주의">주의</h2>
+
+<p>노드 클래스만 있는 단방향 연결리스트에서 여러 객체가 연결리스트를 참조하고 있을 때 헤드가 바뀔 경우 특정 노드들이 이전 헤드를 가르키고 있을 수도 있다. 이러한 경우 위와 같이 Node 클래스를 포함하는 LinkedList 객체를 만드는 것이 좋다.</p>
+:ET

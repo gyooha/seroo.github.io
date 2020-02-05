@@ -1,4 +1,4 @@
-I"Ì
+I"Ž
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
@@ -11,12 +11,6 @@
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/categories/" >Category</a>
-            </li><li class="masthead__menu-item">
-              <a href="/categories/android/" >Android</a>
-            </li><li class="masthead__menu-item">
-              <a href="/datastructure/" >Datastructure</a>
-            </li><li class="masthead__menu-item">
-              <a href="/algorithm/" >Algorithm</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">

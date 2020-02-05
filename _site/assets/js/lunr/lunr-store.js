@@ -13,4 +13,9 @@ var store = [{
         "excerpt":"해쉬테이블(HashTable) 해쉬테이블은 효율적인 탐색을 위한 자료구조로서 키를 값에 대응시킨다. 가장 기본적인 해쉬테이블의 구현은 해쉬 코드와 연결리스트, 배열만 있으면 된다. 방법 키의 해쉬 코드를 계산한다 hash(key) % arrayLegnth와 같은 방법으로 해쉬 코드를 이용해 배열의 인덱스를 구한다. 배열의 각 인덱스에는 키와 값으로 이루어진 연결리스트가 존재한다. 항상 충돌에 대비해야 한다. 여기서 말하는 충돌이란...","categories": ["Datastructure"],
         "tags": ["Datastructure","HashTable"],
         "url": "http://localhost:4000/datastructure/hash_table",
+        "teaser":null},{
+        "title": "자료구조 - 연결리스트",
+        "excerpt":"연결리스트(LinkedList) 연결리스트는 차례로 연결된 노드를 표현해주는 자료구조이다. 연결리스트는 두 종류가 있다. 단방향 연결리스트 양방향 연결 리스트 배열과 달리 연결리스트에서는 특정 인덱스를 O(1) 시간안에 접근할 수 없고, 루프를 돌아서 특정 인덱스의 노드에 접근해야 한다. 연결리스트의 장점은 O(1) 시간안에 노드를 추가하거나 삭제할 수 있다는 점이다. 단방향 연결리스트 data class LinkedListNode&lt;T&gt;(val data: T)...","categories": ["Datastructure"],
+        "tags": ["Datastructure","LinkedList"],
+        "url": "http://localhost:4000/datastructure/linked_list",
         "teaser":null}]

@@ -1,4 +1,4 @@
-I"!<h1 id="해쉬테이블hashtable">해쉬테이블(HashTable)</h1>
+I"�<h1 id="해쉬테이블hashtable">해쉬테이블(HashTable)</h1>
 
 <p>해쉬테이블은 효율적인 <b>탐색</b>을 위한 자료구조로서 키를 값에 대응시킨다. 가장 기본적인 해쉬테이블의 구현은 해쉬 코드와 연결리스트, 배열만 있으면 된다.</p>
 
@@ -21,6 +21,9 @@
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>충돌이 자주 발생한다면, 최악의 경우 O(N)이 된다. 하지만 일반적으로 해쉬에 대해 이야기할 때는 충돌을 최소화하도록 잘 구현된 경우를 가정하는데 이 경우에 탐색 시간은 O(1)이다.
 </code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_hash_table.png" alt="Unsplash image 9" />
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/posts/image_hash_table.png" alt="" /></p>
 
 <h2 id="다른방법">다른방법?</h2>
 
