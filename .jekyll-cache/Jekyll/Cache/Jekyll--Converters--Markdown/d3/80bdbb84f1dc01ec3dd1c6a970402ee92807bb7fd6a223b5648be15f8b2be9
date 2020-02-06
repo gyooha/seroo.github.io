@@ -1,0 +1,45 @@
+I"G<p>물을 담은 용기가 있다. 물을 담은 용기의 어느 세로 라인을 각각의 엔드포인트로 잡아야 물을 가장 많이 채울 수 있는지 찾아라!</p>
+
+<h2 id="sampleinput">SampleInput</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1,8,6,2,5,4,8,3,7]
+</code></pre></div></div>
+
+<h2 id="sampleoutput">SampleOutput</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>49
+</code></pre></div></div>
+
+<h2 id="문제-풀이">문제 풀이</h2>
+<ul>
+  <li>주어진 Input을 통해 시작점과 끝점을 구한다.</li>
+  <li>루프를 돌면서 현재 시작점의과 끝점의 작은 값을 기준으로 최대넓이 구한다.</li>
+  <li>구한 최대넓이는 항상 제일 큰 값으로 갱신해준다.</li>
+  <li>시작점과 끝점중 작은값 이었던 지점을 한 칸씩 옮긴다.</li>
+  <li>구한 최대넓이를 반환한다.</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">maxArea</span><span class="p">(</span><span class="n">height</span><span class="p">:</span> <span class="nc">IntArray</span><span class="p">):</span> <span class="nc">Int</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="py">left</span> <span class="p">=</span> <span class="m">0</span>
+        <span class="kd">var</span> <span class="py">right</span> <span class="p">=</span> <span class="n">height</span><span class="p">.</span><span class="n">size</span> <span class="p">-</span> <span class="m">1</span>
+        <span class="kd">var</span> <span class="py">maxArea</span> <span class="p">=</span> <span class="m">0</span>
+        
+        <span class="k">while</span><span class="p">(</span><span class="n">left</span> <span class="p">&lt;</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">maxArea</span> <span class="p">=</span> <span class="nc">Math</span><span class="p">.</span><span class="nf">max</span><span class="p">(</span><span class="n">maxArea</span><span class="p">,</span> <span class="p">(</span><span class="nc">Math</span><span class="p">.</span><span class="nf">min</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="n">height</span><span class="p">[</span><span class="n">right</span><span class="p">])</span> <span class="p">*</span> <span class="p">(</span><span class="n">right</span> <span class="p">-</span> <span class="n">left</span><span class="p">)))</span>
+            
+            <span class="k">if</span> <span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="p">&lt;</span> <span class="n">height</span><span class="p">[</span><span class="n">right</span><span class="p">])</span> <span class="p">{</span>
+                <span class="n">left</span><span class="p">++</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">right--</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">maxArea</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="참조">참조</h2>
+<ul>
+  <li>https://leetcode.com/problems/container-with-most-water/</li>
+</ul>
+:ET

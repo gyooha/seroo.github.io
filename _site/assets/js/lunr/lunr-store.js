@@ -23,4 +23,9 @@ var store = [{
         "excerpt":"스택(Stack) 스택 자료구조는 말 그대로 쌓아 올린다는 의미이다. 스택은 LIFO(Last In First Out) 구조로 접시를 쌓아 두었다가 사용할 때와 마찬가지로, 가장 최근에 스택에 추가한 항목이 가장 먼저 제거될 항목이라는 것이다. 사용 함수 스택은 아래와 같은 함수가 있다. pop() - 스택에서 가장 위에 있는 항목을 제거한다. push(item) - 스택의 가장 위에...","categories": ["Datastructure"],
         "tags": ["Datastructure","Stack"],
         "url": "http://localhost:4000/datastructure/stack",
+        "teaser":null},{
+        "title": "물을 담은 용기",
+        "excerpt":"물을 담은 용기가 있다. 물을 담은 용기의 어느 세로 라인을 각각의 엔드포인트로 잡아야 물을 가장 많이 채울 수 있는지 찾아라! SampleInput [1,8,6,2,5,4,8,3,7] SampleOutput 49 문제 풀이 주어진 Input을 통해 시작점과 끝점을 구한다. 루프를 돌면서 현재 시작점의과 끝점의 작은 값을 기준으로 최대넓이 구한다. 구한 최대넓이는 항상 제일 큰 값으로 갱신해준다. 시작점과...","categories": ["Algorithm"],
+        "tags": ["Algorithm","LeetCode"],
+        "url": "http://localhost:4000/algorithm/container_with_water",
         "teaser":null}]
