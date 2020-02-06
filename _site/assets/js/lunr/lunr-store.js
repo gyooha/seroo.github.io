@@ -18,4 +18,9 @@ var store = [{
         "excerpt":"연결리스트(LinkedList) 연결리스트는 차례로 연결된 노드를 표현해주는 자료구조이다. 연결리스트는 두 종류가 있다. 단방향 연결리스트 양방향 연결 리스트 배열과 달리 연결리스트에서는 특정 인덱스를 O(1) 시간안에 접근할 수 없고, 루프를 돌아서 특정 인덱스의 노드에 접근해야 한다. 연결리스트의 장점은 O(1) 시간안에 노드를 추가하거나 삭제할 수 있다는 점이다. 단방향 연결리스트 data class LinkedListNode&lt;T&gt;(val data: T)...","categories": ["Datastructure"],
         "tags": ["Datastructure","LinkedList"],
         "url": "http://localhost:4000/datastructure/linked_list",
+        "teaser":null},{
+        "title": "자료구조 - 스택",
+        "excerpt":"스택(Stack) 스택 자료구조는 말 그대로 쌓아 올린다는 의미이다. 스택은 LIFO(Last In First Out) 구조로 접시를 쌓아 두었다가 사용할 때와 마찬가지로, 가장 최근에 스택에 추가한 항목이 가장 먼저 제거될 항목이라는 것이다. 사용 함수 스택은 아래와 같은 함수가 있다. pop() - 스택에서 가장 위에 있는 항목을 제거한다. push(item) - 스택의 가장 위에...","categories": ["Datastructure"],
+        "tags": ["Datastructure","Stack"],
+        "url": "http://localhost:4000/datastructure/stack",
         "teaser":null}]
