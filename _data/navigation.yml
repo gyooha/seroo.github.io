@@ -4,8 +4,8 @@ main:
   #  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  - title: "Category"
-    url: /categories/
+  #- title: "Category"
+  #  url: /categories/
 #  - title: "Android"
 #    url: /categories/android/
 #  - title: "Datastructure"
