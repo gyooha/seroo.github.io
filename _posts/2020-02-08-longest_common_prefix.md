@@ -2,7 +2,7 @@
 title: "중복되는 가장 긴 단어 찾기"
 date: 2020-02-08
 desc: "하루에 하나씩 알고리즘 풀기"
-permalink: "/algorithm/horizontal_scanning"
+permalink: "/algorithm/longest_common_prefix"
 keywords: "Algorithm"
 categories: 
     - Algorithm

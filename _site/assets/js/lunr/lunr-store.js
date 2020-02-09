@@ -20,12 +20,27 @@ var store = [{
         "url": "http://localhost:4000/datastructure/linked_list",
         "teaser":null},{
         "title": "자료구조 - 스택",
-        "excerpt":"스택(Stack) 스택 자료구조는 말 그대로 쌓아 올린다는 의미이다. 스택은 LIFO(Last In First Out) 구조로 접시를 쌓아 두었다가 사용할 때와 마찬가지로, 가장 최근에 스택에 추가한 항목이 가장 먼저 제거될 항목이라는 것이다. 사용 함수 스택은 아래와 같은 함수가 있다. pop() - 스택에서 가장 위에 있는 항목을 제거한다. push(item) - 스택의 가장 위에...","categories": ["Datastructure"],
+        "excerpt":"스택(Stack) 스택 자료구조는 말 그대로 쌓아 올린다는 의미이다. 스택은 LIFO(Last In First Out) 구조로 접시를 쌓아 두었다가 사용할 때와 같이 가장 최근에 스택에 추가한 항목이 가장 먼저 제거될 항목이라는 것이다. 사용 함수 스택은 아래와 같은 함수가 있다. pop() - 스택에서 가장 위에 있는 항목을 제거한다. push(item) - 스택의 가장 위에...","categories": ["Datastructure"],
         "tags": ["Datastructure","Stack"],
         "url": "http://localhost:4000/datastructure/stack",
+        "teaser":null},{
+        "title": "자료구조 - 큐",
+        "excerpt":"큐(Queue) 큐는 FIFO(First In First Out) 구조로 매표소 앞에 서 있는 사람들이 움직이는 형태와 같이, 큐에 저장되는 순서대로 큐에서 제거된다. 사용 함수 큐는 아래와 같은 함수가 있다. add(item) : 큐의 마지막에 item을 추가한다. remove() : 큐의 첫 번째 항목을 제거한다. peek() : 큐의 가장 첫번째 항목을 반환한다. isEmpty() : 큐가...","categories": ["Datastructure"],
+        "tags": ["Datastructure","Queue"],
+        "url": "http://localhost:4000/datastructure/queue",
         "teaser":null},{
         "title": "물을 담은 용기",
         "excerpt":"물을 담은 용기가 있다. 물을 담은 용기의 어느 세로 라인을 각각의 엔드포인트로 잡아야 물을 가장 많이 채울 수 있는지 찾아라! SampleInput [1,8,6,2,5,4,8,3,7] SampleOutput 49 문제 풀이 주어진 Input을 통해 시작점과 끝점을 구한다. 루프를 돌면서 현재 시작점의과 끝점의 작은 값을 기준으로 최대넓이 구한다. 구한 최대넓이는 항상 제일 큰 값으로 갱신해준다. 시작점과...","categories": ["Algorithm"],
         "tags": ["Algorithm","LeetCode"],
         "url": "http://localhost:4000/algorithm/container_with_water",
+        "teaser":null},{
+        "title": "중복되는 가장 긴 단어 찾기",
+        "excerpt":"문자열에서 가장 긴 공통의 접두사(prefix)를 찾아보자! SampleInput [\"flower\",\"flow\",\"flight\"] SampleOutput \"fl\" SampleInput [\"dog\",\"racecar\",\"car\"] SampleOutput \"\" 풀이 문자열이 비어있는지 체크한다. prefix로 리스트의 첫번째 String을 변수에 저장한다. 리스트의 사이즈만큼 for loop를 돌고 그 안에서 prefix를 각 리스트의 String에 맞게 뒤에서부터 하나씩 제거한다. 공통된 문자열을 찾으면 prefix를 리턴, 아닌경우 빈 String을 리턴 class Solution...","categories": ["Algorithm"],
+        "tags": ["Algorithm","LeetCode"],
+        "url": "http://localhost:4000/algorithm/longest_common_prefix",
+        "teaser":null},{
+        "title": "3개의 합",
+        "excerpt":"하나의 리스트가 주어진다. 이 리스트 안의 임의의 값 3개를 골라 더해서 0이 되는 리스트들을 찾아라. 조건 리스트와 리스트의 값은 중복될 수 없다. 풀이 배열의 사이즈가 2개 이하이면 빈 리스트를 반환한다. 받은 배열을 정렬한다. 배열의 사이즈 -2만큼 for loop를 돈다.(최소 3개의 값을 가져와야 하기 때문에) start, end 값을 정한다. i, start,...","categories": ["Algorithm"],
+        "tags": ["Algorithm","LeetCode"],
+        "url": "http://localhost:4000/algorithm/3sum",
         "teaser":null}]
