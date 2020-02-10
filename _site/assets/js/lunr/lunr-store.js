@@ -43,4 +43,9 @@ var store = [{
         "excerpt":"하나의 리스트가 주어진다. 이 리스트 안의 임의의 값 3개를 골라 더해서 0이 되는 리스트들을 찾아라. 조건 리스트와 리스트의 값은 중복될 수 없다. 풀이 배열의 사이즈가 2개 이하이면 빈 리스트를 반환한다. 받은 배열을 정렬한다. 배열의 사이즈 -2만큼 for loop를 돈다.(최소 3개의 값을 가져와야 하기 때문에) start, end 값을 정한다. i, start,...","categories": ["Algorithm"],
         "tags": ["Algorithm","LeetCode"],
         "url": "http://localhost:4000/algorithm/3sum",
+        "teaser":null},{
+        "title": "자료구조 - 트리(1)",
+        "excerpt":"트리(Tree) 트리는 그래프의 일종으로, 노드로 이루어진 자료구조 이다. 트리는 하나의 루트 노드를 갖는다. (사실 그래프 이론상 꼭 하나의 노드일 필요는 없지만, 대부분 사용하는 트리에서는 맞는 말이다.) 루트 노드는 0개 이상의 자식 노드를 가지고 있다. 그 자식 노드는 또 0개 이상의 자식 노드를 가지고 있고, 이는 계속 반복적으로 정의 된다. 트리는...","categories": ["Datastructure"],
+        "tags": ["Datastructure","Tree"],
+        "url": "http://localhost:4000/datastructure/tree",
         "teaser":null}]

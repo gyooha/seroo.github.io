@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-09T20:34:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Seroo’s Blog</title><subtitle></subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><entry><title type="html">3개의 합</title><link href="http://localhost:4000/algorithm/3sum" rel="alternate" type="text/html" title="3개의 합" /><published>2020-02-09T00:00:00+09:00</published><updated>2020-02-09T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/3sum</id><content type="html" xml:base="http://localhost:4000/algorithm/3sum">&lt;p&gt;하나의 리스트가 주어진다. 이 리스트 안의 임의의 값 3개를 골라 더해서 0이 되는 &lt;b&gt;리스트들&lt;/b&gt;을 찾아라.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-10T23:56:53+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Seroo’s Blog</title><subtitle></subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><entry><title type="html">자료구조 - 트리(1)</title><link href="http://localhost:4000/datastructure/tree" rel="alternate" type="text/html" title="자료구조 - 트리(1)" /><published>2020-02-10T00:00:00+09:00</published><updated>2020-02-10T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/tree</id><content type="html" xml:base="http://localhost:4000/datastructure/tree">&lt;h1 id=&quot;트리tree&quot;&gt;트리(Tree)&lt;/h1&gt;
+
+&lt;p&gt;트리는 그래프의 일종으로, 노드로 이루어진 자료구조 이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;트리는 하나의 루트 노드를 갖는다. (사실 그래프 이론상 꼭 하나의 노드일 필요는 없지만, 대부분 사용하는 트리에서는 맞는 말이다.)&lt;/li&gt;
+  &lt;li&gt;루트 노드는 0개 이상의 자식 노드를 가지고 있다.&lt;/li&gt;
+  &lt;li&gt;그 자식 노드는 또 0개 이상의 자식 노드를 가지고 있고, 이는 계속 반복적으로 정의 된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;트리는 &lt;b&gt;사이클&lt;/b&gt;이 존재할 수 &lt;b&gt;없다&lt;/b&gt;. 노드들은 &lt;b&gt;특정 순서&lt;/b&gt;로 &lt;b&gt;나열될 수도 있고&lt;/b&gt; 그럴 수 &lt;b&gt;없을 수도&lt;/b&gt; 있다. 각 노드는 어떤 자료형으로도 표현 가능하다. 각 노드는 &lt;b&gt;부모 노드&lt;/b&gt;로의 연결이 &lt;b&gt;있을 수도&lt;/b&gt; 있고 &lt;b&gt;없을 수도&lt;/b&gt; 있다.&lt;/p&gt;
+
+&lt;p&gt;노드 클래스를 아주 간단하게 정의하면 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MutableList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Tree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;트리 및 그래프는 대부분 세부사항이 모호하거나 가정 자체가 틀린 경우가 많으니 여러 이슈들에 대해 유의하고, 필요하면 명확하게 해 줄 것을 요구하자.&lt;/p&gt;
+
+&lt;h2 id=&quot;트리의-종류&quot;&gt;트리의 종류&lt;/h2&gt;
+
+&lt;p&gt;이진 트리는 각 노드가 최대 두 개의 자식을 갖는 트리를 말한다. 모든 트리가 이진트리는 아니며, 삼진 트리, 사진 트리 등등 여러 종류의 트리들이 있다. 아래와 같은 트리는 이진트리가 아니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_three_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;이진트리binary-tree와-이진탐색트리binary-search-tree&quot;&gt;이진트리(binary tree)와 이진탐색트리(binary search tree)&lt;/h2&gt;
+
+&lt;p&gt;이진탐색트리는 다음과 같은 특정 순서를 따르는 속성이 있는 이진 트리를 말한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;모든 왼쪽 자식들 &amp;lt;= n &amp;lt; 모든 오른쪽 자식들 속성은 모든 노드 n에 대해 반드시 참이어야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;이진탐색트리&quot;&gt;이진탐색트리&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_binary_search_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;이진탐색트리가-아님&quot;&gt;이진탐색트리가 아님&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_not_binary_search_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 트리는 이진탐색트리가 될 수 없다. 왜냐하면 8보다 큰 값이 왼쪽 노드에 속해있기 때문이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;트리의-균형-비균형&quot;&gt;트리의 균형 비균형&lt;/h2&gt;
+
+&lt;p&gt;많은 트리가 균형이 잡혀있긴 하지만, 모든 트리가 균형이 잡혀있는것은 아니다. 여기서 균형을 잡는다는 의미는 왼쪽과 오른쪽 부분 트리의 크기가 완전히 같게 하는 것을 의미하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;균형 트리인지 확인하는 방법 중 하나는 “너무 불균형한건 아닌지” 확인하는 것 이상의 의미를 갖는다. O(log N) 시간에 insert와 find를 할 수 있을 정도로 균형이 잘 잡혀 있지만, 그렇다고 꼭 완벽하게 균형 잡혀 있을 필요는 없다.&lt;/p&gt;
+
+&lt;h4 id=&quot;완전-이진-트리complete-binary-tree&quot;&gt;완전 이진 트리(complete binary tree)&lt;/h4&gt;
+
+&lt;p&gt;완전 이진 트리는 트리의 모든 높이에서 노드가 꽉 차 있는 이진 트리를 말한다. 마지막 단계는 꽉 차 있지 않아도 되지만 노드가 왼쪽에서 오른쪽으로 채워져야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_complete_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;완전-이진-트리가-아님&quot;&gt;완전 이진 트리가 아님&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_not_complete_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;전-이진-트리full-binary-tree&quot;&gt;전 이진 트리(full binary tree)&lt;/h4&gt;
+
+&lt;p&gt;전 이진 트리는 모든 노드의 자식이 없거나 정확히 두 개 있는 경우를 말한다. 즉, 자식이 하나만 있는 노드가 존재해서는 안 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_full_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;전-이진-트리가-아님&quot;&gt;전 이진 트리가 아님&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_not_full_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;포화-이진-트리perfect-binary-tree&quot;&gt;포화 이진 트리(perfect binary tree)&lt;/h4&gt;
+
+&lt;p&gt;포화 이진 트리는 전 이진 트리이면서 완전 이진 트리인 경우를 말한다. 모든 말단 노드는 같은 높이에 있어야 하며, 마지막 단계에서 노드의 개수가 최대가 되어야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_perfect_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;트리의 경우는 내용이 다른 자료구조보다 많아서 2단계로 끊어갈려고 한다. 다음 포스팅에서는 트리의 순회 방식과 최소 힙, 최대 힙, 삽입, 최소 원소 뽑아내기 및 구현 등등과 같은 내용을 다룰려고 한다.&lt;/p&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="Tree" /><summary type="html">트리(Tree)</summary></entry><entry><title type="html">3개의 합</title><link href="http://localhost:4000/algorithm/3sum" rel="alternate" type="text/html" title="3개의 합" /><published>2020-02-09T00:00:00+09:00</published><updated>2020-02-09T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/3sum</id><content type="html" xml:base="http://localhost:4000/algorithm/3sum">&lt;p&gt;하나의 리스트가 주어진다. 이 리스트 안의 임의의 값 3개를 골라 더해서 0이 되는 &lt;b&gt;리스트들&lt;/b&gt;을 찾아라.&lt;/p&gt;
 
 &lt;h2 id=&quot;조건&quot;&gt;조건&lt;/h2&gt;
 
