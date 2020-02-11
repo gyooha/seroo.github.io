@@ -37,7 +37,11 @@
 <lastmod>2020-02-09T00:00:00+09:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/datastructure/tree</loc>
+<loc>http://localhost:4000/datastructure/tree01</loc>
+<lastmod>2020-02-10T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/datastructure/tree02</loc>
 <lastmod>2020-02-10T00:00:00+09:00</lastmod>
 </url>
 <url>
@@ -48,5 +52,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page2/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page3/</loc>
 </url>
 </urlset>

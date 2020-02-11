@@ -47,5 +47,10 @@ var store = [{
         "title": "자료구조 - 트리(1)",
         "excerpt":"트리(Tree) 트리는 그래프의 일종으로, 노드로 이루어진 자료구조 이다. 트리는 하나의 루트 노드를 갖는다. (사실 그래프 이론상 꼭 하나의 노드일 필요는 없지만, 대부분 사용하는 트리에서는 맞는 말이다.) 루트 노드는 0개 이상의 자식 노드를 가지고 있다. 그 자식 노드는 또 0개 이상의 자식 노드를 가지고 있고, 이는 계속 반복적으로 정의 된다. 트리는...","categories": ["Datastructure"],
         "tags": ["Datastructure","Tree"],
-        "url": "http://localhost:4000/datastructure/tree",
+        "url": "http://localhost:4000/datastructure/tree01",
+        "teaser":null},{
+        "title": "자료구조 - 트리(2)",
+        "excerpt":"이진 트리 순회 트리는 아래와 같은 순회 방식이 있다. 전위(pre-order) 중위(in-order) 후위(post-order) 중위 순회(in order) 중위 순회(in order traversal)는 왼쪽 노드, 현재 노드, 오른쪽 노드 순서로 노드를 방문하는 방법을 말한다. fun inOrderTraversal(node: TreeNode?) { node?.let { inOrderTraversal(it.left) visit(it) inOrderTraversal(it.right) } } 중위 순회 방식으로 트리를 순회하게 되면 오름차순으로 방문하게 된다....","categories": ["Datastructure"],
+        "tags": ["Datastructure","Tree"],
+        "url": "http://localhost:4000/datastructure/tree02",
         "teaser":null}]

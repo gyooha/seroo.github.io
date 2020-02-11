@@ -1,0 +1,104 @@
+I"�<h1 id="이진-트리-순회">이진 트리 순회</h1>
+
+<p>트리는 아래와 같은 순회 방식이 있다.</p>
+
+<ul>
+  <li>전위(pre-order)</li>
+  <li>중위(in-order)</li>
+  <li>후위(post-order)</li>
+</ul>
+
+<h2 id="중위-순회in-order">중위 순회(in order)</h2>
+
+<p>중위 순회(in order traversal)는 왼쪽 노드, 현재 노드, 오른쪽 노드 순서로 노드를 방문하는 방법을 말한다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="nc">TreeNode</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="n">node</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span>
+        <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">left</span><span class="p">)</span>
+        <span class="nf">visit</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+        <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>중위 순회 방식으로 트리를 순회하게 되면 오름차순으로 방문하게 된다.</p>
+
+<h2 id="전위-순회pre-order">전위 순회(pre order)</h2>
+
+<p>전위 순회(pre order traversal)는 자식 노드보다 현재 노드를 먼저 방문하는 방법을 말한다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="nc">TreeNode</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="n">node</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span>
+        <span class="nf">visit</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+        <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">left</span><span class="p">)</span>
+        <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>전위 순회에서 가장 먼저 방문하게 될 노드는 언제나 루트 노드이다.</p>
+
+<h2 id="후위-순회post-order">후위 순회(post order)</h2>
+
+<p>후위 순회(post order traversal)는 모든 자식노드를 방문한 뒤 현재 노드를 방문하는 방법을 말한다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="nc">TreeNode</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="n">node</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span>
+        <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">left</span><span class="p">)</span>
+        <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
+        <span class="nf">visit</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>후위 순회에서 가장 마지막에 방문하게 될 노드는 언제나 루트 노드이다.</p>
+
+<h2 id="이진-힙최소힙과-최대힙">이진 힙(최소힙과 최대힙)</h2>
+
+<p>최소힙은 트리의 마지막 단계에서 오른쪽 부분을 뺀 나머지 부분이 가득 채워져 있다는 부분에서 완전 이진 트리이며, 각 노드의 값이 자식들의 원소보다 작다는 특성이 있다. 따라서 루트는 트리의 전체에서 가장 작은 노드가 된다.</p>
+
+<ul>
+  <li>최대 힙은 값이 내림차순으로 정렬되어 있다는 점만 다를 뿐, 최소힙과 완전히 같다.</li>
+</ul>
+
+<figure class="half full">
+  
+    
+      <img src="/assets/images/posts/image_min_heaps.png" alt="Min heaps" />
+    
+  
+    
+      <img src="/assets/images/posts/image_max_heaps.png" alt="Max heaps" />
+    
+  
+  
+    <figcaption>left is min heaps, right is max heaps
+</figcaption>
+  
+</figure>
+
+<h2 id="삽입">삽입</h2>
+
+<p><b>최소힙</b>에 원소를 삽일할 때는 언제나 트리의 밑바닥에서 부터 삽입을 시작한다. 완전 트리의 속성에 위배되지 않게 새로운 원소는 밑바닥 가장 오른쪽 위치로 삽입 된다. 그 다음 새로 삽입된 원소가 제대로 된 자리를 찾을 때 까지 부모 노드와 교환해 나간다.</p>
+
+<figure class="third ">
+  
+    
+      <img src="/assets/images/posts/image_insert_1.png" alt="1" />
+    
+  
+    
+      <img src="/assets/images/posts/image_insert_2.png" alt="2" />
+    
+  
+    
+      <img src="/assets/images/posts/image_insert_3.png" alt="3" />
+    
+  
+  
+    <figcaption>
+</figcaption>
+  
+</figure>
+
+:ET
