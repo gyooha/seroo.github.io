@@ -53,4 +53,9 @@ var store = [{
         "excerpt":"이진 트리 순회 트리는 아래와 같은 순회 방식이 있다. 전위(pre-order) 중위(in-order) 후위(post-order) 중위 순회(in order) 중위 순회(in order traversal)는 왼쪽 노드, 현재 노드, 오른쪽 노드 순서로 노드를 방문하는 방법을 말한다. fun inOrderTraversal(node: TreeNode?) { node?.let { inOrderTraversal(it.left) visit(it) inOrderTraversal(it.right) } } 중위 순회 방식으로 트리를 순회하게 되면 오름차순으로 방문하게 된다....","categories": ["Datastructure"],
         "tags": ["Datastructure","Tree"],
         "url": "http://localhost:4000/datastructure/tree02",
+        "teaser":null},{
+        "title": "자료구조 - 그래프",
+        "excerpt":"그래프(Graph) 그래프는 단순히 노드와 노드 사이를 연결한 것을 하나로 모아 놓은 것과 같다. 이전에 포스팅한 트리도 그래프의 한 종류이다. 하지만 그렇다고 모든 그래프가 트리인 것은 아니다. 간단히 말해서 트리는 사이클이 없는 하나의 연결 그래프이다. 그래프의 특징 그래프는 방향성이 있을 수도 있고 없을 수도 있다. 그래프는 여러 개의 고립된 부분 그래프(isolated...","categories": ["Datastructure"],
+        "tags": ["Datastructure","Graph"],
+        "url": "http://localhost:4000/datastructure/graph",
         "teaser":null}]
