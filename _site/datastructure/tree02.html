@@ -458,7 +458,58 @@
 
 <h2 id="트리-구현">트리 구현</h2>
 
-<p>구현 예정</p>
+<h3 id="이진-탐색-트리">이진 탐색 트리</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">TreeNode</span><span class="p">(</span>
+        <span class="kd">var</span> <span class="py">key</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span>
+        <span class="kd">var</span> <span class="py">left</span><span class="p">:</span> <span class="nc">TreeNode</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span><span class="p">,</span>
+        <span class="kd">var</span> <span class="py">right</span><span class="p">:</span> <span class="nc">TreeNode</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="nc">TreeNode</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="n">node</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">actualNode</span> <span class="p">-&gt;</span>
+            <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">actualNode</span><span class="p">.</span><span class="n">left</span><span class="p">)</span>
+            <span class="nf">visit</span><span class="p">(</span><span class="n">actualNode</span><span class="p">)</span> <span class="p">{</span> <span class="nf">println</span><span class="p">(</span><span class="s">"inOrder : $it"</span><span class="p">)</span> <span class="p">}</span>
+            <span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">actualNode</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">preOrderTraversal</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="nc">TreeNode</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="n">node</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">actualNode</span> <span class="p">-&gt;</span>
+            <span class="nf">visit</span><span class="p">(</span><span class="n">actualNode</span><span class="p">)</span> <span class="p">{</span> <span class="nf">println</span><span class="p">(</span><span class="s">"preOrder : $it"</span><span class="p">)</span> <span class="p">}</span>
+            <span class="nf">preOrderTraversal</span><span class="p">(</span><span class="n">actualNode</span><span class="p">.</span><span class="n">left</span><span class="p">)</span>
+            <span class="nf">preOrderTraversal</span><span class="p">(</span><span class="n">actualNode</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">postOrderTraversal</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="nc">TreeNode</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="n">node</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">actualNode</span> <span class="p">-&gt;</span>
+            <span class="nf">postOrderTraversal</span><span class="p">(</span><span class="n">actualNode</span><span class="p">.</span><span class="n">left</span><span class="p">)</span>
+            <span class="nf">postOrderTraversal</span><span class="p">(</span><span class="n">actualNode</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
+            <span class="nf">visit</span><span class="p">(</span><span class="n">actualNode</span><span class="p">)</span> <span class="p">{</span> <span class="nf">println</span><span class="p">(</span><span class="s">"postOrder : $it"</span><span class="p">)</span> <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">insert</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="p">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="n">key</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">right</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">right</span> <span class="p">=</span> <span class="nc">TreeNode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">right</span><span class="o">?.</span><span class="nf">insert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">left</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">left</span> <span class="p">=</span> <span class="nc">TreeNode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">left</span><span class="o">?.</span><span class="nf">insert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">inline</span> <span class="k">fun</span> <span class="nf">visit</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="nc">TreeNode</span><span class="p">?,</span> <span class="n">action</span><span class="p">:</span> <span class="p">(</span><span class="nc">TreeNode</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nc">Unit</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">node</span><span class="o">?.</span><span class="nf">let</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
         
       </section>
