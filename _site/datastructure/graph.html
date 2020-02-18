@@ -298,7 +298,7 @@
 
 
 
-  2 분 소요
+  3 분 소요
 
 </p>
           
@@ -469,7 +469,46 @@
 
 <h2 id="그래프-구현">그래프 구현</h2>
 
-<p>추후 구현 예정</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">Graph</span><span class="p">(</span>
+    <span class="kd">var</span> <span class="py">children</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">GraphNode</span><span class="p">&gt;</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">depthFirstSearch</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="nc">GraphNode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">visit</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="p">{</span> <span class="nf">println</span><span class="p">(</span><span class="s">"depth : $it"</span><span class="p">)</span> <span class="p">}</span>
+        <span class="n">root</span><span class="p">.</span><span class="n">isVisited</span> <span class="p">=</span> <span class="k">true</span>
+        <span class="n">root</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="nf">forEach</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(!</span><span class="n">it</span><span class="p">.</span><span class="n">isVisited</span><span class="p">)</span> <span class="nf">depthFirstSearch</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">breathFirstSearch</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="nc">GraphNode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">queue</span> <span class="p">=</span> <span class="nc">Queue</span><span class="p">&lt;</span><span class="nc">GraphNode</span><span class="p">&gt;()</span>
+        <span class="n">root</span><span class="p">.</span><span class="n">isVisited</span> <span class="p">=</span> <span class="k">true</span>
+        <span class="n">queue</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="p">(!</span><span class="n">queue</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+            <span class="kd">val</span> <span class="py">node</span> <span class="p">=</span> <span class="n">queue</span><span class="p">.</span><span class="nf">dequeue</span><span class="p">()</span>
+            <span class="nf">visit</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="p">{</span> <span class="nf">println</span><span class="p">(</span><span class="s">"breath : $it"</span><span class="p">)</span> <span class="p">}</span>
+            <span class="n">node</span><span class="o">?.</span><span class="n">children</span><span class="o">?.</span><span class="nf">forEach</span> <span class="p">{</span> <span class="n">n</span> <span class="p">-&gt;</span>
+                <span class="k">if</span> <span class="p">(!</span><span class="n">n</span><span class="p">.</span><span class="n">isVisited</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">n</span><span class="p">.</span><span class="n">isVisited</span> <span class="p">=</span> <span class="k">true</span>
+                    <span class="n">queue</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">visit</span><span class="p">(</span><span class="n">graphNode</span><span class="p">:</span> <span class="nc">GraphNode</span><span class="p">?,</span> <span class="n">action</span><span class="p">:</span> <span class="p">(</span><span class="nc">GraphNode</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nc">Unit</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">graphNode</span><span class="o">?.</span><span class="nf">let</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">data class</span> <span class="nc">GraphNode</span><span class="p">(</span>
+    <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+    <span class="kd">var</span> <span class="py">children</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">GraphNode</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">mutableListOf</span><span class="p">(),</span>
+    <span class="kd">var</span> <span class="py">isVisited</span><span class="p">:</span> <span class="nc">Boolean</span> <span class="p">=</span> <span class="k">false</span>
+<span class="p">)</span>
+
+</code></pre></div></div>
 
         
       </section>
