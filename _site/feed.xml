@@ -1,4 +1,93 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-18T23:52:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Seroo’s Blog</title><subtitle></subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><entry><title type="html">자료구조 - 그래프</title><link href="http://localhost:4000/datastructure/graph" rel="alternate" type="text/html" title="자료구조 - 그래프" /><published>2020-02-14T00:00:00+09:00</published><updated>2020-02-14T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/graph</id><content type="html" xml:base="http://localhost:4000/datastructure/graph">&lt;h1 id=&quot;그래프graph&quot;&gt;그래프(Graph)&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-23T00:52:22+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Seroo’s Blog</title><subtitle></subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><entry><title type="html">Android Activity - 1</title><link href="http://localhost:4000/android/activity" rel="alternate" type="text/html" title="Android Activity - 1" /><published>2020-02-20T00:00:00+09:00</published><updated>2020-02-20T00:00:00+09:00</updated><id>http://localhost:4000/android/android-activity-01</id><content type="html" xml:base="http://localhost:4000/android/activity">&lt;h1 id=&quot;activity&quot;&gt;Activity&lt;/h1&gt;
+
+&lt;p&gt;Activity는 한 Application에서 다른 Application의 Activity를 호출하면 &lt;b&gt;호출된&lt;/b&gt; Application Activity를 &lt;b&gt;호출한&lt;/b&gt; Application의 Acitivty처럼 사용할 수 있는 패러다임을 중심으로 만들어졌다. 이렇게 Activity는 사용자의 상호작용을 중심으로 여러 진입지점을 제공한다.&lt;/p&gt;
+
+&lt;p&gt;또한, Activity는 화면(Screen)보다 작거나, 다른 Window위에 나타날 수 있는 Window를 제공하고 있으며, 이 Window는 User Interface를 그려 화면을 채운다.&lt;/p&gt;
+
+&lt;p&gt;이처럼 Activity는 Android Component중 가장 중요한 역할을 맡고 있다. Activity를 관리하려면 Manifest에 등록해야 하며, Lifecycle과 &lt;a href=&quot;https://gyooha.github.io/seroo/android/backstack&quot;&gt;Backstack&lt;/a&gt;을 적절하게 관리해야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;manifest&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;application&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;activity&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.ExampleActivity&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+      ...
+  &lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;/application ... &amp;gt;
+  ...
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/manifest &amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;매니페스트(Manifest)에 위와 &lt;application&gt; 안에 &lt;activity&gt; 태그를 이용하여 등록이 가능하다.&lt;/activity&gt;&lt;/application&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;activity&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.ExampleActivity&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:icon=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@drawable/app_icon&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;intent-filter&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;action&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.intent.action.SEND&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;category&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.intent.category.DEFAULT&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;data&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:mimeType=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/plain&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/intent-filter&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/activity&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위와 같이 intent-filter 설정도 가능하다. 자세한 내용은 다음 Intent component 시간에 하도록 하겠다.&lt;/p&gt;
+
+&lt;h2 id=&quot;activity-lifecycle&quot;&gt;Activity Lifecycle&lt;/h2&gt;
+
+&lt;h3 id=&quot;oncreate&quot;&gt;onCreate&lt;/h3&gt;
+
+&lt;p&gt;Activity가 생성되면 가장 먼저 불리게 되는 콜백함수 이다. 그래서 가장 먼저 구현해야 하며, setContentView 메소드를 이용하여 layout을 정의해야 하고, list 등의 데이터를 View에 bind 시켜줘야 한다. onCreate 다음 콜백은 항상 onStart 이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;onstart&quot;&gt;onStart&lt;/h3&gt;
+
+&lt;p&gt;onStart 콜백은 Activity가 시작 상태에 들어와있다는 뜻이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시작상태란? - Activity가 Foreground에 와서 사용자와 상호작용할 준비가 완료 됐다는 의미 이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;onresume&quot;&gt;onResume&lt;/h3&gt;
+
+&lt;p&gt;onResume 콜백이 시작되면 해당 Activity가 Activity Stack의 Top에 와있다는 것이며, 사용자와 상호작용을 시작했다는 뜻이다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;onPause 콜백은 항상 onResume 다음에 불린다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;onpause&quot;&gt;onPause&lt;/h3&gt;
+
+&lt;p&gt;onPause 콜백이 시작되면 해당 Activity가 포커스를 잃고 Pause 상태에 들어갔다는 의미이다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;onPause 콜백이 호출되면 Activity는 부분적으로 보일순 있지만, 그러나 대부분 해당 Activity 떠난다는 의미이며, 다음콜백(onResume, onStop)을 호출하게 된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;주의사항 - onPause에서는 user data를 저장하거나, Network Call을 하거나, database transaction 작업을 하지 않는것을 권장한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;onstop&quot;&gt;onStop&lt;/h3&gt;
+
+&lt;p&gt;onStop 콜백이 시작되면 해당 Activity의 UI가 더이상 사용자에게 보이지 않는다는 것을 의미한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;대부분 이전 Activity는 파괴되고, 새로운 Activity는 생성중 이거나, 존재하는 Activity가 Resume 상태로 돌입하여 stop된 Activity를 덮는 행동을 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;onrestart&quot;&gt;onRestart&lt;/h3&gt;
+
+&lt;p&gt;onRestart 콜백은 Activity가 Stop 상태에서 다시 재시작 될 때 호출된다. Activity가 중지될 때의 상태를 복원한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;다음 콜백은 항상 onStart 이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;ondestroy&quot;&gt;onDestroy&lt;/h3&gt;
+&lt;p&gt;onDestroy 콜백은 Activity가 마지막 한번만 받게 된다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;onDestroy에서는 Activity 또는 Activity를 포함하는 프로세스가 파괴될 때 resource를 해제하기 위해 구현된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;참조&quot;&gt;참조&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://developer.android.com/reference/android/app/Activity&lt;/li&gt;
+  &lt;li&gt;https://developer.android.com/guide/components/activities/intro-activities&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Android" /><category term="Activity" /><summary type="html">Activity</summary></entry><entry><title type="html">자료구조 - 그래프</title><link href="http://localhost:4000/datastructure/graph" rel="alternate" type="text/html" title="자료구조 - 그래프" /><published>2020-02-14T00:00:00+09:00</published><updated>2020-02-14T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/graph</id><content type="html" xml:base="http://localhost:4000/datastructure/graph">&lt;h1 id=&quot;그래프graph&quot;&gt;그래프(Graph)&lt;/h1&gt;
 
 &lt;p&gt;그래프는 단순히 노드와 노드 사이를 연결한 것을 하나로 모아 놓은 것과 같다.&lt;/p&gt;
 
@@ -199,85 +288,7 @@
     &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;isVisited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Boolean&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="Graph" /><summary type="html">그래프(Graph)</summary></entry><entry><title type="html">자료구조 - 트리(1)</title><link href="http://localhost:4000/datastructure/tree01" rel="alternate" type="text/html" title="자료구조 - 트리(1)" /><published>2020-02-10T00:00:00+09:00</published><updated>2020-02-10T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/tree01</id><content type="html" xml:base="http://localhost:4000/datastructure/tree01">&lt;h1 id=&quot;트리tree&quot;&gt;트리(Tree)&lt;/h1&gt;
-
-&lt;p&gt;트리는 그래프의 일종으로, 노드로 이루어진 자료구조 이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;트리는 하나의 루트 노드를 갖는다. (사실 그래프 이론상 꼭 하나의 노드일 필요는 없지만, 대부분 사용하는 트리에서는 맞는 말이다.)&lt;/li&gt;
-  &lt;li&gt;루트 노드는 0개 이상의 자식 노드를 가지고 있다.&lt;/li&gt;
-  &lt;li&gt;그 자식 노드는 또 0개 이상의 자식 노드를 가지고 있고, 이는 계속 반복적으로 정의 된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;트리는 &lt;b&gt;사이클&lt;/b&gt;이 존재할 수 &lt;b&gt;없다&lt;/b&gt;. 노드들은 &lt;b&gt;특정 순서&lt;/b&gt;로 &lt;b&gt;나열될 수도 있고&lt;/b&gt; 그럴 수 &lt;b&gt;없을 수도&lt;/b&gt; 있다. 각 노드는 어떤 자료형으로도 표현 가능하다. 각 노드는 &lt;b&gt;부모 노드&lt;/b&gt;로의 연결이 &lt;b&gt;있을 수도&lt;/b&gt; 있고 &lt;b&gt;없을 수도&lt;/b&gt; 있다.&lt;/p&gt;
-
-&lt;p&gt;노드 클래스를 아주 간단하게 정의하면 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MutableList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Tree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;트리 및 그래프는 대부분 세부사항이 모호하거나 가정 자체가 틀린 경우가 많으니 여러 이슈들에 대해 유의하자.&lt;/p&gt;
-
-&lt;h2 id=&quot;트리의-종류&quot;&gt;트리의 종류&lt;/h2&gt;
-
-&lt;p&gt;이진 트리는 각 노드가 최대 두 개의 자식을 갖는 트리를 말한다. 모든 트리가 이진트리는 아니며, 삼진 트리, 사진 트리 등등 여러 종류의 트리들이 있다. 아래와 같은 트리는 이진트리가 아니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_three_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;이진트리binary-tree와-이진탐색트리binary-search-tree&quot;&gt;이진트리(binary tree)와 이진탐색트리(binary search tree)&lt;/h2&gt;
-
-&lt;p&gt;이진탐색트리는 다음과 같은 특정 순서를 따르는 속성이 있는 이진 트리를 말한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;모든 왼쪽 자식들 &amp;lt;= n &amp;lt; 모든 오른쪽 자식들 속성은 모든 노드 n에 대해 반드시 참이어야 한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;이진탐색트리&quot;&gt;이진탐색트리&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_binary_search_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;이진탐색트리가-아님&quot;&gt;이진탐색트리가 아님&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_not_binary_search_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위의 트리는 이진탐색트리가 될 수 없다. 왜냐하면 8보다 큰 값이 왼쪽 노드에 속해있기 때문이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;트리의-균형-비균형&quot;&gt;트리의 균형 비균형&lt;/h2&gt;
-
-&lt;p&gt;많은 트리가 균형이 잡혀있긴 하지만, 모든 트리가 균형이 잡혀있는것은 아니다. 여기서 균형을 잡는다는 의미는 왼쪽과 오른쪽 부분 트리의 크기가 완전히 같게 하는 것을 의미하지 않는다.&lt;/p&gt;
-
-&lt;p&gt;균형 트리인지 확인하는 방법 중 하나는 “너무 불균형한건 아닌지” 확인하는 것 이상의 의미를 갖는다. O(log N) 시간에 insert와 find를 할 수 있을 정도로 균형이 잘 잡혀 있기만 하면 된다. 꼭 완벽하게 균형 잡혀 있을 필요는 없다.&lt;/p&gt;
-
-&lt;h4 id=&quot;완전-이진-트리complete-binary-tree&quot;&gt;완전 이진 트리(complete binary tree)&lt;/h4&gt;
-
-&lt;p&gt;완전 이진 트리는 트리의 모든 높이에서 노드가 꽉 차 있는 이진 트리를 말한다. 마지막 단계는 꽉 차 있지 않아도 되지만 노드가 왼쪽에서 오른쪽으로 채워져야 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_complete_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;완전-이진-트리가-아님&quot;&gt;완전 이진 트리가 아님&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_not_complete_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;전-이진-트리full-binary-tree&quot;&gt;전 이진 트리(full binary tree)&lt;/h4&gt;
-
-&lt;p&gt;전 이진 트리는 모든 노드의 자식이 없거나 정확히 두 개 있는 경우를 말한다. 즉, 자식이 하나만 있는 노드가 존재해서는 안 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_full_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;전-이진-트리가-아님&quot;&gt;전 이진 트리가 아님&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_not_full_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;포화-이진-트리perfect-binary-tree&quot;&gt;포화 이진 트리(perfect binary tree)&lt;/h4&gt;
-
-&lt;p&gt;포화 이진 트리는 전 이진 트리이면서 완전 이진 트리인 경우를 말한다. 모든 말단 노드는 같은 높이에 있어야 하며, 마지막 단계에서 노드의 개수가 최대가 되어야 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_perfect_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;트리의 경우는 내용이 다른 자료구조보다 많아서 2단계로 끊어갈려고 한다. 다음 포스팅에서는 트리의 순회 방식과 최소 힙, 최대 힙, 삽입, 최소 원소 뽑아내기 및 구현 등등과 같은 내용을 다룰려고 한다.&lt;/p&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="Tree" /><summary type="html">트리(Tree)</summary></entry><entry><title type="html">자료구조 - 트리(2)</title><link href="http://localhost:4000/datastructure/tree02" rel="alternate" type="text/html" title="자료구조 - 트리(2)" /><published>2020-02-10T00:00:00+09:00</published><updated>2020-02-10T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/tree02</id><content type="html" xml:base="http://localhost:4000/datastructure/tree02">&lt;h1 id=&quot;이진-트리-순회&quot;&gt;이진 트리 순회&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="Graph" /><summary type="html">그래프(Graph)</summary></entry><entry><title type="html">자료구조 - 트리(2)</title><link href="http://localhost:4000/datastructure/tree02" rel="alternate" type="text/html" title="자료구조 - 트리(2)" /><published>2020-02-10T00:00:00+09:00</published><updated>2020-02-10T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/tree02</id><content type="html" xml:base="http://localhost:4000/datastructure/tree02">&lt;h1 id=&quot;이진-트리-순회&quot;&gt;이진 트리 순회&lt;/h1&gt;
 
 &lt;p&gt;트리는 아래와 같은 순회 방식이 있다.&lt;/p&gt;
 
@@ -479,7 +490,85 @@
         &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="Tree" /><summary type="html">이진 트리 순회</summary></entry><entry><title type="html">3개의 합</title><link href="http://localhost:4000/algorithm/3sum" rel="alternate" type="text/html" title="3개의 합" /><published>2020-02-09T00:00:00+09:00</published><updated>2020-02-09T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/3sum</id><content type="html" xml:base="http://localhost:4000/algorithm/3sum">&lt;p&gt;하나의 리스트가 주어진다. 이 리스트 안의 임의의 값 3개를 골라 더해서 0이 되는 &lt;b&gt;리스트들&lt;/b&gt;을 찾아라.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="Tree" /><summary type="html">이진 트리 순회</summary></entry><entry><title type="html">자료구조 - 트리(1)</title><link href="http://localhost:4000/datastructure/tree01" rel="alternate" type="text/html" title="자료구조 - 트리(1)" /><published>2020-02-10T00:00:00+09:00</published><updated>2020-02-10T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/tree01</id><content type="html" xml:base="http://localhost:4000/datastructure/tree01">&lt;h1 id=&quot;트리tree&quot;&gt;트리(Tree)&lt;/h1&gt;
+
+&lt;p&gt;트리는 그래프의 일종으로, 노드로 이루어진 자료구조 이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;트리는 하나의 루트 노드를 갖는다. (사실 그래프 이론상 꼭 하나의 노드일 필요는 없지만, 대부분 사용하는 트리에서는 맞는 말이다.)&lt;/li&gt;
+  &lt;li&gt;루트 노드는 0개 이상의 자식 노드를 가지고 있다.&lt;/li&gt;
+  &lt;li&gt;그 자식 노드는 또 0개 이상의 자식 노드를 가지고 있고, 이는 계속 반복적으로 정의 된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;트리는 &lt;b&gt;사이클&lt;/b&gt;이 존재할 수 &lt;b&gt;없다&lt;/b&gt;. 노드들은 &lt;b&gt;특정 순서&lt;/b&gt;로 &lt;b&gt;나열될 수도 있고&lt;/b&gt; 그럴 수 &lt;b&gt;없을 수도&lt;/b&gt; 있다. 각 노드는 어떤 자료형으로도 표현 가능하다. 각 노드는 &lt;b&gt;부모 노드&lt;/b&gt;로의 연결이 &lt;b&gt;있을 수도&lt;/b&gt; 있고 &lt;b&gt;없을 수도&lt;/b&gt; 있다.&lt;/p&gt;
+
+&lt;p&gt;노드 클래스를 아주 간단하게 정의하면 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MutableList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Tree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;트리 및 그래프는 대부분 세부사항이 모호하거나 가정 자체가 틀린 경우가 많으니 여러 이슈들에 대해 유의하자.&lt;/p&gt;
+
+&lt;h2 id=&quot;트리의-종류&quot;&gt;트리의 종류&lt;/h2&gt;
+
+&lt;p&gt;이진 트리는 각 노드가 최대 두 개의 자식을 갖는 트리를 말한다. 모든 트리가 이진트리는 아니며, 삼진 트리, 사진 트리 등등 여러 종류의 트리들이 있다. 아래와 같은 트리는 이진트리가 아니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_three_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;이진트리binary-tree와-이진탐색트리binary-search-tree&quot;&gt;이진트리(binary tree)와 이진탐색트리(binary search tree)&lt;/h2&gt;
+
+&lt;p&gt;이진탐색트리는 다음과 같은 특정 순서를 따르는 속성이 있는 이진 트리를 말한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;모든 왼쪽 자식들 &amp;lt;= n &amp;lt; 모든 오른쪽 자식들 속성은 모든 노드 n에 대해 반드시 참이어야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;이진탐색트리&quot;&gt;이진탐색트리&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_binary_search_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;이진탐색트리가-아님&quot;&gt;이진탐색트리가 아님&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_not_binary_search_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 트리는 이진탐색트리가 될 수 없다. 왜냐하면 8보다 큰 값이 왼쪽 노드에 속해있기 때문이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;트리의-균형-비균형&quot;&gt;트리의 균형 비균형&lt;/h2&gt;
+
+&lt;p&gt;많은 트리가 균형이 잡혀있긴 하지만, 모든 트리가 균형이 잡혀있는것은 아니다. 여기서 균형을 잡는다는 의미는 왼쪽과 오른쪽 부분 트리의 크기가 완전히 같게 하는 것을 의미하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;균형 트리인지 확인하는 방법 중 하나는 “너무 불균형한건 아닌지” 확인하는 것 이상의 의미를 갖는다. O(log N) 시간에 insert와 find를 할 수 있을 정도로 균형이 잘 잡혀 있기만 하면 된다. 꼭 완벽하게 균형 잡혀 있을 필요는 없다.&lt;/p&gt;
+
+&lt;h4 id=&quot;완전-이진-트리complete-binary-tree&quot;&gt;완전 이진 트리(complete binary tree)&lt;/h4&gt;
+
+&lt;p&gt;완전 이진 트리는 트리의 모든 높이에서 노드가 꽉 차 있는 이진 트리를 말한다. 마지막 단계는 꽉 차 있지 않아도 되지만 노드가 왼쪽에서 오른쪽으로 채워져야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_complete_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;완전-이진-트리가-아님&quot;&gt;완전 이진 트리가 아님&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_not_complete_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;전-이진-트리full-binary-tree&quot;&gt;전 이진 트리(full binary tree)&lt;/h4&gt;
+
+&lt;p&gt;전 이진 트리는 모든 노드의 자식이 없거나 정확히 두 개 있는 경우를 말한다. 즉, 자식이 하나만 있는 노드가 존재해서는 안 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_full_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;전-이진-트리가-아님&quot;&gt;전 이진 트리가 아님&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_not_full_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;포화-이진-트리perfect-binary-tree&quot;&gt;포화 이진 트리(perfect binary tree)&lt;/h4&gt;
+
+&lt;p&gt;포화 이진 트리는 전 이진 트리이면서 완전 이진 트리인 경우를 말한다. 모든 말단 노드는 같은 높이에 있어야 하며, 마지막 단계에서 노드의 개수가 최대가 되어야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_perfect_binary_tree.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;트리의 경우는 내용이 다른 자료구조보다 많아서 2단계로 끊어갈려고 한다. 다음 포스팅에서는 트리의 순회 방식과 최소 힙, 최대 힙, 삽입, 최소 원소 뽑아내기 및 구현 등등과 같은 내용을 다룰려고 한다.&lt;/p&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="Tree" /><summary type="html">트리(Tree)</summary></entry><entry><title type="html">3개의 합</title><link href="http://localhost:4000/algorithm/3sum" rel="alternate" type="text/html" title="3개의 합" /><published>2020-02-09T00:00:00+09:00</published><updated>2020-02-09T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/3sum</id><content type="html" xml:base="http://localhost:4000/algorithm/3sum">&lt;p&gt;하나의 리스트가 주어진다. 이 리스트 안의 임의의 값 3개를 골라 더해서 0이 되는 &lt;b&gt;리스트들&lt;/b&gt;을 찾아라.&lt;/p&gt;
 
 &lt;h2 id=&quot;조건&quot;&gt;조건&lt;/h2&gt;
 
@@ -617,35 +706,61 @@
 &lt;h2 id=&quot;참조&quot;&gt;참조&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;https://leetcode.com/problems/container-with-most-water/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Algorithm" /><category term="LeetCode" /><summary type="html">물을 담은 용기가 있다. 물을 담은 용기의 어느 세로 라인을 각각의 엔드포인트로 잡아야 물을 가장 많이 채울 수 있는지 찾아라!</summary></entry><entry><title type="html">자료구조 - 해쉬테이블</title><link href="http://localhost:4000/datastructure/hash_table" rel="alternate" type="text/html" title="자료구조 - 해쉬테이블" /><published>2020-02-03T00:00:00+09:00</published><updated>2020-02-03T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/hash-table</id><content type="html" xml:base="http://localhost:4000/datastructure/hash_table">&lt;h1 id=&quot;해쉬테이블hashtable&quot;&gt;해쉬테이블(HashTable)&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Algorithm" /><category term="LeetCode" /><summary type="html">물을 담은 용기가 있다. 물을 담은 용기의 어느 세로 라인을 각각의 엔드포인트로 잡아야 물을 가장 많이 채울 수 있는지 찾아라!</summary></entry><entry><title type="html">자료구조 - 스택</title><link href="http://localhost:4000/datastructure/stack" rel="alternate" type="text/html" title="자료구조 - 스택" /><published>2020-02-03T00:00:00+09:00</published><updated>2020-02-03T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/stack</id><content type="html" xml:base="http://localhost:4000/datastructure/stack">&lt;h1 id=&quot;스택stack&quot;&gt;스택(Stack)&lt;/h1&gt;
 
-&lt;p&gt;해쉬테이블은 효율적인 &lt;b&gt;탐색&lt;/b&gt;을 위한 자료구조로서 키를 값에 대응시킨다. 가장 기본적인 해쉬테이블의 구현은 해쉬 코드와 연결리스트, 배열만 있으면 된다.&lt;/p&gt;
+&lt;p&gt;스택 자료구조는 말 그대로 쌓아 올린다는 의미이다. 스택은 LIFO(Last In First Out) 구조로 접시를 쌓아 두었다가 사용할 때와 같이 가장 최근에 스택에 추가한 항목이 가장 먼저 제거될 항목이라는 것이다.&lt;/p&gt;
 
-&lt;h2 id=&quot;방법&quot;&gt;방법&lt;/h2&gt;
+&lt;h2 id=&quot;사용-함수&quot;&gt;사용 함수&lt;/h2&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;키의 해쉬 코드를 계산한다&lt;/li&gt;
-  &lt;li&gt;hash(key) % arrayLegnth와 같은 방법으로 해쉬 코드를 이용해 배열의 인덱스를 구한다.&lt;/li&gt;
-  &lt;li&gt;배열의 각 인덱스에는 키와 값으로 이루어진 연결리스트가 존재한다.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;스택은 아래와 같은 함수가 있다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;항상 충돌에 대비해야 한다. 
+&lt;ul&gt;
+  &lt;li&gt;pop() - 스택에서 가장 위에 있는 항목을 제거한다.&lt;/li&gt;
+  &lt;li&gt;push(item) - 스택의 가장 위에 항목을 추가한다.&lt;/li&gt;
+  &lt;li&gt;peek() - 스택의 가장 위에 있는 항목을 가져온다.&lt;/li&gt;
+  &lt;li&gt;isEmpty() - 스택이 비어있는 경우 true를 반환한다.&lt;/li&gt;
+&lt;/ul&gt;
 
-여기서 말하는 충돌이란 서로 다른 두 개의 키가 같은 해쉬 코드를 가리키거나 서로 다른 두 개의 해쉬 코드가 같은 인덱스를 가르키는 것을 의미한다.
+&lt;h2 id=&quot;구현&quot;&gt;구현&lt;/h2&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;sealed&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nothing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;EmptyStackException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;peek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;EmptyStackException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Boolean&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
+&lt;h2 id=&quot;추가로&quot;&gt;추가로..&lt;/h2&gt;
 
-&lt;p&gt;키에 상응하는 값을 찾기 위해선 위의 과정을 반복해야 한다. 주어진 키로 해쉬 코드를 계산하고, 이 해쉬 코드를 이용해 인덱스를 계산한다. 그 다음엔 키에 상응하는 값을 연결리스트에서 탐색한다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;충돌이 자주 발생한다면, 최악의 경우 O(N)이 된다. 하지만 일반적으로 해쉬에 대해 이야기할 때는 충돌을 최소화하도록 잘 구현된 경우를 가정하는데 이 경우에 탐색 시간은 O(1)이다.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_hash_table.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;다른방법&quot;&gt;다른방법?&lt;/h2&gt;
-
-&lt;p&gt;또 다른 구현법으로는 균형 이진 탐색 트리를 사용하는 방법이 있다. 이 경우에 탐색 시간은 O(log N)이 된다. 이 방법은 크기가 큰 배열을 미리 할당해 놓지 않아도 되기 때문에 작은 공간을 사용한다는 장점이 있다. 또한 키의 집합을 특정 순서로 차례대로 접근할 수 있는데, 어떤 경우에는 이런 기능이 유용하기도 한다.&lt;/p&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="HashTable" /><summary type="html">해쉬테이블(HashTable)</summary></entry><entry><title type="html">자료구조 - 연결리스트</title><link href="http://localhost:4000/datastructure/linked_list" rel="alternate" type="text/html" title="자료구조 - 연결리스트" /><published>2020-02-03T00:00:00+09:00</published><updated>2020-02-03T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/linked-list</id><content type="html" xml:base="http://localhost:4000/datastructure/linked_list">&lt;h1 id=&quot;연결리스트linkedlist&quot;&gt;연결리스트(LinkedList)&lt;/h1&gt;
+&lt;p&gt;스택이 유용한 경우는 재귀 알고리즘을 사용할 때다. 재귀적으로 함수를 호출해야 하는 경우에 임시 데이터를 스택에 넣어 주고, 재귀로 인해 쌓인 스택을 하나씩 pop하면서 임시 데이터를 스택에서 제거해야 한다. 스택은 이러한 행위를 직관적으로 가능하게 해준다.&lt;/p&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="Stack" /><summary type="html">스택(Stack)</summary></entry><entry><title type="html">자료구조 - 연결리스트</title><link href="http://localhost:4000/datastructure/linked_list" rel="alternate" type="text/html" title="자료구조 - 연결리스트" /><published>2020-02-03T00:00:00+09:00</published><updated>2020-02-03T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/linked-list</id><content type="html" xml:base="http://localhost:4000/datastructure/linked_list">&lt;h1 id=&quot;연결리스트linkedlist&quot;&gt;연결리스트(LinkedList)&lt;/h1&gt;
 
 &lt;p&gt;연결리스트는 차례로 연결된 노드를 표현해주는 자료구조이다. 연결리스트는 두 종류가 있다.&lt;/p&gt;
 
@@ -765,113 +880,32 @@
 
 &lt;h2 id=&quot;주의&quot;&gt;주의&lt;/h2&gt;
 
-&lt;p&gt;노드 클래스만 있는 단방향 연결리스트에서 여러 객체가 연결리스트를 참조하고 있을 때 헤드가 바뀔 경우 특정 노드들이 이전 헤드를 가르키고 있을 수도 있다. 이러한 경우 위와 같이 Node 클래스를 포함하는 LinkedList 객체를 만드는 것이 좋다.&lt;/p&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="LinkedList" /><summary type="html">연결리스트(LinkedList)</summary></entry><entry><title type="html">자료구조 - 스택</title><link href="http://localhost:4000/datastructure/stack" rel="alternate" type="text/html" title="자료구조 - 스택" /><published>2020-02-03T00:00:00+09:00</published><updated>2020-02-03T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/stack</id><content type="html" xml:base="http://localhost:4000/datastructure/stack">&lt;h1 id=&quot;스택stack&quot;&gt;스택(Stack)&lt;/h1&gt;
+&lt;p&gt;노드 클래스만 있는 단방향 연결리스트에서 여러 객체가 연결리스트를 참조하고 있을 때 헤드가 바뀔 경우 특정 노드들이 이전 헤드를 가르키고 있을 수도 있다. 이러한 경우 위와 같이 Node 클래스를 포함하는 LinkedList 객체를 만드는 것이 좋다.&lt;/p&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="LinkedList" /><summary type="html">연결리스트(LinkedList)</summary></entry><entry><title type="html">자료구조 - 해쉬테이블</title><link href="http://localhost:4000/datastructure/hash_table" rel="alternate" type="text/html" title="자료구조 - 해쉬테이블" /><published>2020-02-03T00:00:00+09:00</published><updated>2020-02-03T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/hash-table</id><content type="html" xml:base="http://localhost:4000/datastructure/hash_table">&lt;h1 id=&quot;해쉬테이블hashtable&quot;&gt;해쉬테이블(HashTable)&lt;/h1&gt;
 
-&lt;p&gt;스택 자료구조는 말 그대로 쌓아 올린다는 의미이다. 스택은 LIFO(Last In First Out) 구조로 접시를 쌓아 두었다가 사용할 때와 같이 가장 최근에 스택에 추가한 항목이 가장 먼저 제거될 항목이라는 것이다.&lt;/p&gt;
+&lt;p&gt;해쉬테이블은 효율적인 &lt;b&gt;탐색&lt;/b&gt;을 위한 자료구조로서 키를 값에 대응시킨다. 가장 기본적인 해쉬테이블의 구현은 해쉬 코드와 연결리스트, 배열만 있으면 된다.&lt;/p&gt;
 
-&lt;h2 id=&quot;사용-함수&quot;&gt;사용 함수&lt;/h2&gt;
+&lt;h2 id=&quot;방법&quot;&gt;방법&lt;/h2&gt;
 
-&lt;p&gt;스택은 아래와 같은 함수가 있다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;키의 해쉬 코드를 계산한다&lt;/li&gt;
+  &lt;li&gt;hash(key) % arrayLegnth와 같은 방법으로 해쉬 코드를 이용해 배열의 인덱스를 구한다.&lt;/li&gt;
+  &lt;li&gt;배열의 각 인덱스에는 키와 값으로 이루어진 연결리스트가 존재한다.&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;pop() - 스택에서 가장 위에 있는 항목을 제거한다.&lt;/li&gt;
-  &lt;li&gt;push(item) - 스택의 가장 위에 항목을 추가한다.&lt;/li&gt;
-  &lt;li&gt;peek() - 스택의 가장 위에 있는 항목을 가져온다.&lt;/li&gt;
-  &lt;li&gt;isEmpty() - 스택이 비어있는 경우 true를 반환한다.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;항상 충돌에 대비해야 한다. 
 
-&lt;h2 id=&quot;구현&quot;&gt;구현&lt;/h2&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;sealed&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nothing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;EmptyStackException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;peek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;EmptyStackException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Boolean&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StackNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+여기서 말하는 충돌이란 서로 다른 두 개의 키가 같은 해쉬 코드를 가리키거나 서로 다른 두 개의 해쉬 코드가 같은 인덱스를 가르키는 것을 의미한다.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;추가로&quot;&gt;추가로..&lt;/h2&gt;
+&lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
 
-&lt;p&gt;스택이 유용한 경우는 재귀 알고리즘을 사용할 때다. 재귀적으로 함수를 호출해야 하는 경우에 임시 데이터를 스택에 넣어 주고, 재귀로 인해 쌓인 스택을 하나씩 pop하면서 임시 데이터를 스택에서 제거해야 한다. 스택은 이러한 행위를 직관적으로 가능하게 해준다.&lt;/p&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="Stack" /><summary type="html">스택(Stack)</summary></entry><entry><title type="html">자료구조 - 큐</title><link href="http://localhost:4000/datastructure/queue" rel="alternate" type="text/html" title="자료구조 - 큐" /><published>2020-02-03T00:00:00+09:00</published><updated>2020-02-03T00:00:00+09:00</updated><id>http://localhost:4000/datastructure/queue</id><content type="html" xml:base="http://localhost:4000/datastructure/queue">&lt;h1 id=&quot;큐queue&quot;&gt;큐(Queue)&lt;/h1&gt;
+&lt;p&gt;키에 상응하는 값을 찾기 위해선 위의 과정을 반복해야 한다. 주어진 키로 해쉬 코드를 계산하고, 이 해쉬 코드를 이용해 인덱스를 계산한다. 그 다음엔 키에 상응하는 값을 연결리스트에서 탐색한다.&lt;/p&gt;
 
-&lt;p&gt;큐는 FIFO(First In First Out) 구조로 매표소 앞에 서 있는 사람들이 움직이는 형태와 같이, 큐에 저장되는 순서대로 큐에서 제거된다.&lt;/p&gt;
-
-&lt;h2 id=&quot;사용-함수&quot;&gt;사용 함수&lt;/h2&gt;
-
-&lt;p&gt;큐는 아래와 같은 함수가 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;add(item) : 큐의 마지막에 item을 추가한다.&lt;/li&gt;
-  &lt;li&gt;remove() : 큐의 첫 번째 항목을 제거한다.&lt;/li&gt;
-  &lt;li&gt;peek() : 큐의 가장 첫번째 항목을 반환한다.&lt;/li&gt;
-  &lt;li&gt;isEmpty() : 큐가 비어있으면 true를 반환한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;큐queue-구현&quot;&gt;큐(Queue) 구현&lt;/h2&gt;
-
-&lt;p&gt;큐 또한 연결리스트로 구현할 수 있다. 연결리스트의 반대 방향에서 항목을 추가하거나 제거하도록 구현한다면 근본적으로 큐와 같다.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;data class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;QueueNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;QueueNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;QueueNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;QueueNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;newNode&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;QueueNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newNode&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newNode&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;peek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NoSuchElementException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NoSuchElementException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;충돌이 자주 발생한다면, 최악의 경우 O(N)이 된다. 하지만 일반적으로 해쉬에 대해 이야기할 때는 충돌을 최소화하도록 잘 구현된 경우를 가정하는데 이 경우에 탐색 시간은 O(1)이다.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;추가로&quot;&gt;추가로..&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/posts/image_hash_table.png&quot; alt=&quot;imageHashTable&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;큐에서 처음과 마지막 노드를 갱신할 때 실수가 나오기 쉽다. 코딩할 때 반드시 이 부분을 확인하고 넘어가길 바란다.&lt;/p&gt;
+&lt;h2 id=&quot;다른방법&quot;&gt;다른방법?&lt;/h2&gt;
 
-&lt;p&gt;큐는 너비우선탐색(BFS : breadth first search)을 사용하거나 캐시를 구현하는 경우에 사용된다.&lt;/p&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="Queue" /><summary type="html">큐(Queue)</summary></entry></feed>
+&lt;p&gt;또 다른 구현법으로는 균형 이진 탐색 트리를 사용하는 방법이 있다. 이 경우에 탐색 시간은 O(log N)이 된다. 이 방법은 크기가 큰 배열을 미리 할당해 놓지 않아도 되기 때문에 작은 공간을 사용한다는 장점이 있다. 또한 키의 집합을 특정 순서로 차례대로 접근할 수 있는데, 어떤 경우에는 이런 기능이 유용하기도 한다.&lt;/p&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;nil, &quot;bio&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="Datastructure" /><category term="HashTable" /><summary type="html">해쉬테이블(HashTable)</summary></entry></feed>

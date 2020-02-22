@@ -1,8 +1,8 @@
 var store = [{
-        "title": "나를 헷갈리게 하는 안드로이드 문제들 - 1(백스택)",
+        "title": "Android Backstack - 1",
         "excerpt":"Android 백스택 안드로이드에는 여러가지 launchMode가 존재한다. 이 launchMode에 따라서 안드로이드의 Activity의 백스택의 쌓이는 방식이 다르다. Standard &lt;application&gt; &lt;activity android:name=\".MainActivity\"&gt; &lt;intent-filter&gt; &lt;action android:name=\"android.intent.action.MAIN\" /&gt; &lt;category android:name=\"android.intent.category.LAUNCHER\" /&gt; &lt;/intent-filter&gt; &lt;/activity&gt; &lt;activity android:name=\".B_Activity\"/&gt; &lt;activity android:name=\".C_Activity\"/&gt; &lt;activity android:name=\".D_Activity\"/&gt; &lt;/application&gt; 각 Activity에 특정 launchMode를 설정하지 않았을 때 기본적으로 standard로 설정된다. 이러한 경우 MainActivity -&gt; B_Activity로...","categories": ["Android"],
         "tags": ["Android","Activity","BackStack"],
-        "url": "http://localhost:4000/categories/android/problem01",
+        "url": "http://localhost:4000/android/backstack",
         "teaser":null},{
         "title": "캥거루",
         "excerpt":"두 마리의 캥거루가 있다. 두 마리의 캥거루는 각각 다른 라인(x1, x2)에서 시작하고 점프 거리(v1, v2)도 다르다. 두 마리의 캥거루가 만약 어느 지점에서 만날 수 있다면 “YES” 아니라면 “NO”를 출력하는 로직을 작성하라 SampleInput 0 3 4 2 SampleOutput Yes SampleInput 0 2 5 3 SampleOutput NO 문제 풀이 fun kangaroo(x1: Int,...","categories": ["Algorithm"],
@@ -58,4 +58,9 @@ var store = [{
         "excerpt":"그래프(Graph) 그래프는 단순히 노드와 노드 사이를 연결한 것을 하나로 모아 놓은 것과 같다. 이전에 포스팅한 트리도 그래프의 한 종류이다. 하지만 그렇다고 모든 그래프가 트리인 것은 아니다. 간단히 말해서 트리는 사이클이 없는 하나의 연결 그래프이다. 그래프의 특징 그래프는 방향성이 있을 수도 있고 없을 수도 있다. 그래프는 여러 개의 고립된 부분 그래프(isolated...","categories": ["Datastructure"],
         "tags": ["Datastructure","Graph"],
         "url": "http://localhost:4000/datastructure/graph",
+        "teaser":null},{
+        "title": "Android Activity - 1",
+        "excerpt":"Activity Activity는 한 Application에서 다른 Application의 Activity를 호출하면 호출된 Application Activity를 호출한 Application의 Acitivty처럼 사용할 수 있는 패러다임을 중심으로 만들어졌다. 이렇게 Activity는 사용자의 상호작용을 중심으로 여러 진입지점을 제공한다. 또한, Activity는 화면(Screen)보다 작거나, 다른 Window위에 나타날 수 있는 Window를 제공하고 있으며, 이 Window는 User Interface를 그려 화면을 채운다. 이처럼 Activity는 Android...","categories": ["Android"],
+        "tags": ["Android","Activity"],
+        "url": "http://localhost:4000/android/activity",
         "teaser":null}]
