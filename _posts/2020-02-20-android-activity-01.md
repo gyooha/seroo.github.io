@@ -10,7 +10,6 @@ categories:
 tags: 
     - Android
     - Activity
-icon: icon-html
 ---
 
 # Activity
@@ -87,5 +86,5 @@ onDestroy 콜백은 Activity가 마지막 한번만 받게 된다.
 
 # 참조
 
-* https://developer.android.com/reference/android/app/Activity
-* https://developer.android.com/guide/components/activities/intro-activities
+* [Activity document](https://developer.android.com/reference/android/app/Activity)
+* [Activity guide](https://developer.android.com/guide/components/activities/intro-activities)
