@@ -63,4 +63,9 @@ var store = [{
         "excerpt":"Activity Activity는 한 Application에서 다른 Application의 Activity를 호출하면 호출된 Application Activity를 호출한 Application의 Acitivty처럼 사용할 수 있는 패러다임을 중심으로 만들어졌다. 이렇게 Activity는 사용자의 상호작용을 중심으로 여러 진입지점을 제공한다. 또한, Activity는 화면(Screen)보다 작거나, 다른 Window위에 나타날 수 있는 Window를 제공하고 있으며, 이 Window는 User Interface를 그려 화면을 채운다. 이처럼 Activity는 Android...","categories": ["Android"],
         "tags": ["Android","Activity"],
         "url": "http://localhost:4000/android/activity",
+        "teaser":null},{
+        "title": "Android Activity - 2",
+        "excerpt":"Activity Lifecycle 이전 포스팅에서 안드로이드 Activity의 역할과 lifecycle에 대해 간단히 알아보았다. 이번 포스팅에서는 Activity lifecycle을 조금 더 자세히 알아보고자 한다. 사용자가 앱(Application)을 사용, 종료, 탐색등을 할 때 Activity의 lifecycle은 각각의 상태에 맞게 전환된다. 그에 따라 개발자는 Activity의 lifecycle에 적절한 행동을 정의 해야 하고, 잘 정의하게 되면 아래와 같은 문제를 피할...","categories": ["Android"],
+        "tags": ["Android","Activity","Activity Lifecycle"],
+        "url": "http://localhost:4000/android/activity-lifecycle",
         "teaser":null}]

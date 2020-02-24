@@ -1,0 +1,101 @@
+I",%<h1 id="activity-lifecycle">Activity Lifecycle</h1>
+
+<blockquote>
+  <p><a href="#">이전 포스팅</a>에서 안드로이드 Activity의 역할과 lifecycle에 대해 간단히 알아보았다. 이번 포스팅에서는 Activity lifecycle을 조금 더 자세히 알아보고자 한다.</p>
+</blockquote>
+
+<p>사용자가 앱(Application)을 사용, 종료, 탐색등을 할 때 Activity의 lifecycle은 각각의 상태에 맞게 전환된다. 그에 따라 개발자는 Activity의 lifecycle에 적절한 행동을 정의 해야 하고, 잘 정의하게 되면 아래와 같은 문제를 피할 수 있다.</p>
+
+<ol>
+  <li>사용자가 전화를 받거나 다른 앱으로 전환 했을 때 앱이 강제종료되는 것을 피할 수 있다.</li>
+  <li>사용자가 앱을 사용하지 않을 때, 시스템 자원을 낭비하는 것을 막을 수 있다.</li>
+  <li>사용자가 앱을 떠나 나중에 다시 돌아오게 될 때, 사용자의 현재 상태를 잃는 것을 방지할 수 있다.</li>
+  <li>사용자가 화면을 전활할 때,(가로모드, 세로모드) 사용자의 현재 상태를 잃거나, 앱이 강제종료 되는것을 방지할 수 있다.</li>
+</ol>
+
+<blockquote>
+  <p>Activity의 복잡성에 따라 lifecycle 메소드를 구현이 필요하거나 필요하지 않을 수 있지만, 더욱 안전한 앱을 위해 lifecycle 메소드를 이해하고 구현해보는것이 중요하다.</p>
+</blockquote>
+
+<p>lifecycle의 중요 메소드는 6가지가 있다. 하나씩 살펴보자.</p>
+
+<h2 id="oncreate">onCreate</h2>
+
+<p>Activity가 생성될 때 발생하는 콜백이다. Activity가 살아있을 때 단 한번만 불려서 시작을 위한 로직 대부분을 <strong>onCreate</strong> 에서 선언한다.</p>
+
+<blockquote>
+  <p>파라미터로 saveInstanceState란 Bundle 객체가 넘어오는데, 이전에 저장한 상태값이 있으면 이 파라미터로 넘어오고 아니면 null이 반환된다.</p>
+</blockquote>
+
+<p>간단한 구현을 보면 아래와 같다.</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">lateinit</span> <span class="kd">var</span> <span class="py">textView</span><span class="p">:</span> <span class="nc">TextView</span>
+
+<span class="c1">// some transient state for the activity instance</span>
+<span class="kd">var</span> <span class="py">gameState</span><span class="p">:</span> <span class="nc">String</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
+
+<span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="c1">// call the super class onCreate to complete the creation of activity like</span>
+    <span class="c1">// the view hierarchy</span>
+    <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+
+    <span class="c1">// recovering the instance state</span>
+    <span class="n">gameState</span> <span class="p">=</span> <span class="n">savedInstanceState</span><span class="o">?.</span><span class="nf">getString</span><span class="p">(</span><span class="nc">GAME_STATE_KEY</span><span class="p">)</span>
+
+    <span class="c1">// set the user interface layout for this activity</span>
+    <span class="c1">// the layout file is defined in the project res/layout/main_activity.xml file</span>
+    <span class="nf">setContentView</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">main_activity</span><span class="p">)</span>
+
+    <span class="c1">// initialize member TextView so we can manipulate it later</span>
+    <span class="n">textView</span> <span class="p">=</span> <span class="nf">findViewById</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">text_view</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// This callback is called only when there is a saved instance that is previously saved by using</span>
+<span class="c1">// onSaveInstanceState(). We restore some state in onCreate(), while we can optionally restore</span>
+<span class="c1">// other state here, possibly usable after onStart() has completed.</span>
+<span class="c1">// The savedInstanceState Bundle is same as the one used in onCreate().</span>
+<span class="k">override</span> <span class="k">fun</span> <span class="nf">onRestoreInstanceState</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="n">textView</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">savedInstanceState</span><span class="o">?.</span><span class="nf">getString</span><span class="p">(</span><span class="nc">TEXT_VIEW_KEY</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// invoked when the activity may be temporarily destroyed, save the instance state here</span>
+<span class="k">override</span> <span class="k">fun</span> <span class="nf">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="n">outState</span><span class="o">?.</span><span class="nf">run</span> <span class="p">{</span>
+        <span class="nf">putString</span><span class="p">(</span><span class="nc">GAME_STATE_KEY</span><span class="p">,</span> <span class="n">gameState</span><span class="p">)</span>
+        <span class="nf">putString</span><span class="p">(</span><span class="nc">TEXT_VIEW_KEY</span><span class="p">,</span> <span class="n">textView</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="nf">toString</span><span class="p">())</span>
+    <span class="p">}</span>
+    <span class="c1">// call superclass to save any view hierarchy</span>
+    <span class="k">super</span><span class="p">.</span><span class="nf">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>setContentView에 layout xml을 전달하는 대신, 새로운 View를 만들어 ViewGroup에 추가하고 ViewGroup의 root를 setContentView에 전달하는 방법을 사용할 수 있다. 자세한 내용은 <a href="https://developer.android.com/guide/topics/ui">여길</a> 참조하자</p>
+</blockquote>
+
+<h2 id="onstart">onStart</h2>
+
+<p>Activity가 Start 상태로 진입했을 때 발생하는 콜백이다. <strong>onStart</strong> 콜백이 발생했을 때는 해당 Activity가 Foreground에 진입하여 사용자와 상호작용을 위한 준비를 하기 때문에 사용자에게 Activity를 보여준다.</p>
+
+<blockquote>
+  <p>onStart 콜백은 매우 빠르게 완료되고 바로 다음 상태인 Resume 상태로 넘어간다.</p>
+</blockquote>
+
+<h2 id="onresume">onResume</h2>
+
+<p>Activity가 Resume 상태로 진입했을 때 발생하는 콜백이다. <strong>onResume</strong> 콜백이 불린다는 것은 해당 Activity가 Foreground에 진입했다는 것이고, 사용자와 상호작용을 할 수 있다는 것을 의미한다. 다른 상태전환(Activity 이동 또는 종료)이 일어나기 전까지 해당 Activity는 이 상태를 유지한다.</p>
+
+<h2 id="onpause">onPause</h2>
+
+<p>사용자가 Activity에서 떠날때 가장 먼저 발생하는 콜백이 <strong>onPause</strong> 이다. Activity가 Pause 상태로 진입하여 Activity가 더이상 Foreground 의미한다.</p>
+
+<p>// TODO
+onPause() execution is very brief, and does not necessarily afford enough time to perform save operations. For this reason, you should not use onPause() to save application or user data, make network calls, or execute database transactions; such work may not complete before the method completes. Instead, you should perform heavy-load shutdown operations during onStop(). For more information about suitable operations to perform during onStop(), see onStop(). For more information about saving data, see Saving and restoring activity state.</p>
+
+<p>Completion of the onPause() method does not mean that the activity leaves the Paused state. Rather, the activity remains in this state until either the activity resumes or becomes completely invisible to the user. If the activity resumes, the system once again invokes the onResume() callback. If the activity returns from the Paused state to the Resumed state, the system keeps the Activity instance resident in memory, recalling that instance when the system invokes onResume(). In this scenario, you don’t need to re-initialize components that were created during any of the callback methods leading up to the Resumed state. If the activity becomes completely invisible, the system calls onStop(). The next section discusses the onStop() callback.</p>
+
+<h2 id="참조">참조</h2>
+
+<ul>
+  <li><a href="https://developer.android.com/guide/components/activities/activity-lifecycle">안드로이드 도큐먼트</a></li>
+</ul>
+:ET
