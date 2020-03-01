@@ -1,0 +1,49 @@
+I"�<p>문자열에서 가장 긴 공통의 접두사(prefix)를 찾아보자!</p>
+
+<h2 id="sampleinput">SampleInput</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>["flower","flow","flight"]
+</code></pre></div></div>
+
+<h2 id="sampleoutput">SampleOutput</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"fl"
+</code></pre></div></div>
+
+<h2 id="sampleinput-1">SampleInput</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>["dog","racecar","car"]
+</code></pre></div></div>
+
+<h2 id="sampleoutput-1">SampleOutput</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>""
+</code></pre></div></div>
+
+<h2 id="풀이">풀이</h2>
+
+<ul>
+  <li>문자열이 비어있는지 체크한다.</li>
+  <li>prefix로 리스트의 첫번째 String을 변수에 저장한다.</li>
+  <li>리스트의 사이즈만큼 for loop를 돌고 그 안에서 prefix를 각 리스트의 String에 맞게 뒤에서부터 하나씩 제거한다.</li>
+  <li>공통된 문자열을 찾으면 prefix를 리턴, 아닌경우 빈 String을 리턴</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">longestCommonPrefix</span><span class="p">(</span><span class="n">strs</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;):</span> <span class="nc">String</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">strs</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">())</span> <span class="k">return</span> <span class="s">""</span>
+        
+        <span class="kd">var</span> <span class="py">prefix</span> <span class="p">=</span> <span class="n">strs</span><span class="p">[</span><span class="m">0</span><span class="p">]</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="m">0</span> <span class="n">until</span> <span class="n">strs</span><span class="p">.</span><span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">strs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="nf">indexOf</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">prefix</span> <span class="p">=</span> <span class="n">prefix</span><span class="p">.</span><span class="nf">dropLast</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">prefix</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">())</span> <span class="k">return</span> <span class="s">""</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">prefix</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="참조">참조</h2>
+
+<p>https://leetcode.com/problems/longest-common-prefix/</p>
+:ET

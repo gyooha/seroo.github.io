@@ -68,4 +68,14 @@ var store = [{
         "excerpt":"Activity Lifecycle 이전 포스팅에서 안드로이드 Activity의 역할과 lifecycle에 대해 간단히 알아보았다. 이번 포스팅에서는 Activity lifecycle을 조금 더 자세히 알아보고자 한다. 사용자가 앱(Application)을 사용, 종료, 탐색등을 할 때 Activity의 lifecycle은 각각의 상태에 맞게 전환된다. 그에 따라 개발자는 Activity의 lifecycle에 적절한 행동을 정의 해야 하고, 잘 정의하게 되면 아래와 같은 문제를 피할...","categories": ["Android"],
         "tags": ["Android","Activity","Activity Lifecycle"],
         "url": "http://localhost:4000/android/activity-lifecycle",
+        "teaser":null},{
+        "title": "Android Activity - 3",
+        "excerpt":"Activity ejection memory 안드로이드에서 메모리 용량이 부족하면 시스템이 프로세스를 강제종료하여 메모리를 확보하는데, 이 때 시스템이 강제종료하는 프로세스는 프로세스의 상태에 관련이 있고, 프로세스의 상태는 프로세스 안에서 활동중인 Activity의 상태와 연관이 있다. 아래의 표는 프로세스의 상태, Activity의 상태 및 시스템이 프로세스를 종료시키는 우선순위를 표시한 것이다. 시스템에 의해 강제종료될 가능성 프로세스 상태 Activity...","categories": ["Android"],
+        "tags": ["Android","Activity","Other"],
+        "url": "http://localhost:4000/android/activity-other",
+        "teaser":null},{
+        "title": "Android Process and thread",
+        "excerpt":"Processes and threads 한 앱(Application)의 컴포넌트(Component)가 실행되고 있지 않은 상황에서 앱이 실행될 때 안드로이드 시스템은 단일 스레드로 새로운 Linux 프로세스를 시작한다. 기본적으로 같은 앱의 컴포넌트는 같은 프로세스와 스레드(Main Thread)에서 시작된다. 하지만 앱과 컴포넌트를 위한 프로세스가 이미 있다면 컴포넌트는 이미 존재하는 프로세스와 스레드에서 실행된다. 그러나 한 앱에서 각각의 컴포넌트를 다른 프로세스에서...","categories": ["Android"],
+        "tags": ["Android","Process","Thread"],
+        "url": "http://localhost:4000/android/process-and-thread",
         "teaser":null}]
