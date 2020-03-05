@@ -27,7 +27,7 @@ tags:
 
 > 사용자가 설정메뉴 안에 있는 앱관리 메뉴에서 프로세스를 강제종료 시킬 수 있다.
 
-## Saving and resotre transient UI state
+## Saving and restore transient UI state
 
 사용자는 설정변경(가로모드에서 세로모드, 세로모드에서 가로모드로 변경될 때)이 일어날 때 UI(User Interface)의 상태가 그대로 일 것이라고 기대하지만, 안드로이드 에서는 그런 설정변경이 일어날 때 기본적으로 Activity를 강제종료 후 재생성 하므로 기존에 사용했던 UI를 제거하고 다시 생성한다.(즉 처음으로 돌아간다.) 
 

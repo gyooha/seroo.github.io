@@ -1,5 +1,5 @@
 ---
-title: "Android Activity State change and processes with lifecycle"
+title: "Android Activity - 4"
 date: 2020-03-02
 last_modified_at: 2020-03-04
 desc: "안드로이드 상태변경과 라이프사이클와 프로세스의 상관관계"
