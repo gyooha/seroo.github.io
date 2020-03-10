@@ -4,7 +4,7 @@ date: 2020-03-02
 last_modified_at: 2020-03-04
 desc: "안드로이드 상태변경과 라이프사이클와 프로세스의 상관관계"
 keywords: "Android,Process with lifecycle,State change"
-permalink: "/android/state-change-and-process"
+permalink: "/android/activity4"
 categories: 
     - Android
 tags: 
@@ -89,4 +89,7 @@ _Service.startService()_ 메소드로 실행된 서비스를 의미한다.
 4. 포그라운드 프로세스 > 가시적 프로세스 > 서비스 프로세스 > 캐쉬 프로세스 순으로 우선순위를 가진다.
 5. 앱에서 급하게 메모리가 필요한 경우 캐쉬 프로세스와 서비스 프로세스를 모두 종료한다.
 
+## 참조
+[안드로이드 도큐먼트1](https://developer.android.com/guide/components/activities/state-changes)
+[안드로이드 도큐먼트2](https://developer.android.com/guide/components/activities/process-lifecycle)
 

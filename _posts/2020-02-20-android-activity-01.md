@@ -4,7 +4,7 @@ date: 2020-02-20
 last_modified_at: 2020-02-23
 desc: "안드로이드 액티비티 정리"
 keywords: "Android,Activity"
-permalink: "/android/activity"
+permalink: "/android/activity1"
 categories: 
     - Android
 tags: 
@@ -14,7 +14,7 @@ tags:
 
 # Activity
 
-Activity는 한 Application에서 다른 Application의 Activity를 호출하면 <b>호출된</b> Application Activity를 <b>호출한</b> Application의 Acitivty처럼 사용할 수 있는 패러다임을 중심으로 만들어졌다. 이렇게 Activity는 사용자의 상호작용을 중심으로 여러 진입지점을 제공한다.
+Activity는 한 앱이 다른 앱을 호출할 때 호출 앱은 다른 앱을 전체적으로 호출하는 것이 아니라 _다른 앱의 Activity를_ 호출한다. Activity는 이러한 패러다임으로 설계되었으며, 앱과 사용자의 상호작용을 담당한다.
 
 또한, Activity는 화면(Screen)보다 작거나, 다른 Window위에 나타날 수 있는 Window를 제공하고 있으며, 이 Window는 User Interface를 그려 화면을 채운다.
 

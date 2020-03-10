@@ -4,7 +4,7 @@ date: 2020-02-25
 last_modified_at: 2020-02-26
 desc: "안드로이드 액티비티 나머지 정리"
 keywords: "Android,Activity"
-permalink: "/android/activity-other"
+permalink: "/android/activity3"
 categories: 
     - Android
 tags: 

@@ -4,7 +4,7 @@ date: 2020-02-23
 last_modified_at: 2020-02-24
 desc: "안드로이드 액티비티 라이프사이클 정리"
 keywords: "Android,Activity"
-permalink: "/android/activity-lifecycle"
+permalink: "/android/activity2"
 categories: 
     - Android
 tags: 
@@ -14,8 +14,6 @@ tags:
 ---
 
 # Activity Lifecycle
-
-> [이전 포스팅](#)에서 안드로이드 Activity의 역할과 lifecycle에 대해 간단히 알아보았다. 이번 포스팅에서는 Activity lifecycle을 조금 더 자세히 알아보고자 한다.
 
 사용자가 앱(Application)을 사용, 종료, 탐색등을 할 때 Activity의 lifecycle은 각각의 상태에 맞게 전환된다. 그에 따라 개발자는 Activity의 lifecycle에 적절한 행동을 정의 해야 하고, 잘 정의하게 되면 아래와 같은 문제를 피할 수 있다.
 
