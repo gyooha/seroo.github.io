@@ -1,0 +1,82 @@
+I"M<h1 id="트리tree">트리(Tree)</h1>
+
+<p>트리는 그래프의 일종으로, 노드로 이루어진 자료구조 이다.</p>
+
+<ul>
+  <li>트리는 하나의 루트 노드를 갖는다. (사실 그래프 이론상 꼭 하나의 노드일 필요는 없지만, 대부분 사용하는 트리에서는 맞는 말이다.)</li>
+  <li>루트 노드는 0개 이상의 자식 노드를 가지고 있다.</li>
+  <li>그 자식 노드는 또 0개 이상의 자식 노드를 가지고 있고, 이는 계속 반복적으로 정의 된다.</li>
+</ul>
+
+<p>트리는 <b>사이클</b>이 존재할 수 <b>없다</b>. 노드들은 <b>특정 순서</b>로 <b>나열될 수도 있고</b> 그럴 수 <b>없을 수도</b> 있다. 각 노드는 어떤 자료형으로도 표현 가능하다. 각 노드는 <b>부모 노드</b>로의 연결이 <b>있을 수도</b> 있고 <b>없을 수도</b> 있다.</p>
+
+<p>노드 클래스를 아주 간단하게 정의하면 다음과 같다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">TreeNode</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="kd">val</span> <span class="py">nodes</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">Node</span><span class="p">&gt;)</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Tree</span><span class="p">(</span><span class="kd">val</span> <span class="py">root</span><span class="p">:</span> <span class="nc">TreeNode</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>트리 및 그래프는 대부분 세부사항이 모호하거나 가정 자체가 틀린 경우가 많으니 여러 이슈들에 대해 유의하자.</p>
+
+<h2 id="트리의-종류">트리의 종류</h2>
+
+<p>이진 트리는 각 노드가 최대 두 개의 자식을 갖는 트리를 말한다. 모든 트리가 이진트리는 아니며, 삼진 트리, 사진 트리 등등 여러 종류의 트리들이 있다. 아래와 같은 트리는 이진트리가 아니다.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_three_tree.png" alt="imageHashTable" /></p>
+
+<h2 id="이진트리binary-tree와-이진탐색트리binary-search-tree">이진트리(binary tree)와 이진탐색트리(binary search tree)</h2>
+
+<p>이진탐색트리는 다음과 같은 특정 순서를 따르는 속성이 있는 이진 트리를 말한다.</p>
+
+<ul>
+  <li>모든 왼쪽 자식들 &lt;= n &lt; 모든 오른쪽 자식들 속성은 모든 노드 n에 대해 반드시 참이어야 한다.</li>
+</ul>
+
+<h4 id="이진탐색트리">이진탐색트리</h4>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_binary_search_tree.png" alt="imageHashTable" /></p>
+
+<h4 id="이진탐색트리가-아님">이진탐색트리가 아님</h4>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_not_binary_search_tree.png" alt="imageHashTable" /></p>
+
+<p>위의 트리는 이진탐색트리가 될 수 없다. 왜냐하면 8보다 큰 값이 왼쪽 노드에 속해있기 때문이다.</p>
+
+<h2 id="트리의-균형-비균형">트리의 균형 비균형</h2>
+
+<p>많은 트리가 균형이 잡혀있긴 하지만, 모든 트리가 균형이 잡혀있는것은 아니다. 여기서 균형을 잡는다는 의미는 왼쪽과 오른쪽 부분 트리의 크기가 완전히 같게 하는 것을 의미하지 않는다.</p>
+
+<p>균형 트리인지 확인하는 방법 중 하나는 “너무 불균형한건 아닌지” 확인하는 것 이상의 의미를 갖는다. O(log N) 시간에 insert와 find를 할 수 있을 정도로 균형이 잘 잡혀 있기만 하면 된다. 꼭 완벽하게 균형 잡혀 있을 필요는 없다.</p>
+
+<h4 id="완전-이진-트리complete-binary-tree">완전 이진 트리(complete binary tree)</h4>
+
+<p>완전 이진 트리는 트리의 모든 높이에서 노드가 꽉 차 있는 이진 트리를 말한다. 마지막 단계는 꽉 차 있지 않아도 되지만 노드가 왼쪽에서 오른쪽으로 채워져야 한다.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_complete_binary_tree.png" alt="imageHashTable" /></p>
+
+<h4 id="완전-이진-트리가-아님">완전 이진 트리가 아님</h4>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_not_complete_binary_tree.png" alt="imageHashTable" /></p>
+
+<h4 id="전-이진-트리full-binary-tree">전 이진 트리(full binary tree)</h4>
+
+<p>전 이진 트리는 모든 노드의 자식이 없거나 정확히 두 개 있는 경우를 말한다. 즉, 자식이 하나만 있는 노드가 존재해서는 안 된다.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_full_binary_tree.png" alt="imageHashTable" /></p>
+
+<h4 id="전-이진-트리가-아님">전 이진 트리가 아님</h4>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_not_full_binary_tree.png" alt="imageHashTable" /></p>
+
+<h4 id="포화-이진-트리perfect-binary-tree">포화 이진 트리(perfect binary tree)</h4>
+
+<p>포화 이진 트리는 전 이진 트리이면서 완전 이진 트리인 경우를 말한다. 모든 말단 노드는 같은 높이에 있어야 하며, 마지막 단계에서 노드의 개수가 최대가 되어야 한다.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_perfect_binary_tree.png" alt="imageHashTable" /></p>
+
+<h2 id="결론">결론</h2>
+
+<p>트리의 경우는 내용이 다른 자료구조보다 많아서 2단계로 끊어갈려고 한다. 다음 포스팅에서는 트리의 순회 방식과 최소 힙, 최대 힙, 삽입, 최소 원소 뽑아내기 및 구현 등등과 같은 내용을 다룰려고 한다.</p>
+:ET

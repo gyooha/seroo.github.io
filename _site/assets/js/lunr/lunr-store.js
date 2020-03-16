@@ -1,6 +1,6 @@
 var store = [{
         "title": "Android Backstack - 1",
-        "excerpt":"Android 백스택 안드로이드에는 여러가지 launchMode가 존재한다. 이 launchMode에 따라서 안드로이드의 Activity의 백스택의 쌓이는 방식이 다르다. Standard &lt;application&gt; &lt;activity android:name=\".MainActivity\"&gt; &lt;intent-filter&gt; &lt;action android:name=\"android.intent.action.MAIN\" /&gt; &lt;category android:name=\"android.intent.category.LAUNCHER\" /&gt; &lt;/intent-filter&gt; &lt;/activity&gt; &lt;activity android:name=\".B_Activity\"/&gt; &lt;activity android:name=\".C_Activity\"/&gt; &lt;activity android:name=\".D_Activity\"/&gt; &lt;/application&gt; 각 Activity에 특정 launchMode를 설정하지 않았을 때 기본적으로 standard로 설정된다. 이러한 경우 MainActivity -&gt; B_Activity로...","categories": ["Android"],
+        "excerpt":"Android 백스택(Bacstack) 안드로이드에는 여러가지 launchMode가 존재한다. 이 launchMode에 따라서 안드로이드의 Activity의 백스택의 쌓이는 방식이 다르다. 이번 포스팅의 예제에서는 MainActivity, B_Activity, C_Activity, D_Activity로 예를 들고 있으니 참고해두자. Standard &lt;application&gt; &lt;activity android:name=\".MainActivity\"&gt; &lt;intent-filter&gt; &lt;action android:name=\"android.intent.action.MAIN\" /&gt; &lt;category android:name=\"android.intent.category.LAUNCHER\" /&gt; &lt;/intent-filter&gt; &lt;/activity&gt; &lt;activity android:name=\".B_Activity\"/&gt; &lt;activity android:name=\".C_Activity\"/&gt; &lt;activity android:name=\".D_Activity\"/&gt; &lt;/application&gt; 각 Activity에 특정 launchMode를...","categories": ["Android"],
         "tags": ["Android","Activity","BackStack"],
         "url": "http://localhost:4000/android/backstack",
         "teaser":null},{
@@ -60,22 +60,47 @@ var store = [{
         "url": "http://localhost:4000/datastructure/graph",
         "teaser":null},{
         "title": "Android Activity - 1",
-        "excerpt":"Activity Activity는 한 Application에서 다른 Application의 Activity를 호출하면 호출된 Application Activity를 호출한 Application의 Acitivty처럼 사용할 수 있는 패러다임을 중심으로 만들어졌다. 이렇게 Activity는 사용자의 상호작용을 중심으로 여러 진입지점을 제공한다. 또한, Activity는 화면(Screen)보다 작거나, 다른 Window위에 나타날 수 있는 Window를 제공하고 있으며, 이 Window는 User Interface를 그려 화면을 채운다. 이처럼 Activity는 Android...","categories": ["Android"],
+        "excerpt":"Activity Activity는 한 앱이 다른 앱을 호출할 때 호출 앱은 다른 앱을 전체적으로 호출하는 것이 아니라 다른 앱의 Activity를 호출한다. Activity는 이러한 패러다임으로 설계되었으며, 앱과 사용자의 상호작용을 담당한다. 또한, Activity는 화면(Screen)보다 작거나, 다른 Window위에 나타날 수 있는 Window를 제공하고 있으며, 이 Window는 User Interface를 그려 화면을 채운다. 이처럼 Activity는 Android...","categories": ["Android"],
         "tags": ["Android","Activity"],
-        "url": "http://localhost:4000/android/activity",
+        "url": "http://localhost:4000/android/activity1",
         "teaser":null},{
         "title": "Android Activity - 2",
-        "excerpt":"Activity Lifecycle 이전 포스팅에서 안드로이드 Activity의 역할과 lifecycle에 대해 간단히 알아보았다. 이번 포스팅에서는 Activity lifecycle을 조금 더 자세히 알아보고자 한다. 사용자가 앱(Application)을 사용, 종료, 탐색등을 할 때 Activity의 lifecycle은 각각의 상태에 맞게 전환된다. 그에 따라 개발자는 Activity의 lifecycle에 적절한 행동을 정의 해야 하고, 잘 정의하게 되면 아래와 같은 문제를 피할...","categories": ["Android"],
+        "excerpt":"Activity Lifecycle 사용자가 앱(Application)을 사용, 종료, 탐색등을 할 때 Activity의 lifecycle은 각각의 상태에 맞게 전환된다. 그에 따라 개발자는 Activity의 lifecycle에 적절한 행동을 정의 해야 하고, 잘 정의하게 되면 아래와 같은 문제를 피할 수 있다. 사용자가 전화를 받거나 다른 앱으로 전환 했을 때 앱이 강제종료되는 것을 피할 수 있다. 사용자가 앱을...","categories": ["Android"],
         "tags": ["Android","Activity","Activity Lifecycle"],
-        "url": "http://localhost:4000/android/activity-lifecycle",
+        "url": "http://localhost:4000/android/activity2",
         "teaser":null},{
         "title": "Android Activity - 3",
         "excerpt":"Activity ejection memory 안드로이드에서 메모리 용량이 부족하면 시스템이 프로세스를 강제종료하여 메모리를 확보하는데, 이 때 시스템이 강제종료하는 프로세스는 프로세스의 상태에 관련이 있고, 프로세스의 상태는 프로세스 안에서 활동중인 Activity의 상태와 연관이 있다. 아래의 표는 프로세스의 상태, Activity의 상태 및 시스템이 프로세스를 종료시키는 우선순위를 표시한 것이다. 시스템에 의해 강제종료될 가능성 프로세스 상태 Activity...","categories": ["Android"],
         "tags": ["Android","Activity","Other"],
-        "url": "http://localhost:4000/android/activity-other",
+        "url": "http://localhost:4000/android/activity3",
         "teaser":null},{
         "title": "Android Process and thread",
         "excerpt":"Processes and threads 한 앱(Application)의 컴포넌트(Component)가 실행되고 있지 않은 상황에서 앱이 실행될 때 안드로이드 시스템은 단일 스레드로 새로운 Linux 프로세스를 시작한다. 기본적으로 같은 앱의 컴포넌트는 같은 프로세스와 스레드(Main Thread)에서 시작된다. 하지만 앱과 컴포넌트를 위한 프로세스가 이미 있다면 컴포넌트는 이미 존재하는 프로세스와 스레드에서 실행된다. 그러나 한 앱에서 각각의 컴포넌트를 다른 프로세스에서...","categories": ["Android"],
         "tags": ["Android","Process","Thread"],
         "url": "http://localhost:4000/android/process-and-thread",
+        "teaser":null},{
+        "title": "Android Activity - 4",
+        "excerpt":"Activity 상태변경(State Change) 사용자 트리거, 시스템 트리거 이벤트는 Activity가 한 상태에서 다른 상태로 전환되는 원인이 될 수 있다. 그러한 전환이 발생하는 몇 가지 일반적인 사례와, 어떻게 처리할 수 있는지 살펴보자. Activity 설정변경(Configuration change) 설정변경 예제 중 가장 베스트 예제는 가로, 세로 변경일 것이다. 이 밖의 예제는 언어 변경이나, 입력 장치...","categories": ["Android"],
+        "tags": ["Android","Process","State change","Process with lifecycle"],
+        "url": "http://localhost:4000/android/activity4",
+        "teaser":null},{
+        "title": "Android Activity - Summary",
+        "excerpt":"Activity 안드로이드의 Activity는 한 앱이 다른 앱을 호출할 때 호출 앱은 다른 앱을 전체적으로 호출하는 것이 아니라 다른 앱의 Activity를 호출한다. Activity는 이러한 패러다임으로 설계되었으며, 앱과 사용자의 상호작용을 담당한다. Activity 라이프사이클(Activity Lifecycle) 안드로이드 Activity는 아래와 같은 라이프사이클을 가지고 있다. onCreate - Activity가 생성될 때 대부분 한번만 호출되는 콜백이다. 초기 셋팅은...","categories": ["Android"],
+        "tags": ["Android","Activity","Summary"],
+        "url": "http://localhost:4000/android/activity-summary",
+        "teaser":null},{
+        "title": "Android OS history",
+        "excerpt":"Android OS 히스토리 킷캣 4.4 ART(Android RunTime) 시험적 추가 롤리팝 5.0 ART(Android RunTime) 정식 적용 AOT(Ahead-of-time) 컴파일 GC 개선 디버그 지원 개선 머티리얼 디자인 적용 앱이 API 21 이상을 대상으로 하는 경우 MixedContents, ThirdPartyCookies를 기본적으로 차단 한다. (21 미만의 경우는 허용) 마시멜로우 6.0 런타임 권한 적용 Doze 모드, 앱 대기...","categories": ["Android"],
+        "tags": ["Android","OS"],
+        "url": "http://localhost:4000/android/os",
+        "teaser":null},{
+        "title": "Android Service - 1",
+        "excerpt":"서비스 UI가 없고 백그라운드에서 오래 연산해야 하는 작업을 실행할 때 사용하는 앱 컴포넌트 이다. 다른 앱 컴포넌트가 서비스를 실행할 수 있으며, 사용자가 다른 앱으로 이동해도 서비스는 계속해서 백그라운드에서 동작한다. 서비스는 컴포넌트에 바인드되어 상호작용 할 수 있으며, IPC를 이용하여 프로세스간 통신을 할 수 있다. 서비스는 아래와 같은 상황에 종종 사용한다. 네트워크...","categories": ["Android"],
+        "tags": ["Android","Service"],
+        "url": "http://localhost:4000/android/service1",
+        "teaser":null},{
+        "title": "CleanArchitecture - SOLID Principles",
+        "excerpt":"SOLID 클린아키텍처라는 블로그와 책을 읽고 여러 파트에 나뉘어 정리해볼려고 한다. 첫 파트는 SOLID 이다. 단일 책임 원칙(SRP, Single Responsibility Principle) 한개의 모듈은 하나의 액터에 대해서만 책임 져야 한다. 여기서 모듈 이란 단어의 가장 단순한 정의는 소스 파일을 의미한다. 예제 급여 앱의 Employee 클래는 SRP를 위반한다. 왜냐하면 위의 세 가지 메소드는...","categories": ["CleanArchitecture"],
+        "tags": ["CleanArchitecture","SOLID"],
+        "url": "http://localhost:4000/cleanarchitecture/solid",
         "teaser":null}]

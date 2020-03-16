@@ -1,0 +1,57 @@
+I"�<h1 id="큐queue">큐(Queue)</h1>
+
+<p>큐는 FIFO(First In First Out) 구조로 매표소 앞에 서 있는 사람들이 움직이는 형태와 같이, 큐에 저장되는 순서대로 큐에서 제거된다.</p>
+
+<h2 id="사용-함수">사용 함수</h2>
+
+<p>큐는 아래와 같은 함수가 있다.</p>
+
+<ul>
+  <li>add(item) : 큐의 마지막에 item을 추가한다.</li>
+  <li>remove() : 큐의 첫 번째 항목을 제거한다.</li>
+  <li>peek() : 큐의 가장 첫번째 항목을 반환한다.</li>
+  <li>isEmpty() : 큐가 비어있으면 true를 반환한다.</li>
+</ul>
+
+<h2 id="큐queue-구현">큐(Queue) 구현</h2>
+
+<p>큐 또한 연결리스트로 구현할 수 있다. 연결리스트의 반대 방향에서 항목을 추가하거나 제거하도록 구현한다면 근본적으로 큐와 같다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">QueueNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;(</span><span class="kd">val</span> <span class="py">data</span><span class="p">:</span> <span class="nc">T</span><span class="p">,</span> <span class="kd">var</span> <span class="py">next</span><span class="p">:</span> <span class="nc">QueueNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?</span> <span class="p">=</span> <span class="k">null</span><span class="p">)</span>
+
+<span class="kd">class</span> <span class="nc">Queue</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;(</span>
+    <span class="k">private</span> <span class="kd">var</span> <span class="py">first</span><span class="p">:</span> <span class="nc">QueueNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?</span> <span class="p">=</span> <span class="k">null</span><span class="p">,</span>
+    <span class="k">private</span> <span class="kd">var</span> <span class="py">last</span><span class="p">:</span> <span class="nc">QueueNode</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;?</span> <span class="p">=</span> <span class="k">null</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">isEmpty</span><span class="p">()</span> <span class="p">=</span> <span class="n">first</span> <span class="p">==</span> <span class="k">null</span>
+
+    <span class="k">fun</span> <span class="nf">add</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">newNode</span> <span class="p">=</span> <span class="nc">QueueNode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">last</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">last</span><span class="o">?.</span><span class="n">next</span> <span class="p">=</span> <span class="n">newNode</span>
+        <span class="p">}</span>
+        <span class="n">last</span> <span class="p">=</span> <span class="n">newNode</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">first</span> <span class="p">=</span> <span class="n">last</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">peek</span><span class="p">():</span> <span class="nc">T</span> <span class="p">=</span> <span class="n">first</span><span class="o">?.</span><span class="n">data</span> <span class="o">?:</span> <span class="k">throw</span> <span class="nc">NoSuchElementException</span><span class="p">()</span>
+
+    <span class="k">fun</span> <span class="nf">remove</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="k">throw</span> <span class="nc">NoSuchElementException</span><span class="p">()</span>
+        <span class="n">first</span> <span class="p">=</span> <span class="n">first</span><span class="o">?.</span><span class="n">next</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">last</span> <span class="p">=</span> <span class="k">null</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="결론">결론</h2>
+
+<p>큐에서 처음과 마지막 노드를 갱신할 때 실수가 나오기 쉽다. 코딩할 때 반드시 이 부분을 확인하고 넘어가길 바란다.</p>
+
+<p>큐는 너비우선탐색(BFS : breadth first search)을 사용하거나 캐시를 구현하는 경우에 사용된다.</p>
+:ET

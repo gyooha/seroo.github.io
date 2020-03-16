@@ -1,0 +1,671 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.18.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Android Activity - 1 - Seroo’s Blog</title>
+<meta name="description" content="Activity ">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Seroo's Blog">
+<meta property="og:title" content="Android Activity - 1">
+<meta property="og:url" content="http://localhost:4000/android/activity1">
+
+
+  <meta property="og:description" content="Activity ">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-02-20T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2020-02-23T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/android/activity1">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gyooha",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Seroo's Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Seroo's Blog
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#android" itemprop="item"><span itemprop="name">Android</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Android Activity - 1</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name"></h3>
+    
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Android Activity - 1">
+    <meta itemprop="description" content="Activity">
+    <meta itemprop="datePublished" content="2020-02-20T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2020-02-23T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Android Activity - 1
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="activity">Activity</h1>
+
+<p>Activity는 한 앱이 다른 앱을 호출할 때 호출 앱은 다른 앱을 전체적으로 호출하는 것이 아니라 <em>다른 앱의 Activity를</em> 호출한다. Activity는 이러한 패러다임으로 설계되었으며, 앱과 사용자의 상호작용을 담당한다.</p>
+
+<p>또한, Activity는 화면(Screen)보다 작거나, 다른 Window위에 나타날 수 있는 Window를 제공하고 있으며, 이 Window는 User Interface를 그려 화면을 채운다.</p>
+
+<p>이처럼 Activity는 Android Component중 가장 중요한 역할을 맡고 있다. Activity를 관리하려면 Manifest에 등록해야 하며, Lifecycle과 <a href="https://gyooha.github.io/seroo/android/backstack">Backstack</a>을 적절하게 관리해야 한다.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;manifest</span> <span class="err">...</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;application</span> <span class="err">...</span> <span class="nt">&gt;</span>
+      <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">".ExampleActivity"</span> <span class="nt">/&gt;</span>
+      ...
+  <span class="err">&lt;</span>/application ... &gt;
+  ...
+<span class="nt">&lt;/manifest &gt;</span>
+</code></pre></div></div>
+
+<p>매니페스트(Manifest)에 위와 <application> 안에 <activity> 태그를 이용하여 등록이 가능하다.</activity></application></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">".ExampleActivity"</span> <span class="na">android:icon=</span><span class="s">"@drawable/app_icon"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;intent-filter&gt;</span>
+        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.SEND"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.DEFAULT"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;data</span> <span class="na">android:mimeType=</span><span class="s">"text/plain"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
+</code></pre></div></div>
+
+<p>위와 같이 intent-filter 설정도 가능하다. 자세한 내용은 다음 Intent component 시간에 하도록 하겠다.</p>
+
+<h2 id="activity-lifecycle">Activity Lifecycle</h2>
+
+<h3 id="oncreate">onCreate</h3>
+
+<p>Activity가 생성되면 가장 먼저 불리게 되는 콜백함수 이다. 그래서 가장 먼저 구현해야 하며, setContentView 메소드를 이용하여 layout을 정의해야 하고, list 등의 데이터를 View에 bind 시켜줘야 한다. onCreate 다음 콜백은 항상 onStart 이다.</p>
+
+<h3 id="onstart">onStart</h3>
+
+<p>onStart 콜백은 Activity가 시작 상태에 들어와있다는 뜻이다.</p>
+
+<blockquote>
+  <p>시작상태란? - Activity가 Foreground에 와서 사용자와 상호작용할 준비가 완료 됐다는 의미 이다.</p>
+</blockquote>
+
+<h3 id="onresume">onResume</h3>
+
+<p>onResume 콜백이 시작되면 해당 Activity가 Activity Stack의 Top에 와있다는 것이며, 사용자와 상호작용을 시작했다는 뜻이다.</p>
+<blockquote>
+  <p>onPause 콜백은 항상 onResume 다음에 불린다.</p>
+</blockquote>
+
+<h3 id="onpause">onPause</h3>
+
+<p>onPause 콜백이 시작되면 해당 Activity가 포커스를 잃고 Pause 상태에 들어갔다는 의미이다.</p>
+<blockquote>
+  <p>onPause 콜백이 호출되면 Activity는 부분적으로 보일순 있지만, 그러나 대부분 해당 Activity 떠난다는 의미이며, 다음콜백(onResume, onStop)을 호출하게 된다.</p>
+</blockquote>
+
+<blockquote>
+  <p>주의사항 - onPause에서는 user data를 저장하거나, Network Call을 하거나, database transaction 작업을 하지 않는것을 권장한다.</p>
+</blockquote>
+
+<h3 id="onstop">onStop</h3>
+
+<p>onStop 콜백이 시작되면 해당 Activity의 UI가 더이상 사용자에게 보이지 않는다는 것을 의미한다.</p>
+
+<blockquote>
+  <p>대부분 이전 Activity는 파괴되고, 새로운 Activity는 생성중 이거나, 존재하는 Activity가 Resume 상태로 돌입하여 Stop된 Activity를 덮는 행동을 한다.</p>
+</blockquote>
+
+<h3 id="onrestart">onRestart</h3>
+
+<p>onRestart 콜백은 Activity가 Stop 상태에서 다시 재시작 될 때 호출된다. Activity가 중지될 때의 상태를 복원한다.</p>
+
+<blockquote>
+  <p>다음 콜백은 항상 onStart 이다.</p>
+</blockquote>
+
+<h3 id="ondestroy">onDestroy</h3>
+<p>onDestroy 콜백은 Activity가 마지막 한번만 받게 된다.</p>
+<blockquote>
+  <p>onDestroy에서는 Activity 또는 Activity를 포함하는 프로세스가 파괴될 때 resource를 해제하기 위해 구현된다.</p>
+</blockquote>
+
+<h1 id="참조">참조</h1>
+
+<ul>
+  <li><a href="https://developer.android.com/reference/android/app/Activity">Activity document</a></li>
+  <li><a href="https://developer.android.com/guide/components/activities/intro-activities">Activity guide</a></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#activity" class="page__taxonomy-item" rel="tag">Activity</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#android" class="page__taxonomy-item" rel="tag">Android</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#android" class="page__taxonomy-item" rel="tag">Android</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-02-23">February 23, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Android+Activity+-+1%20http%3A%2F%2Flocalhost%3A4000%2Fandroid%2Factivity1" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fandroid%2Factivity1" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fandroid%2Factivity1" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/datastructure/graph" class="pagination--pager" title="자료구조 - 그래프
+">이전</a>
+    
+    
+      <a href="/android/activity2" class="pagination--pager" title="Android Activity - 2
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/cleanarchitecture/solid" rel="permalink">CleanArchitecture - SOLID Principles
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 분 소요
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">SOLID
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/android/service1" rel="permalink">Android Service - 1
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 분 소요
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">서비스
+UI가 없고 백그라운드에서 오래 연산해야 하는 작업을 실행할 때 사용하는 앱 컴포넌트 이다. 다른 앱 컴포넌트가 서비스를 실행할 수 있으며, 사용자가 다른 앱으로 이동해도 서비스는 계속해서 백그라운드에서 동작한다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/android/os" rel="permalink">Android OS history
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Android OS 히스토리
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/android/activity-summary" rel="permalink">Android Activity - Summary
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 분 소요
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Activity
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Gyooha. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

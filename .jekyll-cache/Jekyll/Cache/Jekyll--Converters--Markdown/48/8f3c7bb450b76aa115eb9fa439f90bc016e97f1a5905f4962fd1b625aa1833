@@ -1,0 +1,134 @@
+I"#/<h1 id="solid">SOLID</h1>
+
+<p><a href="http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html">클린아키텍처</a>라는 블로그와 책을 읽고 여러 파트에 나뉘어 정리해볼려고 한다. 첫 파트는 SOLID 이다.</p>
+
+<h2 id="단일-책임-원칙srp-single-responsibility-principle">단일 책임 원칙(SRP, Single Responsibility Principle)</h2>
+
+<p>한개의 모듈은 하나의 액터에 대해서만 책임 져야 한다.</p>
+
+<blockquote>
+  <p>여기서 <em>모듈</em> 이란 단어의 가장 단순한 정의는 <strong>소스 파일</strong>을 의미한다.</p>
+</blockquote>
+
+<h3 id="예제">예제</h3>
+
+<p>급여 앱의 Employee 클래는 SRP를 위반한다.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_SRP_01.png" alt="imageSRP" /></p>
+
+<p>왜냐하면 위의 세 가지 메소드는 서로 매우 다른 세명의 액터를 책임지기 때문이다.</p>
+
+<ul>
+  <li>caculatePay() 메소드는 회계팀에서 기능을 정의하며, CFO 보고를 위해 사용한다.</li>
+  <li>reportHours() 메소드는 인사팀에서 기능을 정의하고 사용하며, COO 보고를 위해 사용한다.</li>
+  <li>save() 메소드는 데이터베이스 관리자가 기능을 정의하고, CTO 보고를 위해 사용한다.</li>
+</ul>
+
+<p>개발자가 세 메소드를 Employee라는 단일 클래스에 배치하여 세 액터가 서로 결합되어 버렸다. 이 결합으로 인해 CFO 팀에서 결정한 조치가 COO 팀이 의존하는 무언가에 영향을 줄 수 있다. 예를 들어 calculatePay() 메소드와 reportHours() 메소드가 초과 근무를 제외한 업무 시간을 계산하는 알고리즘을 공유한다고 해보자. 그리고 개발자는 코드 중복을 피하기 위해 이 알고리즘을 regularHours()라는 메소드에 넣었다고 해보자.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_SRP_02.png" alt="imageSRP" /></p>
+
+<p>이제 CFO 팀에서 초과 근무를 제외한 업무 시간을 계산하는 방식을 약간 수정하기로 결정했다고 하자. 반면 인사를 담당하는 COO 팀에서 초과 근무를 제외한 업무 시간을 CFO 팀과는 다른 목적으로 사용하기 때문에, 이 같은 변경을 원하지 않는다고 해보자.</p>
+
+<p>이 변경을 적용하는 업무를 할당받은 개발자는 calculatePay() 메소드가 regularHours()를 호출한다는 사실을 발견하지만, 이 함수가 reportHours() 메소드에서도 호출된다는 사실은 눈치채지 못한다. 개발자는 요청된 변경사항을 적용하고 신중하게 테스트한다. CFO 팀은 새로운 메소드가 원하는 방식으로 동작하는 검증하고, 시스템은 배포된다. 물론 COO 팀에서는 이러한 일이 벌어지고 있다는 사실은 인지하지 못한다. COO 팀 직원은 reportHours() 메소드가 생성한 보고서를 여전히 이용한다. 하지만 이제 이 보고서에 포함된 수치들은 엉터리다. 마침내 문제가 발견되고, COO는 격노한다. 잘못된 데이터로 인해 수백만 달러의 예산이 지출되었기 때문이다.</p>
+
+<blockquote>
+  <p>서로 다른 액터가 의존하는 코드를 너무 가까이 배치하면 위와 같은 문제가 발생한다. SRP는 서로 다른 액터가 의존하는 코드를 분리하라고 말한다.</p>
+</blockquote>
+
+<h3 id="결론">결론</h3>
+
+<p>단일 책임 원칙은 <strong>메소드와 클래스 수준</strong>의 원칙이다.</p>
+<blockquote>
+  <ul>
+    <li>컴포넌트 수준에서는 공통 폐쇄 원칙이 된다.</li>
+    <li>아키텍처 수준에서는 아키텍처의 경계의 생성을 책임지는 변경의 축이 된다.</li>
+  </ul>
+</blockquote>
+
+<h2 id="개방-폐쇄-원칙ocp-opne-close-principle">개방 폐쇄 원칙(OCP, Opne-Close Principle)</h2>
+
+<p>확장에는 열려있어야 하고, 변경에는 닫혀 있어야 한다.</p>
+
+<h3 id="예제-1">예제</h3>
+
+<p>재무재표를 웹 페이지로 보여주는 시스템이 있다고 생각해보자. 웹 페이지에 표시되는 데이터는 스크롤할 수 있으며, 음수는 빨간색으로 출력한다.</p>
+
+<p>이제 이해관계자가 동일한 정보를 보고서 형태로 변환해서 흑백 프린터로 출력해 달라고 요청했다고 해보자. 이 보고서에는 페이지 번호가 제대로 매겨져 있어야 하고, 페이지마다 적절한 머리글과 바닥글이 있어야 하며, 표의 각 열에는 레이블이 있어야 한다고 해보자. 또한 음수는 괄호로 감싸야 한다. 당연히 새로운 코드를 작성해야 한다. 그렇다면 얼마나 많이 수정해야 할까?</p>
+
+<p>이상적인 변경량은 <em>0</em> 으로 보고, 소프트웨어 아키텍처가 훌륭하다면 변경되는 코드의 양이 가능한 한 최소화될 것이다.</p>
+
+<p>어떻게 하면 될까? 서로 다른 목적으로 변경되는 요소를 적절하게 분리하고(단일 책임 원칙 SRP), 이들 요소 사이의 의존성을 체계화함으로써(의존성 역전 원칙 DIP) 변경량을 최소화할 수 있다.</p>
+
+<p>단일 책임 원칙을 적용하면 데이터 흐름을 아래의 그림과 같은 형태로 만들 수 있다. 재무 데이터를 검사한 후 보고서용 데이터를 생성한 다음, 필요에 따라 두 가지 보고서 생성 절차 중 하나를 거쳐 적절히 포매팅 한다.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_OCP_01.png" alt="imageOCP" /></p>
+
+<p>여기서 얻을 수 있는 가장 중요한건 생성이 두 개의 책임으로 분리된다는 사실이다. 하나는 보고서용 데이터를 계산하는 책임이며, 하나는 이 데이터를 웹으로 보여주거나, 종이로 프린트하기에 적합한 형태로 표현하는 책임이다.</p>
+
+<p>이처럼 책임을 분리했다면, 두 책임 중 하나에서 변경이 발생하더라도 다른 하나는 변경되지 않도록 소스 코드 의존성도 확실히 조직화해야 한다. 또한, 새로 조직화한 구조에서는 행위가 확장될 때 변경이 발생하지 않음을 보장한다.</p>
+
+<p>이러한 목적을 달성하려면 처리 과정을 클래스 단위로 분할하고, 이들 클래스를 아래 그림과 같이 컴포넌트 단위로 구분해야 한다. 이 그림에서 좌측 상단의 컴포넌트는 Controller 이고, 우측 상단은 Interactor 컴포넌트, 우측 하단은 Database 컴포넌트 이다. 좌측 하단에는 View와 Presenter를 담당하는 네 가지 컴포넌트가 위치한다.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/image_OCP_02.png" alt="imageOCP" /></p>
+
+<blockquote>
+  <p>&lt;I&gt; 로 표시된 클래스는 인터페이스이며, &lt;DS&gt;로 표시된 클래스는 데이터 구조다. 화살표가 열려 있다면 사용 관계이며, 닫혀 있다면 구현관계 또는 상속관계다.</p>
+</blockquote>
+
+<p>여기에서 주목할 점은 모든 의존성이 소스 코드 의존성을 나타낸다는 사실이다. 예를 들어 화살표가 A 클래스에서 B 클래스로 향한다면, A 클래스 에서는 B 클래스를 호출하지만 B 클래스에서는 A 클래스를 전혀 호출하지 않음을 뜻한다. 따라서 <strong>FinancialDataMapper</strong>는 구현 관계를 통해 <strong>FinancialDataGateway</strong>를 알지만, <strong>FinancialDataGateway</strong>는 <strong>FinancialDataMapper</strong>에 대해 알지 못한다.</p>
+
+<p>여기서 또 주목해야할 점은 화살표가 오직 한 방향으로만 교차한다는 것이다. 이는 모든 컴포넌트 관계는 단방향으로만 이루어진다는 뜻이다. 이들 화살표는 변경으로부터 보호하려는 컴포넌트를 향하도록 그려진다.</p>
+
+<p>다시 말하지만, A 컴포넌트에서 발생한 변경으로부터 B 컴포넌트를 보호하려면 반드시 A 컴포넌트가 B 컴포넌트에 의존해야 한다. 이 예제의 경우 Presenter에서 발생한 변경으로부터 Controller를 보호하고자 한다. 그리고 View에서 발생한 변경으로부터 Presenter를 보호하고자 한다. Interactor는 다른 모든 것에서 발생한 변경으로부터 보호하고자 한다. Interactor는 OCP를 가장 잘 준수할 수 있는 곳에 위치한다. Database, Controller, Presenter, View에서 발생한 어떤 변경도 Interactor에 영향을 주지 않는다.</p>
+
+<blockquote>
+  <p>왜 Interactor가 특별한 위치를 차지해야만 하는가?</p>
+</blockquote>
+
+<blockquote>
+  <p>답은 Interactor가 비즈니스 로직을 포함하기 때문이다. Interactor는 앱에서 가장 높은 수준의 정책을 포함한다. Interactor 이외의 컴포넌트는 모두 주변적인 문제를 처리한다. 가장 중요한 로직은 Interactor에서 담당한다. 마찬가지로 Presenter가 Controller보다는 부수적이더라도 View보다는 중심적인 문제를 처리한다.</p>
+</blockquote>
+
+<p>보호의 계층구조가 수준(level)이라는 개념을 바탕으로 어떻게 생성되는지 주목하자. Interactor는 가장 높은 수준의 개념이며, 따라서 최고의 보호를 받는다. View는 가장 낮은 수준의 개념 중 하나이며, 따라서 거의 보호를 받지 못한다. Presenter는 View 보다는 높고 Controller나 Interactor보다는 낮은 수준에 위치한다.</p>
+
+<p>이것이 바로 <strong>아키텍처 수준</strong>에서 OCP가 동작하는 방식이다. 아키텍트는 기능이 어떻게 왜 언제 발생하는지에 따라 기능을 분리하고, 분리한 기능을 컴포넌트의 계층구조로 조직화한다. 컴포넌트 계층구조를 이와 같이 조직화하면 저수준 컴포넌트에서 발생한 변경으로부터 고수준 컴포넌트를 보호할 수 있다.</p>
+
+<h3 id="결론-1">결론</h3>
+
+<p>OCP는 시스템 아키텍처를 떠받치는 원동력 중 하나다. OCP의 목표는 시스템을 확장하기 쉬운 동시에 변경으로 인해 시스템이 너무 많은 영향을 받지 않도록 하는 데 있다. 이러한 목표를 달성하려면 시스템을 컴포넌트 단위로 분리하고, 저수준 컴포넌트에서 발생한 변경으로부터 고수준 컴포넌트를 보호할 수 있는 형태의 의존성 계층구조가 만들어지도록 해야 한다.</p>
+
+<h2 id="liskovs-substitution-principle">Liskov’s Substitution Principle</h2>
+
+<p>S 타입의 객체에 각각 대응하는 T 타입을 이용해서 정의한 모든 프로그램 P 에서 T 타입의 자리에 S 타입으로 치환하더라도 P의 행위가 변하지 않는다면, S는 T의 하위 타입이다.</p>
+
+<h2 id="interface-segregation-principle">Interface Segregation Principle</h2>
+
+<p>인터페이스를 분리하여 필요한 기능에만 의존해야 한다.</p>
+
+<h2 id="dependency-inversion-principle">Dependency Inversion Principle</h2>
+
+<p>추상에 의존하며 구체에는 의존하지 않아야 한다.</p>
+
+<h1 id="요약">요약</h1>
+
+<h2 id="단일-책임-원칙srp-single-responsibility-principle-1">단일 책임 원칙(SRP, Single Responsibility Principle)</h2>
+
+<ul>
+  <li>한개의 모듈은 하나의 액터에 대해서만 책임 져야 한다.</li>
+  <li>SRP는 클래스와 메소드 수준의 원칙이다.</li>
+</ul>
+
+<h2 id="개방-폐쇄-원칙ocp-opne-close-principle-1">개방 폐쇄 원칙(OCP, Opne-Close Principle)</h2>
+
+<ul>
+  <li>확장에는 열려있어야 하고, 변경에는 닫혀 있어야 한다.</li>
+  <li>시스템을 컴포넌트 단위로 분리하고, 저수준 컴포넌트에서 발생한 변경으로부터 고수준 컴포넌트를 보호할 수 있는 형태의 의존성 계층구조가 만들어지도록 해야한다.</li>
+  <li>컴포넌트를 보호하려면 변경이 발생하는 컴포넌트가 보호하려는 컴포넌트에 의존해야 한다.</li>
+  <li>OCP는 아키텍처 수준의 원칙이다.</li>
+</ul>
+
+<h2 id="참조">참조</h2>
+
+<p><a href="http://www.yes24.com/Product/Goods/77283734">클린아키텍처 책</a></p>
+:ET

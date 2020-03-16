@@ -1,0 +1,680 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.18.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Android Activity - 4 - Seroo’s Blog</title>
+<meta name="description" content="Activity 상태변경(State Change) ">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Seroo's Blog">
+<meta property="og:title" content="Android Activity - 4">
+<meta property="og:url" content="http://localhost:4000/android/activity4">
+
+
+  <meta property="og:description" content="Activity 상태변경(State Change) ">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-03-02T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2020-03-04T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/android/activity4">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gyooha",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Seroo's Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Seroo's Blog
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#android" itemprop="item"><span itemprop="name">Android</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Android Activity - 4</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name"></h3>
+    
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Android Activity - 4">
+    <meta itemprop="description" content="Activity 상태변경(State Change)">
+    <meta itemprop="datePublished" content="2020-03-02T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2020-03-04T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Android Activity - 4
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 분 소요
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="activity-상태변경state-change">Activity 상태변경(State Change)</h1>
+
+<p>사용자 트리거, 시스템 트리거 이벤트는 Activity가 한 상태에서 다른 상태로 전환되는 원인이 될 수 있다. 그러한 전환이 발생하는 몇 가지 일반적인 사례와, 어떻게 처리할 수 있는지 살펴보자.</p>
+
+<h2 id="activity-설정변경configuration-change">Activity 설정변경(Configuration change)</h2>
+
+<p>설정변경 예제 중 가장 베스트 예제는 가로, 세로 변경일 것이다. 이 밖의 예제는 언어 변경이나, 입력 장치 삽입일 것이다. 앞의 포스트에서 보았듯이 설정변경이 일어나면 Activity는 파괴됐다가 재생성 된다. 기존의 Activity는 <em>onPause()</em>, <em>onStop()</em>, <em>onDestroy()</em> 콜백이 순서대로 발생하며 종료되고, <em>onCreate()</em>, <em>onStart()</em>, <em>onResume()</em> 콜백이 순서대로 발생하며 Activity의 새로운 인스턴스가 만들어진다.</p>
+
+<blockquote>
+  <p>안드로이드 ViewModel, onSaveInstanceState() 메소드와 Room 같은 local database를 같이 사용하면 설정변경에 영향받지 않고 Activity의 상태를 보호할 수 있다. 어떻게 앞의 컴포넌트를 결합할 것인지 결정하는 것은 UI 데이터의 복잡성, 앱의 사용 방법 및 검색 속도와 메모리 사용량 비교에 따라 결정된다.</p>
+</blockquote>
+
+<h2 id="activity-foreground">Activity Foreground</h2>
+
+<p>새로운 Activity가 foreground에 나타나게 되면 이전에 있던 Activity는 새로운 Activity에 <strong>부분적으로 가려지면</strong> 포커스를 잃게 되면서 일시정지 상태로 들어가며 시스템은 <em>onPause()</em> 콜백을 호출한다. 만약 이 상태에서 새로운 Activity가 종료되어 이전 Activity가 foreground에 나타나게 되면 <em>onResume()</em> 콜백이 호출된다.</p>
+
+<p>새로운 Activity가 foreground에 나타나게 되면 이전에 있던 Activity는 새로운 Activity에 <strong>완전히 가려지면</strong> 포커스를 잃게 되면서 정지 상태로 들어가며 시스템은 <em>onStop()</em> 콜백을 호출한다.</p>
+
+<p>만약 이 상태에서 새로운 Activity가 종료되어 이전 Activity가 foreground에 나타나게 되면 시스템은 <em>onRestart()</em>, <em>onStart()</em>, <em>onResume()</em> 콜백이 호출된다. 만약 덮여 있는 Activity의 인스턴스가 <strong>새로운 Activity 인스턴스</strong>로 시작되는 경우 <em>onRestart()</em> 콜백은 호출되지 않는다.</p>
+
+<h2 id="user-taps-back-button">User taps Back button</h2>
+
+<p>사용자가 백버튼을 눌러 Activity를 종료할 경우 <em>onPause()</em>, <em>onStop()</em>, <em>onDestroy()</em> 콜백이 차례로 호출되면서 종료된다. 이 때 Activity는 백스택에서 제거된다.</p>
+
+<blockquote>
+  <p>백버튼을 눌러 Activity를 종료할 경우 <em>onSaveInstanceState()</em> 콜백은 실행되지 않는다.</p>
+</blockquote>
+
+<h1 id="프로세스와-앱-라이프사이클processes-and-application-lifecycle">프로세스와 앱 라이프사이클(Processes and Application Lifecycle)</h1>
+
+<p>안드로이드 앱은 리눅스 프로세스안에서 실행되고, 이 프로세스는 코드를 실행할 때 앱을 위해 생성된다. 기본적으로 안드로이드 앱 프로세스는 직접적으로 제어되지 않는다. 대신 얼마나 사용자에게 얼마나 중요한지? 그리고 시스템에서 사용 가능한 전체 메모리의 양을 조합하여 시스템에 의해 제어된다.</p>
+
+<p>앱의 프로세스가 살아있는 동안 앱의 컴포넌트가 얼마나 이 앱에 영향을 끼치는지 이해하는것이 안드로이드 개발자에게 중요하다. 컴포넌트를 올바르게 사용하지 않으면, 앱의 프로세스가 중요한 작업을 하고 있을때 시스템에 의해 종료될 수 있다.</p>
+
+<blockquote>
+  <p>프로세스 라이프사이클 버그의 예제로는 <em>BroadcastReceiver.onReceive()</em> 가 있다. 안드로이드 시스템은 일단 <em>BroadcastReceiver.onReceive()</em> 메소드가 종료되면 더 이상 <em>BroadcastReceiver_는 활성화 되지 않는다고 간주하므로,(다른 앱의 컴포넌트가 _BroadcastReceiver</em> 에서 활성화 되지 않는 이상) 프로세스 안에서 스레드가 실행되고 있어도 언제든지 종료될 수 있는 상황에 놓인다.
+이 문제의 해결책은 <em>BroadcastReceiver</em> 의 프로세스가 여전히 활성화 상태라고 시스템이 인지하게 하는 것이다. 그래서 JobService를 예약 하는 것으로 문제를 해결할 수 있다.</p>
+</blockquote>
+
+<p>안드로이드 프로세스에는 실행 중인 컴포넌트와 컴포넌트의 상태를 기반으로 우선순위 계층(importance hierarchy)이 존재하며, 메모리가 부족할 때 어떤 프로세스를 종료해야 쉽게 결정할 수 있다.</p>
+
+<h2 id="포그라운드-프로세스foreground-process">포그라운드 프로세스(foreground process)</h2>
+
+<p>첫 번째 우선순위를 가지는 foreground 프로세스이다. foreground 프로세스는 사용자와 현재 상호작용하고 있는 프로세스이며, 다양한 앱 컴포넌트로 인해 foreground 프로세스로 인식될 수 있다. foreground 프로세스로 인식될 수 있는 상황은 아래와 같다.</p>
+
+<ul>
+  <li>화면에서 Activity가 실행되어 사용자와 상호작용 하는 경우</li>
+  <li><em>BroadcastReceiver</em> 가 현재 실행중인 경우(<em>BroadcastReceiver.onReceive()</em> 가 실행중임)</li>
+  <li>Service에 콜백(<em>Service.onCreate()</em>, <em>Service.onStart()</em>, <em>Service.onDestroy()</em>) 중 하나가 실행중인 경우</li>
+</ul>
+
+<p>포그라운드 프로세스는 메모리가 매우 부족하여 프로세스를 더 이상 실행할 수 없을때 최후의 방법으로만 종료된다.</p>
+
+<h2 id="가시적-프로세스visible-process">가시적 프로세스(visible process)</h2>
+
+<p>사용자가 현재 인식하고 있는 작업이므로 종료하게되면 사용자에게 매우 부정적인 영향을 끼치게 된다. 가시적 프로세스로 인식될 수 있는 상황은 아래와 같다.</p>
+
+<ul>
+  <li>Activity가 실행중이지만 포그라운드 상태가 아닌경우</li>
+  <li>Service가 <em>포그라운드 서비스</em> 로 실행중인 경우</li>
+  <li>프로세스가 live wallpaper, input method 같은 서비스를 호스팅하고 있는 경우</li>
+</ul>
+
+<p>가시적 프로세스도 포그라운드 프로세스에 비해 중요도가 약간 밀릴 뿐이지 중요한 프로세스로 인식된다. 포그라운드 프로세스를 계속 실행하기 위해 메모리가 필요한 상황이 아니면 종료되지 않는다.</p>
+
+<h2 id="서비스-프로세스service-process">서비스 프로세스(service process)</h2>
+
+<p><em>Service.startService()</em> 메소드로 실행된 서비스를 의미한다.</p>
+
+<p>안드로이드8 부터 보안이 강화되어 5초이상 실행되는 백그라운드 서비스는 언제든지 종료될 수 있다.</p>
+
+<h2 id="캐쉬-프로세스cached-process">캐쉬 프로세스(cached process)</h2>
+
+<p>캐쉬 프로세스는 현재 필요한 것이 아니므로 언제든지 시스템이 종료하여 메모리를 회수해갈 수 있다. 메모리 관리 관점에서 보자면 일반적으로 시스템은 앱 스위칭을 효과적으로 진행하기 위해 여러개의 캐쉬 프로세스를 가지고 있으며, 오래된 프로세스를 필요에 따라 하나씩 종료한다. 매우 치명적인 상황인 경우에는 모든 캐쉬 프로세스를 종료하며 동시에 서비스 프로세스도 같이 종료된다.</p>
+
+<p>캐쉬 프로세스의 경우 사용자가 볼 수 없는 하나 이상의 Activity 인스턴스인 경우가 많다. Activity가 종료될 때 수명 주기를 올바르게 실행했다면 사용자가 해당 앱으로 다시 돌아갈 때 사용자에게 부정적인 영향을 끼치지 않을것이다.</p>
+
+<h2 id="결론">결론</h2>
+
+<ol>
+  <li>설정변경이 일어났을 때 Activity는 파괴됐다가 재생성 된다.</li>
+  <li>백버튼을 눌러 Activity를 종료하는 경우 <em>onSaveInstanceState()</em> 콜백은 호출되지 않는다.</li>
+  <li>안드로이드 프로세스는 실행 중인 컴포넌트와 컴포넌트의 상태를 기반으로 우선순위 계층이 존재한다.</li>
+  <li>포그라운드 프로세스 &gt; 가시적 프로세스 &gt; 서비스 프로세스 &gt; 캐쉬 프로세스 순으로 우선순위를 가진다.</li>
+  <li>앱에서 급하게 메모리가 필요한 경우 캐쉬 프로세스와 서비스 프로세스를 모두 종료한다.</li>
+</ol>
+
+<h2 id="참조">참조</h2>
+<p><a href="https://developer.android.com/guide/components/activities/state-changes">안드로이드 도큐먼트1</a>
+<a href="https://developer.android.com/guide/components/activities/process-lifecycle">안드로이드 도큐먼트2</a></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#android" class="page__taxonomy-item" rel="tag">Android</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#process-with-lifecycle" class="page__taxonomy-item" rel="tag">Process with lifecycle</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#process" class="page__taxonomy-item" rel="tag">Process</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#state-change" class="page__taxonomy-item" rel="tag">State change</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#android" class="page__taxonomy-item" rel="tag">Android</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-03-04">March 4, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Android+Activity+-+4%20http%3A%2F%2Flocalhost%3A4000%2Fandroid%2Factivity4" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fandroid%2Factivity4" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fandroid%2Factivity4" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/android/process-and-thread" class="pagination--pager" title="Android Process and thread
+">이전</a>
+    
+    
+      <a href="/android/activity-summary" class="pagination--pager" title="Android Activity - Summary
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/cleanarchitecture/solid" rel="permalink">CleanArchitecture - SOLID Principles
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 분 소요
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">SOLID
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/android/service1" rel="permalink">Android Service - 1
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 분 소요
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">서비스
+UI가 없고 백그라운드에서 오래 연산해야 하는 작업을 실행할 때 사용하는 앱 컴포넌트 이다. 다른 앱 컴포넌트가 서비스를 실행할 수 있으며, 사용자가 다른 앱으로 이동해도 서비스는 계속해서 백그라운드에서 동작한다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/android/os" rel="permalink">Android OS history
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Android OS 히스토리
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/android/activity-summary" rel="permalink">Android Activity - Summary
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 분 소요
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Activity
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Gyooha. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
