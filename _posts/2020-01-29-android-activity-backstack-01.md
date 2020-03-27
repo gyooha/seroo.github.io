@@ -72,7 +72,11 @@ Hist #0: ActivityRecord{99d26ac u0 io.seroo.androidproblem/.MainActivity t33}
 </application>
 ```
 
-_launchMode_ 를 singleTop으로 설정할 경우 standard와 약간 다르다. 위의 예제에서는 MainActivity -> B_Activity -> C_Activity -> D_Activity -> D_Activity -> D_Activity를 순서대로 이동하면 동일한 Activity가 입력으로 들어와도 계속 쌓였지만, 백스택의 Top에서 동일한 Activity가 입력으로 들어오는 경우 스택에 쌓이지 않고, onNewIntent 콜백이 호출된다. 
+_launchMode_ 를 singleTop으로 설정할 경우 standard와 약간 다르다. 
+
+백스택의 최상단 Activity와 같은 종류의 Activity가 백스택에 들어올려고 하는 경우 새로운 Activity를 백스택에 넣는것이 아닌 백스택의 최상단 Activity에서 onNewIntent 메소드가 호출된다.
+
+> 위의 예제에서는 MainActivity -> B_Activity -> C_Activity -> D_Activity -> D_Activity -> D_Activity를 순서대로 이동하면 동일한 Activity가 입력으로 들어와도 계속 쌓였지만, 백스택의 Top에서 동일한 종류의 Activity가 입력으로 들어오는 경우 스택에 쌓이지 않고, onNewIntent 콜백이 호출된다. 
 
 ```
 Hist #3: ActivityRecord{4195d6d u0 io.seroo.androidproblem/.D_Activity t33}
@@ -87,7 +91,9 @@ Hist #0: ActivityRecord{99d26ac u0 io.seroo.androidproblem/.MainActivity t33}
 2020-01-30 00:52:28.406 18429-18429/io.seroo.androidproblem D/GYH: onNewIntent
 ```
 
-하지만 MainActivity -> B_Activity -> C_Activity -> D_Activity 이후 밑에 깔린 B_Activity를 다시 호출하게 되면 백스택에 깔린 B_Activity가 백스택의 Top으로 올라오는 것이 아닌 새로운 B_Activity 인스턴스가 생성되서 아래와 같이 백스택에 쌓이게 된다.
+하지만 MainActivity -> B_Activity -> C_Activity -> D_Activity 이후 밑에 존재하는 B_Activity를 다시 호출하게 되면 백스택에 깔린 B_Activity가 백스택의 Top으로 올라오는 것이 아닌 새로운 B_Activity 인스턴스가 생성되서 아래와 같이 백스택에 쌓이게 된다.
+
+> 이러한 동작은 SingleTask에서 작동한다.
 
 ```
 Hist #2: ActivityRecord{2acfa43 u0 io.seroo.androidproblem/.C_Activity t33}
@@ -130,11 +136,11 @@ Hist #0: ActivityRecord{99d26ac u0 io.seroo.androidproblem/.MainActivity t33}
 
 singleTask도 기본적으로 같은 앱에서는 같은 Task에 백스택이 쌓이게 된다.
 
-> 필자는 다른 백스택에 쌓이는 줄 알았는데 덤프 떠보니 같은 백스택에 쌓인다.
+> 필자는 다른 백스택에 쌓이는 줄 알았는데 덤프 떠보니 같은 백스택에 쌓인다. 추가로. SingleTask를 제대로 쓸려고 하는 경우 Intent flag에 NEW_TASK를 같이 넣어줘야 제대로 동작한다.
 
 > 백스택에서 아래에 singleTask로 선언되어 있는 Activity를 호출시 위에 쌓인 스택들이 clear되고 호출된 Activity에서 _onNewIntent()_ 콜백이 호출된다.
 
-조금 더 정확한 테스트를 위해 새로운 프로젝트 _AndroidProblem2_ 를 만들어 MainActivity에서 _AndroidProblem_ 의 C_Activity를 호출하면, 아래와 같이 둘은 서로다른 Task에 존재하게 된다.
+조금 더 정확한 테스트를 위해 **새로운 프로젝트 _AndroidProblem2_**를 만들어 MainActivity에서 _AndroidProblem_ 의 C_Activity를 호출하면, 아래와 같이 둘은 서로다른 Task에 존재하게 된다.
 
 ```
 TaskRecord{ba7f224 #52 A=io.seroo.androidproblem U=0 StackId=46 sz=2}
@@ -181,7 +187,7 @@ TaskRecord{9cd37ae #66 A=io.seroo.androidproblem U=0 StackId=60 sz=3}
         Run #0: ActivityRecord{d4d7365 u0 io.seroo.androidproblem/.MainActivity t65}
 ```
 
->여기서 재미있는 점은 B_Activity -> C_Activity -> D_Activity로 쌓여있는 66번 Task에서 D_Activity -> MainActivity로 이동해서 다시 MainActivity -> B_Activity로 이동하면 B_Activity로 이동하는 것이 아닌 D_Activity로 이동한다. 결국 A_Activity -> D_Activity -> A_Activity -> D_Activity 반복하게 된다.
+> 여기서 재미있는 점은 B_Activity -> C_Activity -> D_Activity로 쌓여있는 66번 Task에서 D_Activity -> MainActivity로 이동해서 다시 MainActivity -> B_Activity로 이동하면 B_Activity로 이동하는 것이 아닌 D_Activity로 이동한다. 결국 A_Activity -> D_Activity -> A_Activity -> D_Activity 반복하게 된다.
 
 # 결론
 

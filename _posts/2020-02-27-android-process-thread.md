@@ -102,7 +102,7 @@ fun onClick(v: View) {
 
 ## Interprocess communication
 
-안드로이드는 RPC(remote procedure) 호출을 이용한 IPC(interprocess communication) 메커니즘을 제공하는데, 이 메커니즘은 특정 메소드가 Activity나 다른 앱의 컴포넌트에 의해 호출되는 지만 원격으로 실행되고, 결과도 호출자에게 전달된다.
+안드로이드는 RPC(remote procedure) 호출을 이용한 IPC(interprocess communication) 메커니즘을 제공하는데, 이 메커니즘은 특정 메소드가 Activity나 다른 앱의 컴포넌트에 의해 호출되지만 원격으로 실행되고, 결과도 호출자에게 전달된다.
 
 여기에는 메소드 호출과 그 데이터를 운영체제가 이해할 수 있는 수준으로 분해하여 로컬 프로세스 주소 공간에서 원격 프로세스 주소 공간으로 전송한 다음, 거기서 메소드 호출을 재조립하고 다시 재연하는 작업을 진행한다.
 
