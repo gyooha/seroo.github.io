@@ -124,4 +124,4 @@ onDestroy 콜백에서 해당 Activity에서 사용하는 resource들을 최대�
 
 ## 참조
 
-* [안드로이드 도큐먼트](https://developer.android.com/guide/components/activities/activity-lifecycle)
+* [Activity 라이프사이클](https://developer.android.com/guide/components/activities/activity-lifecycle)

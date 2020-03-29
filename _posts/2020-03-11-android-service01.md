@@ -114,4 +114,4 @@ UI가 없고 백그라운드에서 오래 연산해야 하는 작업을 실행�
 
 ## 참조
 
-[도큐먼트](https://developer.android.com/guide/components/services#Declaring)
+[서비스](https://developer.android.com/guide/components/services#Declaring)

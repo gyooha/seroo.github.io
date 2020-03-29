@@ -30,7 +30,7 @@ Activity는 한 앱이 다른 앱을 호출할 때 호출 앱은 다른 앱을 �
 </manifest >
 ```
 
-매니페스트(Manifest)에 위와 <application> 안에 <activity> 태그를 이용하여 등록이 가능하다.
+매니페스트(Manifest)에 위와같이 \<application> 안에 \<activity> 태그를 이용하여 등록이 가능하다.
 
 ```xml
 <activity android:name=".ExampleActivity" android:icon="@drawable/app_icon">
@@ -86,5 +86,5 @@ onDestroy 콜백은 Activity가 마지막 한번만 받게 된다.
 
 # 참조
 
-* [Activity document](https://developer.android.com/reference/android/app/Activity)
-* [Activity guide](https://developer.android.com/guide/components/activities/intro-activities)
+* [Activity](https://developer.android.com/reference/android/app/Activity)
+* [Activity 소개](https://developer.android.com/guide/components/activities/intro-activities)

@@ -197,4 +197,4 @@ TaskRecord{9cd37ae #66 A=io.seroo.androidproblem U=0 StackId=60 sz=3}
 * singleInstance - 하나의 Task에 하나의 Activity만 존재한다. singleTask와 유사하게 백그라운드에 호출된 Activity가 존재하면 새로운 인스턴스를 생성하는 대신 기존에 존재하는 인스턴스를 가져오고 _onNewIntent()_ 콜백이 호출된다.
 
 ## 참조
-* https://developer.android.com/guide/components/activities/tasks-and-back-stack?hl=en
+* [작업과 백스택](https://developer.android.com/guide/components/activities/tasks-and-back-stack?hl=en)

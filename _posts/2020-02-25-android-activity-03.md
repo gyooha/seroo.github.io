@@ -114,4 +114,4 @@ override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
 
 ## 참조
 
-[안드로이드 도큐먼트](https://developer.android.com/guide/components/activities/activity-lifecycle#saras)
+[Activity 라이프사이클](https://developer.android.com/guide/components/activities/activity-lifecycle#saras)

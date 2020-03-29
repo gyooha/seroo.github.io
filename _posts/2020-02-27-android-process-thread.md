@@ -119,4 +119,4 @@ fun onClick(v: View) {
 
 ## 참조
 
-[안드로이드 도큐먼트](https://developer.android.com/guide/components/processes-and-threads)
+[프로세스와 스레드](https://developer.android.com/guide/components/processes-and-threads)
