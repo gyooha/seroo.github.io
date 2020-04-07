@@ -4,7 +4,7 @@ date: 2020-02-20
 last_modified_at: 2020-02-23
 desc: "안드로이드 액티비티 정리"
 keywords: "Android,Activity"
-permalink: "/android/activity1"
+permalink: "/android/activity-01"
 categories: 
     - Android
 tags: 
@@ -18,7 +18,7 @@ Activity는 한 앱이 다른 앱을 호출할 때 호출 앱은 다른 앱을 �
 
 또한, Activity는 화면(Screen)보다 작거나, 다른 Window위에 나타날 수 있는 Window를 제공하고 있으며, 이 Window는 User Interface를 그려 화면을 채운다.
 
-이처럼 Activity는 Android Component중 가장 중요한 역할을 맡고 있다. Activity를 관리하려면 Manifest에 등록해야 하며, Lifecycle과 [Backstack](https://gyooha.github.io/seroo/android/backstack)을 적절하게 관리해야 한다.
+이처럼 Activity는 Android Component중 가장 중요한 역할을 맡고 있다. Activity를 관리하려면 Manifest에 등록해야 하며, 라이프사이클과 [Backstack](https://gyooha.github.io/seroo/android/backstack)을 적절하게 관리해야 한다.
 
 ```xml
 <manifest ... >
@@ -44,7 +44,7 @@ Activity는 한 앱이 다른 앱을 호출할 때 호출 앱은 다른 앱을 �
 
 위와 같이 intent-filter 설정도 가능하다. 자세한 내용은 다음 Intent component 시간에 하도록 하겠다.
 
-## Activity Lifecycle
+## Activity 라이프사이클
 
 ### onCreate
 

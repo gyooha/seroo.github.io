@@ -4,7 +4,7 @@ date: 2020-03-11
 last_modified_at: 2020-03-11
 desc: "안드로이드 Service 1"
 keywords: "Android,Service"
-permalink: "/android/service1"
+permalink: "/android/service-01"
 categories: 
     - Android
 tags: 

@@ -134,13 +134,13 @@ Hist #0: ActivityRecord{99d26ac u0 io.seroo.androidproblem/.MainActivity t33}
 </application>
 ```
 
-singleTask도 기본적으로 같은 앱에서는 같은 Task에 백스택이 쌓이게 된다.
+SingleTask도 기본적으로 같은 앱에서는 같은 Task에 백스택이 쌓이게 된다.
 
-> 필자는 다른 백스택에 쌓이는 줄 알았는데 덤프 떠보니 같은 백스택에 쌓인다. 추가로. SingleTask를 제대로 쓸려고 하는 경우 Intent flag에 NEW_TASK를 같이 넣어줘야 제대로 동작한다.
+> 필자는 다른 백스택에 쌓이는 줄 알았는데 덤프 떠보니 같은 백스택에 쌓인다. 추가로 SingleTask를 제대로 사용하려고 하는 경우 Intent flag에 NEW_TASK를 같이 넣어줘야 제대로 동작한다.
 
-> 백스택에서 아래에 singleTask로 선언되어 있는 Activity를 호출시 위에 쌓인 스택들이 clear되고 호출된 Activity에서 _onNewIntent()_ 콜백이 호출된다.
+> 백스택에서 아래에 SingleTask로 선언되어 있는 Activity를 호출시 위에 쌓인 스택들이 clear되고 호출된 Activity에서 _onNewIntent()_ 콜백이 호출된다.
 
-조금 더 정확한 테스트를 위해 **새로운 프로젝트 _AndroidProblem2_**를 만들어 MainActivity에서 _AndroidProblem_ 의 C_Activity를 호출하면, 아래와 같이 둘은 서로다른 Task에 존재하게 된다.
+테스트를 위해 **새로운 프로젝트 _AndroidProblem2_**를 만들어 MainActivity에서 _AndroidProblem_ 의 C_Activity를 호출하면, 아래와 같이 둘은 서로다른 Task에 존재하게 된다.
 
 ```
 TaskRecord{ba7f224 #52 A=io.seroo.androidproblem U=0 StackId=46 sz=2}

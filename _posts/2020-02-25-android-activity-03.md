@@ -4,7 +4,7 @@ date: 2020-02-25
 last_modified_at: 2020-02-26
 desc: "안드로이드 액티비티 나머지 정리"
 keywords: "Android,Activity"
-permalink: "/android/activity3"
+permalink: "/android/activity-03"
 categories: 
     - Android
 tags: 
@@ -17,11 +17,11 @@ tags:
 
 안드로이드에서 메모리 용량이 부족하면 시스템이 프로세스를 강제종료하여 메모리를 확보하는데, 이 때 시스템이 강제종료하는 프로세스는 **프로세스의 상태**에 관련이 있고, 프로세스의 상태는 **프로세스 안에서 활동중인 Activity의 상태**와 연관이 있다. 아래의 표는 프로세스의 상태, Activity의 상태 및 시스템이 프로세스를 종료시키는 우선순위를 표시한 것이다.
 
-| 시스템에 의해 강제종료될 가능성 | 프로세스 상태 | Activity 상태 |
+| 강제종료될 가능성 | 프로세스 상태 | Activity 상태 |
 |:--------:|:-------:|:--------:|
-| Least   | Foreground   | Create<br/>Started <br/> resumed   |
-| More   | Background(lost focus)   | Paused   |
-| Most   | Background(not visible)<br/>Empty   | Stoped<br/>Destroyed  |
+| 최소   | 포그라운드   | Created<br/>Started <br/> resumed   |
+| 높음   | 백그라운드(포커스 상실)   | Paused   |
+| 최대   | 백그라운드(보이지 않음)<br/>비어 있음   | Stoped<br/>Destroyed  |
 
 시스템은 Activity를 메모리에서 직접적으로 강제종료 하지 않는 대신 Activity가 실행되고 있는 프로세스를 종료하여 Activity 뿐만 아니라 프로세스에서 실행되고있는 모든것을 같이 종료한다. 
 

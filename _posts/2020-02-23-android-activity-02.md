@@ -4,27 +4,27 @@ date: 2020-02-23
 last_modified_at: 2020-02-24
 desc: "안드로이드 액티비티 라이프사이클 정리"
 keywords: "Android,Activity"
-permalink: "/android/activity2"
+permalink: "/android/activity-02"
 categories: 
     - Android
 tags: 
     - Android
     - Activity
-    - Activity Lifecycle
+    - Activity 라이프사이클
 ---
 
-# Activity Lifecycle
+# Activity 라이프사이클
 
-사용자가 앱(Application)을 사용, 종료, 탐색등을 할 때 Activity의 lifecycle은 각각의 상태에 맞게 전환된다. 그에 따라 개발자는 Activity의 lifecycle에 적절한 행동을 정의 해야 하고, 잘 정의하게 되면 아래와 같은 문제를 피할 수 있다.
+사용자가 앱(Application)을 사용, 종료, 탐색등을 할 때 Activity의 라이프사이클은 각각의 상태에 맞게 전환된다. 그에 따라 개발자는 Activity의 라이프사이클에 적절한 행동을 정의 해야 하고, 잘 정의하게 되면 아래와 같은 문제를 피할 수 있다.
 
 1. 사용자가 전화를 받거나 다른 앱으로 전환 했을 때 앱이 강제종료되는 것을 피할 수 있다.
 2. 사용자가 앱을 사용하지 않을 때, 시스템 자원을 낭비하는 것을 막을 수 있다.
 3. 사용자가 앱을 떠나 나중에 다시 돌아오게 될 때, 사용자의 현재 상태를 잃는 것을 방지할 수 있다.
 4. 사용자가 화면을 전환할 때,(가로모드, 세로모드) 사용자의 현재 상태를 잃거나, 앱이 강제종료 되는것을 방지할 수 있다.
 
-> Activity의 복잡성에 따라 lifecycle 메소드를 구현이 필요하거나 필요하지 않을 수 있지만, 더욱 안전한 앱을 위해 lifecycle 메소드를 이해하고 구현해보는것이 중요하다.
+> Activity의 복잡성에 따라 라이프사이클 메소드를 구현이 필요하거나 필요하지 않을 수 있지만, 더욱 안전한 앱을 위해 라이프사이클 메소드를 이해하고 구현해보는것이 중요하다.
 
-lifecycle의 중요 메소드는 6가지가 있다. 하나씩 살펴보자.
+라이프사이클의 중요 메소드는 6가지가 있다. 하나씩 살펴보자.
 
 ## onCreate
 

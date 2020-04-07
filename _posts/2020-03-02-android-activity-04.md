@@ -4,7 +4,7 @@ date: 2020-03-02
 last_modified_at: 2020-03-04
 desc: "안드로이드 상태변경과 라이프사이클와 프로세스의 상관관계"
 keywords: "Android,Process with lifecycle,State change"
-permalink: "/android/activity4"
+permalink: "/android/activity-04"
 categories: 
     - Android
 tags: 
@@ -24,13 +24,13 @@ tags:
 
 > 안드로이드 ViewModel, onSaveInstanceState() 메소드와 Room 같은 local database를 같이 사용하면 설정변경에 영향받지 않고 Activity의 상태를 보호할 수 있다. 어떻게 앞의 컴포넌트를 결합할 것인지 결정하는 것은 UI 데이터의 복잡성, 앱의 사용 방법 및 검색 속도와 메모리 사용량 비교에 따라 결정된다.
 
-## Activity Foreground
+## Activity 포그라운드
 
-새로운 Activity가 foreground에 나타나게 되면 이전에 있던 Activity는 새로운 Activity에 **부분적으로 가려지면** 포커스를 잃게 되면서 일시정지 상태로 들어가며 시스템은 _onPause()_ 콜백을 호출한다. 만약 이 상태에서 새로운 Activity가 종료되어 이전 Activity가 foreground에 나타나게 되면 _onResume()_ 콜백이 호출된다.
+새로운 Activity가 포그라운드에 나타나게 되면 이전에 있던 Activity는 새로운 Activity에 **부분적으로 가려지면** 포커스를 잃게 되면서 일시정지 상태로 들어가며 시스템은 _onPause()_ 콜백을 호출한다. 만약 이 상태에서 새로운 Activity가 종료되어 이전 Activity가 포그라운드에 나타나게 되면 _onResume()_ 콜백이 호출된다.
 
-새로운 Activity가 foreground에 나타나게 되면 이전에 있던 Activity는 새로운 Activity에 **완전히 가려지면** 포커스를 잃게 되면서 정지 상태로 들어가며 시스템은 _onStop()_ 콜백을 호출한다. 
+새로운 Activity가 포그라운드에 나타나게 되면 이전에 있던 Activity는 새로운 Activity에 **완전히 가려지면** 포커스를 잃게 되면서 정지 상태로 들어가며 시스템은 _onStop()_ 콜백을 호출한다. 
 
-만약 이 상태에서 새로운 Activity가 종료되어 이전 Activity가 foreground에 나타나게 되면 시스템은 _onRestart()_, _onStart()_, _onResume()_ 콜백이 호출된다. 만약 덮여 있는 Activity의 인스턴스가 **새로운 Activity 인스턴스**로 시작되는 경우 _onRestart()_ 콜백은 호출되지 않는다.
+만약 이 상태에서 새로운 Activity가 종료되어 이전 Activity가 포그라운드에 나타나게 되면 시스템은 _onRestart()_, _onStart()_, _onResume()_ 콜백이 호출된다. 만약 덮여 있는 Activity의 인스턴스가 **새로운 Activity 인스턴스**로 시작되는 경우 _onRestart()_ 콜백은 호출되지 않는다.
 
 ## User taps Back button
 
@@ -51,7 +51,7 @@ tags:
 
 ## 포그라운드 프로세스(foreground process)
 
-첫 번째 우선순위를 가지는 foreground 프로세스이다. foreground 프로세스는 사용자와 현재 상호작용하고 있는 프로세스이며, 다양한 앱 컴포넌트로 인해 foreground 프로세스로 인식될 수 있다. foreground 프로세스로 인식될 수 있는 상황은 아래와 같다.
+첫 번째 우선순위를 가지는 포그라운드 프로세스이다. 포그라운드 프로세스는 사용자와 현재 상호작용하고 있는 프로세스이며, 다양한 앱 컴포넌트로 인해 포그라운드 프로세스로 인식될 수 있다. 포그라운드 프로세스로 인식될 수 있는 상황은 아래와 같다.
 
 * 화면에서 Activity가 실행되어 사용자와 상호작용 하는 경우
 * _BroadcastReceiver_ 가 현재 실행중인 경우(_BroadcastReceiver.onReceive()_ 가 실행중임)
