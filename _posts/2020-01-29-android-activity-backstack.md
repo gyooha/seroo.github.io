@@ -1,7 +1,7 @@
 ---
-title: "Android Backstack - 1"
+title: "Android Backstack"
 date: 2020-01-29
-last_modified_at: 2020-02-20
+last_modified_at: 2020-04-12
 desc: "헷갈리는 문제들을 하나씩 정리"
 keywords: "Android,Activity,BackStack"
 permalink: "/android/backstack"
