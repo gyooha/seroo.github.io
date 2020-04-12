@@ -20,7 +20,7 @@ tags:
 
 ## Activity 설정변경(Configuration change)
 
-설정변경 예제 중 가장 베스트 예제는 가로, 세로 변경일 것이다. 이 밖의 예제는 언어 변경이나, 입력 장치 삽입일 것이다. 앞의 포스트에서 보았듯이 설정변경이 일어나면 Activity는 파괴됐다가 재생성 된다. 기존의 Activity는 _onPause()_, _onStop()_, _onDestroy()_ 콜백이 순서대로 발생하며 종료되고, _onCreate()_, _onStart()_, _onResume()_ 콜백이 순서대로 발생하며 Activity의 새로운 인스턴스가 만들어진다.
+설정변경 예제 중 가장 베스트 예제는 가로, 세로 변경일 것이다. 이 밖의 예제는 언어 변경이나, 입력 장치 삽입일 것이다. 설정변경이 일어나면 Activity는 파괴된 후 재생성 된다. 기존의 Activity는 _onPause()_, _onStop()_, _onDestroy()_ 콜백이 순서대로 발생하며 종료되고, _onCreate()_, _onStart()_, _onResume()_ 콜백이 순서대로 발생하며 Activity의 새로운 인스턴스가 만들어진다.
 
 > 안드로이드 ViewModel, onSaveInstanceState() 메소드와 Room 같은 local database를 같이 사용하면 설정변경에 영향받지 않고 Activity의 상태를 보호할 수 있다. 어떻게 앞의 컴포넌트를 결합할 것인지 결정하는 것은 UI 데이터의 복잡성, 앱의 사용 방법 및 검색 속도와 메모리 사용량 비교에 따라 결정된다.
 
@@ -83,7 +83,7 @@ _Service.startService()_ 메소드로 실행된 서비스를 의미한다.
 
 ## 결론
 
-1. 설정변경이 일어났을 때 Activity는 파괴됐다가 재생성 된다.
+1. 설정변경이 일어났을 때 Activity는 파괴된 후 재생성 된다.
 2. 백버튼을 눌러 Activity를 종료하는 경우 _onSaveInstanceState()_ 콜백은 호출되지 않는다.
 3. 안드로이드 프로세스는 실행 중인 컴포넌트와 컴포넌트의 상태를 기반으로 우선순위 계층이 존재한다.
 4. 포그라운드 프로세스 > 가시적 프로세스 > 서비스 프로세스 > 캐쉬 프로세스 순으로 우선순위를 가진다.
