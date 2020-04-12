@@ -1,10 +1,10 @@
 ---
 title: "Android Activity - 4"
 date: 2020-03-02
-last_modified_at: 2020-03-04
+last_modified_at: 2020-04-12
 desc: "안드로이드 상태변경과 라이프사이클와 프로세스의 상관관계"
 keywords: "Android,Process with lifecycle,State change"
-permalink: "/android/activity-04"
+permalink: "/android/activity-configuration-change"
 categories: 
     - Android
 tags: 

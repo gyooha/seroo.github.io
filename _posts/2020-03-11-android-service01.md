@@ -1,10 +1,10 @@
 ---
-title: "Android Service - 1"
+title: "Android Service - Summary"
 date: 2020-03-11
-last_modified_at: 2020-03-11
-desc: "안드로이드 Service 1"
+last_modified_at: 2020-04-12
+desc: "안드로이드 Service Summary"
 keywords: "Android,Service"
-permalink: "/android/service-01"
+permalink: "/android/service-summary"
 categories: 
     - Android
 tags: 
