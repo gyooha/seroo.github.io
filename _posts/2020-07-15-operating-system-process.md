@@ -1,5 +1,5 @@
 ---
-title: "Operating System"
+title: "Operating System - Process"
 date: 2020-07-15
 last_modified_at: 2020-07-15
 desc: "OS 프로세스"
