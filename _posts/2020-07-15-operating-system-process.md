@@ -70,6 +70,7 @@ tags:
 **결론은 PCB는 약간의 회계 데이터와 함께 프로세스를 시작시키거나 다시 시작시키는 데 필요한 모든 데이터를 위한 저장소 역활을 한다.**
 
 이미지는 아래와 같다.
+
 ![imageProcess]({{ site.url }}{{ site.baseurl }}/assets/images/posts/image_os_pcb.png)
 
 ## 스레드
