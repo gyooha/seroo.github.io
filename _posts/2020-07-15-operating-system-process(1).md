@@ -1,10 +1,10 @@
 ---
-title: "Operating System - Process01"
+title: "Operating System - Process(1)"
 date: 2020-07-15
 last_modified_at: 2020-07-28
-desc: "OS 프로세스 01"
+desc: "OS 프로세스(1)"
 keywords: "OS,Operating System,Process,프로세스"
-permalink: "/os/process"
+permalink: "/os/process1"
 categories: 
     - OS
 tags: 
