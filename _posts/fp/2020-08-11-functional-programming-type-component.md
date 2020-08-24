@@ -150,3 +150,114 @@ data class Person2<T1, T2>(val name: T1, val age: T2)
 * 필요시, 행위의 구현부도 포함될 수 있다.
 
 두 값이 같은지 또는 다른지 판단하는 행위를 가진 타입 클래스를 만들어 보자.
+
+```kotlin
+interface Eq<in T> {
+    fun equal(x: T, y: T): Boolean
+    fun notEqual(x: T, y: T): Boolean
+}
+```
+
+Eq 타입 클래스는 두 값이 같은지 비교하는 함수 equal과 다른지 비교하는 함수 notEqual을 가지고 있다. 각 함수는 다음과 같이 타입 클래스 내에서 직접 구현될 수 있다.
+
+```kotlin
+interface Eq<in T> {
+    fun equal(x: T, y: T): Boolean = x == y
+    fun notEqual(x: T, y: T): Boolean = x != y
+}
+```
+
+Eq 타입 클래스의 행위를 가진 대수적 타입은 다음과 같이 정의될 수 있다.
+
+```kotlin
+sealed class TrafficLight: Eq<TrafficLight>
+object Red: TrafficLight()
+object Yellow: TrafficLight()
+object Green: TrafficLight()
+
+fun main() {
+    println(Red.equal(Red, Yellow))
+    println(Red.notEqual(Red, Yellow))
+}
+```
+
+TrafficLight는 Red, Yellow, Green 세 가지 값을 가지는 대수적 타입이다. TrafficLight를 Eq 타입 클래스의 인스턴스로 정의했기 때문에 TrafficLight 타입의 값은 equal과 notEqual 함수를 가진다. 만약 타입 클래스가 함수의 구현을 포함하고 있지 않다면, 다음과 같이 TrafficLight 타입이나 각 값 중 하나에서 구현되어야 한다.
+
+```kotlin
+sealed class TrafficLight: Eq<TrafficLight> {
+     fun equal(x: TrafficLight, y: TrafficLight): Boolean = x == y
+    fun notEqual(x: TrafficLight, y: TrafficLight): Boolean = x != y
+}
+object Red: TrafficLight()
+object Yellow: TrafficLight()
+object Green: TrafficLight()
+```
+
+타입 클래스에는 인스턴스가 동작하기 위해서 최소 한 번은 반드시 구현되어야 하는 함수들이 존재한다. Eq에서는 equal와 notEqual가 이에 해당한다. 이번에는 화면에 이름을 출력하는 행위를 가진 타입 클래스 Print를 만들고, TrafficLight에 적용하자.
+
+```kotlin
+interface Print {
+    fun print(): String
+}
+```
+
+Print 타입 클래스는 화면에 출력하는 행위인 print 함수를 가진다. 타입 클래스 내에 구현을 포함하지 않았으므로 print 함수는 반드시 한 번은 구현되어야 한다. 타입 클래스 내에 구현을 포함하지 않았으므로, TrafficLight가 화면에 출력하는 행위를 가지도록 Print 타입 클래스의 인스턴스로 만들면 다음과 같다.
+
+```kotlin
+sealed class TrafficLight: Eq<TrafficLight>, Print
+object Red: TrafficLight() {
+    override fun print() = print("RED")
+}
+object Yellow: TrafficLight() {
+    override fun print() = print("Yellow")
+}
+object Green: TrafficLight() {
+    override fun print() = print("Green")
+}
+```
+
+Eq와 Print 타입 클래스를 콤마로 연결하여 TrafficLight의 두 타입 클래스의 행위를 모두 가질 수 있도록 선언했다. 여기서는 값마다 출력값이 달라지도록 작성하기 위해서 각 값에서 print 함수의 구현부를 작성했다.
+
+타입 클래스는 다른 타입 클래스를 포함해서 정의될 수 있다. 아래 예제를 보자
+
+```kotlin
+interface Ord<in T>: Eq<T> {
+    fun compare(t1: T, t2: T): Int
+}
+```
+
+예제에서 Ord 타입 클래스는 Eq 타입 클래스를 포함한다. 따라서 Ord 타입 클래스의 인스턴스인 타입은 Eq의 행위도 가진다. 다음은 요일을 Ord 타입 클래스의 인스턴스로 만들어서 순서와 동등성 비교가 가능한 DayOfWeek를 만든 예다.
+
+```kotlin
+sealed class DayOfWeek(private val ord: Int): Ord<DayOfWeek> {
+    override fun compare(other: DayOfWeek): Int = when {
+        this.ord > other.ord -> 1
+        this.ord < other -> -1
+        else -> 0
+    }
+}
+
+object Mon: DayOfWeek(0)
+object Tue: DayOfWeek(1)
+object Wen: DayOfWeek(2)
+object Thu: DayOfWeek(3)
+object Fri: DayOfWeek(4)
+object Sat: DayOfWeek(5)
+object Sun: DayOfWeek(6)
+
+fun main() {
+    println(Mon.compare(Tue)) // -1 출력
+    println(Wen.equal(Thu)) // false 출력
+}
+```
+
+DayOfWeek는 Ord의 인스턴스인 타입이지만, compare 함수뿐만 아니라, Eq의 equal 함수도 사용할 수 있다는 것을 확인할 수 있다. 타입 클래스 간의 포함 관계는 타입 클래스들을 계층적으로 정의할 수 있게 한다. 이러한 계층적인 구조에 따라서 해당 타입클래스의 인스턴스로 정의된 타입은 요구되는 모든 행위들을 정의하여 재사용할 수 있다.
+
+## 정리
+
+* 코틀린에서는 제네릭으로 선언된 T를 **타입변수**라 한다.
+* 타입의 값을 반환하는 것을 **값 생성자**라 한다.
+* **타입 생성자**는 새로운 타입을 생성하기 위해서 매개변수화된 타입을 받을 수 있다.
+* 하스켈에서는 타입의 행위를 선언하는 방법을 **타입 클래스**라 한다.
+* 타입 클래스는 Kotlin의 **인터페이스**와 유사하며, 필요시 행위의 **구현부**도 포함될 수 있다.
+* 타입 클래스 간의 포함 관계는 타입 클래스들을 계층적으로 정의할 수 있게 하며, 이러한 계층적인 구조에 따라서 해당 타입클래스의 인스턴스로 정의된 타입은 요구되는 모든 행위들을 정의하여 재사용할 수 있다.
