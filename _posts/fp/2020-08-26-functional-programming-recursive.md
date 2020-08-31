@@ -1,263 +1,220 @@
 ---
-title: "Type Component"
-date: 2020-08-19
-last_modified_at: 2020-08-19
-desc: "함수형 프로그래밍 - 타입 구성요소"
-keywords: "Functional Programming, Type Component"
+title: "Recusive Data Structure"
+date: 2020-08-27
+last_modified_at: 2020-08-27
+desc: "함수형 프로그래밍 - 재귀적 자료구조"
+keywords: "Functional Programming, Recursive Data Structure"
 permalink: "/fp/type_component"
 categories: 
     - Functioanl Programming
 tags: 
     - FP
     - Functioanl Programming
-    - Type Component
+    - Recursive Data Structure
 ---
 
-# 타입의 구성요소
+# 재귀
 
-타입은 표현식이 어떤 카테고리에 포함되는지 알려 주는 라벨과 같다. 예를 들어 String을 보면 표현식이 문자열이라는 것을 알 수 있고, Boolean을 보면 표현식이 True 아니면 False라는 것을 알 수 있다. 특히 함수형 프로그래밍에서는 함수의 타입을 이해하거나 선언하는 것이 중요하다.
+함수형 프로그래밍에서 명령분을 반복할 때 루프 대신 재귀를 사용한다. 
 
-### 타입 변수
+## 함수형 프로그래밍에서 재귀가 가지는 의미
 
-타입 변수를 알아보기 위해 우선 리스트의 첫 번째 값을 반환하는 head 함수를 예로 들어 보자
+**재귀는 어떤 함수의 구현 내부에서 자기 자신을 호출하는 함수를 정의하는 방법을 의미한다.** 특히 수학에서 재귀는 빈번하게 사용되는 개념이다. 예를 들어 수학에서 피보나치 수열의 경우 점화식으로 F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2)로 정의된다. F(0)과 F(1)은 첫 번째 값과 두 번째 값을 의미하고 상수로 정의하였다. F(n)은 F(n-1)과 F(n-2)를 호출한 결과를 더한 결과다. 즉 이전 값 두 개의 합을 의미한다. F(n)의 내부에서 자기 자신인 F(n-1), F(n-2)를 호출했기 때문이 이 점화식은 재귀이다.
 
-```kotlin
-fun <T> head(list: List<T>): T = list.first()
-```
+### 피보나치 수열을 명령형 프로그래밍으로 구현한 예제
 
-코틀린에서는 제네릭으로 선언된 T를 **타입 변수**라 한다. 타입 변수를 사용하면 함수를 쉽게 일반화할 수 있다. 이런 타입 변수를 가진 함수들을 다형 함수라 한다. 다형 함수는 아직 구체적 타입이 결정되지 않은 타입 변수 T를 통해서 다양한 타입의 함수가 될 수 있다. 구체적 타입이 결정되는 것은 다음과 같이 head 함수를 사용할 때다.
+명령형 프로그래밍에서는 값을 변경할 수 있기 때문에 재귀를 사용하지 않아도 피보나치 수열 문제를 풀 수 있다. 복잡한 프로그래밍을 명령형 방식으로 풀기 위해서는 간단한 문제로 나누어 접근하는 방식이 좋은데, 이러한 접근 방법을 **동적 계획법이라고 한다.** 아래 예제에서는 동적 계획법을 이용하여 피보나치 수열을 구현하였다.
 
 ```kotlin
-head(listOf(1, 2, 3, 4))
-```
-
-head 함수를 이렇게 호출하면, 함수의 타입은 fun head(list: List<Int>): Int 가 된다. 여기서 Int 타입을 직접 명시하지 않았지만, 타입 추론에 의해서 입력 리스트의 타입이 List<Int>로 입력된다. 따라서 T는 Int가 된다. head(listOf("ab", "cd")) 를 호출하면 T는 String이 된다.
-
-타입 변수는 새로운 타입을 정의할 때도 사용된다.
-
-```kotlin
-
-class Box<T>(t: T) {
-    val value = t
-}
-
-```
-
-Box 타입을 정의할 때 타입 변수 T를 사용해서, 상자 안에 다양한 타입의 값이 담길 수 있도록 선언했다. 생성자가 호출되면 입력받은 매개변수 T의 타입으로 Box의 타입이 결정된다. 타입 T의 구체적 타입은 다음 예제와 같이 생성자가 호출될 때 결정된다.
-
-```kotlin
-val box = Box(1)
-```
-
-Box(1)이 호출되는 순간 box의 타입은 Box<Int>로 결정된다. 컴파일러에 의해서 타입이 추론되기 때문인데, 타입을 직접 명시하지 않아도 된다는 장점이 있는 반면에 타입이 복잡해지면 코드를 통해서 타입을 유추하기 힘들다는 단점도 있다. 다음 예제를 보자.
-
-```kotlin
-val listOfBox = listOf(Box(1), Box("String"))
-```
-
-이 예제에서 리스트에는 Int와 String 타입을 모두 포함한다. 이때 컴파일러는 코틀린의 최상위 오브젝트인 List<Any>로 추론한다. 이런 상황을 프로그래머가 인지하지 못하면, 개발하는 과정에서 의도치 않은 동작의 함수를 호출하거나 원하는 함수를 찾지 못할 수 있다.
-
-### 값 생성자
-
-**타입에서 값 생성자는 타입의 값을 반환하는 것이다.** Box 예제에서 class Box<T>(t: T) 가 값 생성자다. Box는 생성자가 한 개 지만, 여러 개가 될 수도 있다. 
-
-> class 나 sealed class에서 값 생성자는 그 자체로도 타입으로 사용될 수 있다. 그러나 enum의 경우 값 생성자는 값으로만 사용되고, 타입으로 사용될 수 없다.
-
-아래의 예제를 통해 sealed class와 enum 클래스의 차이를 확인해보자.
-
-```kotlin
-sealed class Expr
-
-data class Const(val number: Double): Expr()
-data class Sum(val e1: Expr, val e2: Expr): Expr()
-object NotANumber: Expr()
-
-fun getSume(p1: Double, p2: Double): Sum  {
-    return Sum(Const(p1), Const(p2))
-}
-```
-
-Sum은 Expr의 값 생성자이지만, getSum 함수의 타입 선언에 사용할 수 있다. 
-
-
-```kotlin
-
-enum class Color(val rgb: Int) {
-    RED(0xFF0000),
-    GREEN(0x00FF00),
-    BLUE(0x0000FF)
-}
-
-fun getRed(): Color {
-    return Color.RED
-}
-
-// compile error
-fun getRed(): Color.RED {
-    return Color.RED
-}
-
-```
-
-enum의 경우 Color는 타입이지만, 값 생성자인 Color.RED는 값으로만 사용될 수 있다. 따라서 getRed 함수에서 타입 선언에 사용하면 컴파일 오류가 발생한다.
-
-### 타입 생성자와 타입 매개변수
-
-값 생성자가 값 매개변수를 받아서 새로운 값을 생성한 것처럼, **타입 생성자는 새로운 타입을 생성하기 위해서 매개변수화된 타입을 받을 수 있다.** Box 클래스 예제에서 타입 생성자와 타입 매개변수를 보았다. class Box<T>(t: T)에서 Box는 타입 생성자고, T는 타입 매개변수다. 다음 예를 통해 타입 생성자와 타입 매개변수에 대해 알아보자.
-
-```kotlin
-sealed class Maybe<T>
-object Nothing: Maybe<kotlin.Nothing>
-data class Just<T>(val value: T): Maybe<T>()
-```
-
-여기서 Maybe는 타입 생성자고, T는 타입 매개변수다. Maybe는 타입이 아니라 타입 생성자이기 때문에, 구체적 타입이 되려면 모든 매개변수가 채워져야 한다. 타입 매개변수를 활용하면 매개변수의 타입에 따라서 여러가지 타입을 만들 수 있다. Maybe는 Nothing이 아닐 때, Maybe Int, Maybe String, Maybe Double 등의 타입을 생성할 수 있다. 다른 예로 FunList를 살펴보자
-
-```kotlin
-selaed class FunList<out T>
-object Nil: FunList<Nothing>()
-data class Cons<out T>(val head: T, val tail: FunList<T>): FunList<T>()
-```
-
-Maybe와 마찬가지로 FunList에서도 타입 생성자와 매개변수화된 타입이 있다는 것을 확인할 수 있다. 어떤 값의 타입이 되기 위해서는 FunList<Int>, FunList<String>과 같이 타입 매개변수가 확정되어야 한다.
-
-타입 매개변수는 값이 주어질 때 타입 추론에 의해서 결정될 수 있다. 타입 생성자에 의해서 타입 매개변수가 추론되는 예를 보자.
-
-```kotlin
-val maybe1: Maybe<Int> = Just<Int>(5)
-val maybe2 = Just(5)
-
-val list1: FunList<Int> = Cons<Int>(1, Cons<Int>(2, Nil))
-val list2 = Cons(1, Cons(2, Nil))
-```
-
-컴파일러가 타입 추론을 하기 때문에 maybe1, list1처럼 타입 매개변수를 직접 명시하지 않아도 된다. maybe2, list2처럼 값이 할당되면, 값의 타입으로 타입 매개변수가 정해진다.
-
-타입 매개변수가 여러 가지 이점을 가지고 있으나, 늘 사용할 수 있는 것은 아니다. 타입 매개변수는 Maybe<T>나 FunList<T> 처럼 타입이 포함하는 값의 타입에 관계없이 동작할 때 사용하는 게 좋다. 다음과 같은 Person 타입에 타입 매개변수를 사용하는 것은 적합하지 않다.
-
-```kotlin
-data class Person1(val name: String, val age: Int)
-data class Person2<T1, T2>(val name: T1, val age: T2)
-```
-
-**일반적으로 타입을 구성하는 값 생성자에 포함된 타입들이, 타입을 동작시키는데 중요하지 않은 경우 타입 매개변수를 사용한다.** 예를 들어 Maybe의 값 생성자 Nothing과 Cons<out T>(val head: T, val tail: FunList<T>)에 포함된 타입인 T가 Maybe 타입을 동작시키는 데는 중요하지 않기 때문에 타입 매개변수를 사용할 수 있다. Maybe는 아무것도 없거나 어떤 값을 가지고 있는데, **어떤 것의 타입에 관계없이 동작한다.** 또한 리스트는 리스트 내의 값 타입에 관계없이 동작할 수 있기 때문에, 타입 매개변수를 사용하기에 적합하다.
-
-## 타입 클래스와 타입 클래스의 인스턴스 선언하기
-
-하스켈에서는 **타입의 행위를 선언하는 방법을 타입 클래스라 한다.** 이름은 비슷하지만 객체지향 프로그래밍의 클래스와는 다르다는 점에 유의하자. 타입 클래스는 다음과 같은 기능을 가지고, 코틀린의 인터페이스와 유사하다.
-
-* 행위에 대한 선언을 할 수 있다.
-* 필요시, 행위의 구현부도 포함될 수 있다.
-
-두 값이 같은지 또는 다른지 판단하는 행위를 가진 타입 클래스를 만들어 보자.
-
-```kotlin
-interface Eq<in T> {
-    fun equal(x: T, y: T): Boolean
-    fun notEqual(x: T, y: T): Boolean
-}
-```
-
-Eq 타입 클래스는 두 값이 같은지 비교하는 함수 equal과 다른지 비교하는 함수 notEqual을 가지고 있다. 각 함수는 다음과 같이 타입 클래스 내에서 직접 구현될 수 있다.
-
-```kotlin
-interface Eq<in T> {
-    fun equal(x: T, y: T): Boolean = x == y
-    fun notEqual(x: T, y: T): Boolean = x != y
-}
-```
-
-Eq 타입 클래스의 행위를 가진 대수적 타입은 다음과 같이 정의될 수 있다.
-
-```kotlin
-sealed class TrafficLight: Eq<TrafficLight>
-object Red: TrafficLight()
-object Yellow: TrafficLight()
-object Green: TrafficLight()
 
 fun main() {
-    println(Red.equal(Red, Yellow))
-    println(Red.notEqual(Red, Yellow))
+    println(fiboDynamic(10, IntArray(100)))
 }
+
+private fun fiboDynamic(n: Int, fibo: IntArray): Int {
+    fibo[0] = 0
+    fibo[1] = 1
+
+    for (i in 2..n) {
+        fibo[i] = fibo[i - 1] + fibo[i - 2]
+    }
+
+    return fibo[n]
+}
+
 ```
 
-TrafficLight는 Red, Yellow, Green 세 가지 값을 가지는 대수적 타입이다. TrafficLight를 Eq 타입 클래스의 인스턴스로 정의했기 때문에 TrafficLight 타입의 값은 equal과 notEqual 함수를 가진다. 만약 타입 클래스가 함수의 구현을 포함하고 있지 않다면, 다음과 같이 TrafficLight 타입이나 각 값 중 하나에서 구현되어야 한다.
+fiboDynamic 함수는 피보나치 수열의 결괏값을 한번에 얻으려고 하지 않고 단계별 결괏값을 구해서 합하였다. 이 과정에서 피보나치 수열의 이전 값들을 기억하기 위한 메모리 IntArray(100)을 확보해 놓았다. 루프가 반복되면서 이전 값이 필요하면 메모리에 저장된 값을 사용한다.
+
+위의 예제를 보면 루프 내에서 fibo 배열에 값을 할당하는 걸 볼 수 있는데, 순수한 함수형 프로그래밍에서는 이러한 값 할당 자체가 불가능하다. 미리 할당된 배열의 크기는 100으로 고정되어 있는데, 명령형 프로그래밍에서는 무한대를 자료구조에 담을 수 없기 때문이다. 따라서 본 예제에서는 피보나치 수열을 100개까지만 계산할 수 있다.
+
+### 피보나치 수열을 재귀로 구현한 예제
+
+이번에는 피보나치 수열을 재귀로 풀어보자.
 
 ```kotlin
-sealed class TrafficLight: Eq<TrafficLight> {
-     fun equal(x: TrafficLight, y: TrafficLight): Boolean = x == y
-    fun notEqual(x: TrafficLight, y: TrafficLight): Boolean = x != y
+
+fun main() {
+    println(fiboRecursion(10))
 }
-object Red: TrafficLight()
-object Yellow: TrafficLight()
-object Green: TrafficLight()
+
+private fun fiboRecursion(n: Int): Int = when (n) {
+    0 -> 0
+    1 -> 1
+    else -> fiboRecursion(n - 1) + fiboRecursion(n - 2)
+}
+
 ```
 
-타입 클래스에는 인스턴스가 동작하기 위해서 최소 한 번은 반드시 구현되어야 하는 함수들이 존재한다. Eq에서는 equal와 notEqual가 이에 해당한다. 이번에는 화면에 이름을 출력하는 행위를 가진 타입 클래스 Print를 만들고, TrafficLight에 적용하자.
+fiboRecursion 함수에서는 내부에서 자기 자신을 호출하여 재귀로 피보나치 수열 문제를 해결하였다. 재귀로 구현한 예제에는 고정 메모리 할당이나 값의 변경이 없다. 메모리를 직접 할당해서 사용하지 않고, 스택을 활용한다. 재귀 호출을 사용하면 컴파일러 내부적으로 현재 호출하는 함수에 대한 정보들을 스택에 기록해 두고 다음 함수를 호출한다. 프로그래머가 직접 메모리를 할당하지 않아도 컴파일러에 의해서 관리된다.
+
+여기서 피보나치 수열의 크기에 제한을 두지 않았다. 이러한 경우 큰 수를 호출하면 스택 오버플로우가 발생한다. 아래에서 이러한 문제점의 원인을 분석하고 해결해보자.
+
+### 함수형 프로그래밍에서 재귀
+
+함수형 프로그래밍에서는 어떻게(how) 값을 계산할 수 있을지 선언하는 대신 **무엇(what)을 선언할지를 고민**해야 한다. for나 while문과 같은 반복 명령어는 구조적으로 어떻게 동작해야 하는지를 명령하는 구문이다. 따라서 함수형 프로그래밍에서는 루프를 사용하여 해결하던 문제들을 재귀로 풀어야 한다.
+
+순수한 함수형 언어 하스켈은 반복 명령어를 아예 제공하지 않는다. 하지만 코틀린은 멀티 패러다임 언어이기 때문에 반복 명령어를 지원한다. 모든 반복문은 재귀로 구현할 수 있다. 재귀는 반복문에 비하여 복잡한 알고리즘을 간결하게 표현할 수 있지만, 다음과 같은 문제점을 가진다.
+
+* 동적 계획법 방식에 비해서 성능이 느리다.
+* 스택 오버플로우 오류가 발생할 수 있다.
+
+> 함수형 프로그래밍에 익숙해지기 위해서 반복문 대신 재귀를 사용할 것을 권장한다.
+
+## 메모이제이션으로 성능 개선하기
+
+**메모이제이션이란, 어떤 반복된 연산을 수행할 때 이전에 계산했던 값을 캐싱해서 중복된 연산을 제거하는 방법이다.** 연산 횟수가 줄어 속도가 개선되므로 동적 계획법의 핵심이 되는 기술이기도 하다.
+
+### 재귀적인 방식의 피보나치 수열 예제
+
+앞의 피보나치 수열의 예를 다시 한번 살펴보자. 결과를 확인하기 위해 fiboRecursion 함수에 로그를 추가했다.
 
 ```kotlin
-interface Print {
-    fun print(): String
+
+fun main() {
+    println(fiboRecursion(10))
 }
-```
 
-Print 타입 클래스는 화면에 출력하는 행위인 print 함수를 가진다. 타입 클래스 내에 구현을 포함하지 않았으므로 print 함수는 반드시 한 번은 구현되어야 한다. 타입 클래스 내에 구현을 포함하지 않았으므로, TrafficLight가 화면에 출력하는 행위를 가지도록 Print 타입 클래스의 인스턴스로 만들면 다음과 같다.
-
-```kotlin
-sealed class TrafficLight: Eq<TrafficLight>, Print
-object Red: TrafficLight() {
-    override fun print() = print("RED")
-}
-object Yellow: TrafficLight() {
-    override fun print() = print("Yellow")
-}
-object Green: TrafficLight() {
-    override fun print() = print("Green")
-}
-```
-
-Eq와 Print 타입 클래스를 콤마로 연결하여 TrafficLight의 두 타입 클래스의 행위를 모두 가질 수 있도록 선언했다. 여기서는 값마다 출력값이 달라지도록 작성하기 위해서 각 값에서 print 함수의 구현부를 작성했다.
-
-타입 클래스는 다른 타입 클래스를 포함해서 정의될 수 있다. 아래 예제를 보자
-
-```kotlin
-interface Ord<in T>: Eq<T> {
-    fun compare(t1: T, t2: T): Int
-}
-```
-
-예제에서 Ord 타입 클래스는 Eq 타입 클래스를 포함한다. 따라서 Ord 타입 클래스의 인스턴스인 타입은 Eq의 행위도 가진다. 다음은 요일을 Ord 타입 클래스의 인스턴스로 만들어서 순서와 동등성 비교가 가능한 DayOfWeek를 만든 예다.
-
-```kotlin
-sealed class DayOfWeek(private val ord: Int): Ord<DayOfWeek> {
-    override fun compare(other: DayOfWeek): Int = when {
-        this.ord > other.ord -> 1
-        this.ord < other -> -1
-        else -> 0
+private fun fiboRecursion(n: Int): Int {
+    println("fiboRecursion($n)")
+    
+    return when (n) {
+        0 -> 0
+        1 -> 1
+        else -> fiboRecursion(n - 1) + fiboRecursion(n - 2)
     }
 }
 
-object Mon: DayOfWeek(0)
-object Tue: DayOfWeek(1)
-object Wen: DayOfWeek(2)
-object Thu: DayOfWeek(3)
-object Fri: DayOfWeek(4)
-object Sat: DayOfWeek(5)
-object Sun: DayOfWeek(6)
+```
 
-fun main() {
-    println(Mon.compare(Tue)) // -1 출력
-    println(Wen.equal(Thu)) // false 출력
+fiboRecursion(6)을 실행해보면 아래와 같다.
+
+```
+fiboRecursion(6)
+fiboRecursion(4)
+fiboRecursion(2)
+fiboRecursion(0)
+fiboRecursion(1)
+fiboRecursion(3)
+fiboRecursion(1)
+fiboRecursion(2)
+fiboRecursion(0)
+fiboRecursion(1)
+fiboRecursion(5)
+fiboRecursion(3)
+fiboRecursion(1)
+fiboRecursion(2)
+fiboRecursion(0)
+...
+```
+
+총 24번 호출되었다. 더 큰 값을 테스트할수록 로그는 기하급수적으로 늘어난다. 함수 내부에서 자기 자신을 두 번 호출하기 때문에 단계가 지날 때마다 호출 개수는 두 배씩 늘어난다. 따라서 n이 N일 때 시간 복잡도는 O(2n제곱)이 된다. 그리고 이전에 했던 연산 결과를 저장해 두지 않았기 때문에 같은 연산을 여러 번 호출한다. 상당히 비효율적인 걸 알 수 있다.
+
+### 메모이제이션을 사용한 피보나치 수열 예제
+
+메모이제이션을 이용하면 불필요한 재귀 호출을 줄이고, 성능을 개선할 수 있다. 위의 코드예제를 메모이제이션을 이용하여 재작성 해보자.
+
+```kotlin
+var memo = Array(100, { -1 })
+
+fun fiboMemoization(n: Int) = when {
+    n == 0 -> 0
+    n == 1 -> 1
+    memo[n] != -1 -> memo[n]
+    else -> {
+        println("fiboMemoization($n)")
+        memo[n] = fiboMemoization(n - 2) + fiboMemoization(n - 1)
+        memo[n]
+    }
 }
 ```
 
-DayOfWeek는 Ord의 인스턴스인 타입이지만, compare 함수뿐만 아니라, Eq의 equal 함수도 사용할 수 있다는 것을 확인할 수 있다. 타입 클래스 간의 포함 관계는 타입 클래스들을 계층적으로 정의할 수 있게 한다. 이러한 계층적인 구조에 따라서 해당 타입클래스의 인스턴스로 정의된 타입은 요구되는 모든 행위들을 정의하여 재사용할 수 있다.
+배열 memo를 연산의 결괏값이 될 수 없는 -1로 초기화해 놓고, 중간 연산 결과를 저장하여 사용했다. 중간 결과의 값이 -1이 아니라면 이미 연산된 것이므로 종료조건을 추가했다. fiboMemoization(6)을 실행하면 다음과 같이 출력된다.
 
-## 정리
+```
+fiboMemoization(6)
+fiboMemoization(4)
+fiboMemoization(2)
+fiboMemoization(3)
+fiboMemoization(5)
+```
 
-* 코틀린에서는 제네릭으로 선언된 T를 **타입변수**라 한다.
-* 타입의 값을 반환하는 것을 **값 생성자**라 한다.
-* **타입 생성자**는 새로운 타입을 생성하기 위해서 매개변수화된 타입을 받을 수 있다.
-* 하스켈에서는 타입의 행위를 선언하는 방법을 **타입 클래스**라 한다.
-* 타입 클래스는 Kotlin의 **인터페이스**와 유사하며, 필요시 행위의 **구현부**도 포함될 수 있다.
-* 타입 클래스 간의 포함 관계는 타입 클래스들을 계층적으로 정의할 수 있게 하며, 이러한 계층적인 구조에 따라서 해당 타입클래스의 인스턴스로 정의된 타입은 요구되는 모든 행위들을 정의하여 재사용할 수 있다.
+fiboMemoization은 총 5번 호출되었다. 시간 복잡도는 O(N)으로 개선된다. 동일한 값으로 두 번 재귀 호출하지 않는다. 이와 같이 메모이제이션을 사용하면 비효율적인 호출을 제거해서 성능을 개선할 수 있다.
+
+### 재귀의 문제점을 함수적으로 해결하기
+
+메모이제이션을 이용해 재귀의 효율성을 높이기는 했는데, 이 방법이 함수적인 해볍인지는 살펴봐야 한다. 순수한 함수의 요건을 다시 따져보자.
+
+순수한 함수는 부수효과가 없어야 한다. 그러나 예제에서는 memo라는 전역변수를 선언함으로써 부수효과가 발생했다. 또한 순수한 함수는 불변성을 띤다. 그러나 memo를 생성하고 재귀 함수 내에서 값을 수정하였으므로 불변성을 지키지 못하였다. 따라서 이 해법은 함수적이지 않다.
+
+그렇다면 함수형 프로그래밍에서는 어떻게 메모이제이션으로 재귀의 성능을 개선할 수 있을까? 부수효과를 없애기 위해 이미 계산된 값을 별도의 메모리에 저장하지 않고, 재귀 함수의 매개변수로 받아서 캐싱을 대신하면 된다.
+
+```kotlin
+fun main() {
+    println(fiboFP(6)) // 8 출력
+}
+
+fun fiboFP(n: Int): Int = fiboFP(n, 0, 1)
+
+tailrec fun fiboFP(n: Int, first: Int, second: Int): Int = when (n) {
+    0 -> first
+    1 -> second
+    else -> fiboFP(n - 1, second, first + second)
+}
+```
+
+첫 번째 fiboFP 함수는 재귀 함수의 입력을 제한하기 위한 함수로 내부에서 실제로 재귀 호출을 수행하는 함수를 호출한다. 두 번째 fiboFP 함수는 재귀 호출을 수행하는 함수로 이전에 계산된 값을 매개변수로 받는다. 입력 n은 피보나치 수열의 크기를 의미하며 하나씩 감소되어 1이 되면 second를 반환하고 종료한다. first는 현재 피보나치 수열의 바로 이전 값이고, second는 현재 피보나치 수열의 두 단계 이전 값이다.
+
+### 꼬리 재귀로 최적화 하기
+
+# 재귀적 자료구조
+
+sealed class를 사용해서 만든 대수적 데이터 타입을 활용하면 재귀적 자료구조를 만들 수 있다. 아래의 FunList가 바로 재귀적 자료구조의 대표적인 예다.
+
+```kotlin
+selaed class FunList<out T>
+object Nil : FunList<Nothing>()
+data class Cons<out T>(val head: T, val tail: FunList<T>): FunList<T>()
+```
+
+FunList는 sealed class를 사용해서 만든 대수적 데이터 타입이다. 따라서 Nil이거나 Cons가 될 것이다. Cons를 보면 두 개의 필드를 가지고 있는데, 첫 번째 필드는 리스트를 구성하는 첫 번째 값을 나타내는 head이고, 두 번째 필드는 나머지 값들의 리스트를 나타내는 tail이다. 여기서 tail의 타입을 보면 자기 자신을 나타내는 FunList인 것을 알 수 있다. 이렇게 **대수적 데이터 타입에서 구성하는 값 생성자의 필드에 자신을 포함하는 구조를 재귀적 자료구조**라고 한다. 
+
+값을 1만 가지고 있는 리스트 [1]을 Funlist로 만들면 Cons(1, Nil)과 같다. 여기서 첫 번째 매개변수는 값이고 두 번째 매개변수는 비어 있는 FunList이다. 마찬가지로 [1, 2]는 Cons(1, Cons(2, Nil))이다. 첫 번째 매개변수에는 값이 있고, 두 번째 매개변수에는 FunList가 있다. 따라서 FunList는 Nil이거나 '값 + 다른 FunList'의 조합이다. 이러한 재귀적 자료구조를 만들면 생성자 패턴 매칭을 사용하기에 용이하다.
+
+다음은 FunList의 값들을 뒤집어서 출력한 코드다.
+
+```kotlin
+fun main() {
+    val reversed = reverse(Cons1, Cons(2, Cons(3, Nil)))
+    printFunList(reversed)
+}
+
+fun <T> reverse(list: FunList<T>, acc: FunList<T> = Nil) {
+    return when (list) {
+        Nil -> acc
+        is Cons -> reverse(list.tail, acc.addHead(list.head))
+    }
+}
+```
+
+> reverse 함수에서 FunList를 구성하는 값 생성자에 의한 패턴 매칭을 이용했다. 재귀적 자료구조가 아닌 코틀린의 기본 리스트는 이러한 생성자 패턴 매칭을 사용할 수 없다.
