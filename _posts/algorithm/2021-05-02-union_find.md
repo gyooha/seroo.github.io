@@ -1,3 +1,17 @@
+---
+title: "유니온 파인드"
+date: 2021-05-02
+last_modified_at: 2021-05-02
+desc: "유니온 파인드 정리"
+keywords: "Algorithm,UnionFind"
+permalink: "/study/algorithm/union_find"
+categories: 
+    - Algorithm
+tags: 
+    - Algorithm
+    - UnionFind
+---
+
 # 유니온 파인드
 
 ### 퀵 파인드
