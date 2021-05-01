@@ -6,7 +6,7 @@ desc: "컴포즈 스터디(1)"
 keywords: "Compose,Android"
 permalink: "/study/compose-1"
 categories: 
-    - Compose
+    - Android
 tags: 
     - Compose
     - Android
